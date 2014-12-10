@@ -15,11 +15,11 @@
 
 Multimedia::Multimedia(void) {
 
-    this.name     = "default";
+    this->name     = "default";
     // Get the time in seconds since 1970, January 1st
-    this.date     = (unsigned long) time(NULL);
+    this->date     = (unsigned long) time(NULL);
     // The default file is at the root of the computer.
-    this.pathname = "/"
+    this->pathname = "/";
 
 }
 
@@ -30,9 +30,9 @@ Multimedia::Multimedia(
 	unsigned long date,
 	string pathname) {
 
-    this.name     = name;
-    this.date     = date;
-    this.pathname = pathname;
+    this->name     = name;
+    this->date     = date;
+    this->pathname = pathname;
 
 }
 
@@ -45,60 +45,59 @@ Multimedia::~Multimedia (void) {
 // Name getter
 
 
-virtual string Multimedia::getName (void) const {
+string Multimedia::getName (void) const {
     
-    return this.name;
+    return this->name;
 
 }
 
 // Date getter
 
-virtual unsigned long Multimedia::getDate (void) const {
+unsigned long Multimedia::getDate (void) const {
 
-    return this.date;
+    return this->date;
 
 }
 
 // Pathname getter
 
-virtual string Multimedia::getPathname (void) const {
+string Multimedia::getPathname (void) const {
 
-    return this.pathname;
+    return this->pathname;
 
 }
 
 // Name setter
 
-virtual void Multimedia::setName (string newName) {
+void Multimedia::setName (string newName) {
 
-    this.name = newName;
+    this->name = newName;
 
 }
 
 //Date setter
 
-virtual void Multimedia::setDate (unsigned long newDate){
+void Multimedia::setDate (unsigned long newDate){
 
-    this.date = newDate;
+    this->date = newDate;
 
 }
 
 //Pathname setter
 
-virtual void Multimedia::setPathname (string newPathname){
+void Multimedia::setPathname (string newPathname){
 
-    this.pathname = newPathname;
+    this->pathname = newPathname;
 
 }
 
 //Print description
 
-virtual void Multimedia::print (void) const {
+void Multimedia::print (void) const {
 
-    cout << "Name     : " << this.name     << '\n'
-         << "Date     : " << this.date     << '\n'
-	 << "Pathname : " << this.pathname << '\n'
-	 << endl;
+    cout << "Name     : " << this->name     << endl
+         << "Date     : " << this->date     << endl
+	 << "Pathname : " << this->pathname << endl;
 
 }
 

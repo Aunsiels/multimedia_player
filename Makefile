@@ -3,10 +3,10 @@
 # 
 
 # Nom du programme
-PROG=myprog
+PROG=main
 
 # Fichiers sources (NE PAS METTRE les .h mais seulement les .cpp)
-SOURCES=MyClass.cpp main.cpp
+SOURCES=src/main.cpp src/multimedia.cpp
 
 # Fichiers objets (ne pas modifier, sauf si l'extension n'est pas .cpp)
 OBJETS=${SOURCES:%.cpp=%.o}
@@ -19,7 +19,7 @@ CCC= ${CXX}
 # Options du compilateur C++
 # -g pour debugger, -O optimise, -Wall affiche les erreurs, -I pour les headers
 # Exemple pour Qt: CXXFLAGS= -g -Wall -I/usr/local/qt/include
-CXXFLAGS= -g -Wall
+CXXFLAGS= -g -Wall -Werror -I src/headers
 CCFLAGS= ${CXXFLAGS}
 
 # Options de l'editeur de liens
@@ -36,8 +36,7 @@ LDLIBS=
 # (depend sera un fichier contenant les dependances)
 
 all: ${PROG}
-
-	${PROG}: depend-${PROG} ${OBJETS}
+${PROG}: depend-${PROG} ${OBJETS}
 	${CXX} -o $@ ${LDFLAGS} ${OBJETS} ${LDLIBS}
 
 clean:
