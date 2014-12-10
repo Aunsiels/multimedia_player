@@ -45,3 +45,60 @@ Multimedia::~Multimedia (void) {
 // Name getter
 
 
+virtual string Multimedia::getName (void) const {
+    
+    return this.name;
+
+}
+
+// Date getter
+
+virtual unsigned long Multimedia::getDate (void) const {
+
+    return this.date;
+
+}
+
+// Pathname getter
+
+virtual string Multimedia::getPathname (void) const {
+
+    return this.pathname;
+
+}
+
+// Name setter
+
+virtual void Multimedia::setName (string newName) {
+
+    this.name = newName;
+
+}
+
+//Date setter
+
+virtual void Multimedia::setDate (unsigned long newDate){
+
+    this.date = newDate;
+
+}
+
+//Pathname setter
+
+virtual void Multimedia::setPathname (string newPathname){
+
+    this.pathname = newPathname;
+
+}
+
+//Print description
+
+virtual void Multimedia::print (void) const {
+
+    cout << "Name     : " << this.name     << '\n'
+         << "Date     : " << this.date     << '\n'
+	 << "Pathname : " << this.pathname << '\n'
+	 << endl;
+
+}
+
