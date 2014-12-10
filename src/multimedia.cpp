@@ -42,15 +42,12 @@ Multimedia::Multimedia(void) :
 // Constructor with all parameters
 
 Multimedia::Multimedia(
-        string name,
-	unsigned long date,
-	string pathname) {
-
-    this->name     = name;
-    this->date     = date;
-    this->pathname = pathname;
-
-}
+        string _name,
+	unsigned long _date,
+	string _pathname) :
+	name(_name),
+	date(_date),
+	pathname(_pathname){}
 
 // Default destructor
 
