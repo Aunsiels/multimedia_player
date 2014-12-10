@@ -1,0 +1,209 @@
+\hypertarget{class_multimedia}{\section{Multimedia Class Reference}
+\label{class_multimedia}\index{Multimedia@{Multimedia}}
+}
+
+
+This class represents a multimedia file.  
+
+
+
+
+{\ttfamily \#include $<$multimedia.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_multimedia_af613763f6779c2e75fce0749b9a8a734}{Multimedia} (void)
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_multimedia_a4b955c8674fb9ff39e57fd178f08bada}{Multimedia} (string name, unsigned long date, string pathname)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_multimedia_a53798cec796a3aa8df3a35dfaa37bfe7}{$\sim$\-Multimedia} (void)
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual string \hyperlink{class_multimedia_a8cc74dd745e553a881e6d5b210a542f6}{get\-Name} (void) const 
+\begin{DoxyCompactList}\small\item\em Name getter. \end{DoxyCompactList}\item 
+virtual unsigned long \hyperlink{class_multimedia_a8c5b6295faee6c9690a513dd0f4b4a79}{get\-Date} (void) const 
+\begin{DoxyCompactList}\small\item\em Date getter. \end{DoxyCompactList}\item 
+virtual string \hyperlink{class_multimedia_a6cff0cb9e8a32d2589c77ebf37250da3}{get\-Pathname} (void) const 
+\begin{DoxyCompactList}\small\item\em Pathname getter. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_multimedia_a7af3fbc7c6f5eab1a70608066f05d03d}{set\-Name} (string new\-Name)
+\begin{DoxyCompactList}\small\item\em Name setter. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_multimedia_a14abd8762b4d64cba41822f2b8ad434f}{set\-Date} (unsigned long new\-Date)
+\begin{DoxyCompactList}\small\item\em Date setter. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_multimedia_a3e06f151e9fce4cad4f74e4b92276929}{set\-Pathname} (string new\-Pathname)
+\begin{DoxyCompactList}\small\item\em Path setter. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_multimedia_a1b1b48641e51f3d840cf68634554c85a}{print} (void) const 
+\begin{DoxyCompactList}\small\item\em Print description. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class represents a multimedia file. 
+
+All multimedia files inherit from this class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_multimedia_af613763f6779c2e75fce0749b9a8a734}{\index{Multimedia@{Multimedia}!Multimedia@{Multimedia}}
+\index{Multimedia@{Multimedia}!Multimedia@{Multimedia}}
+\subsubsection[{Multimedia}]{\setlength{\rightskip}{0pt plus 5cm}Multimedia\-::\-Multimedia (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_multimedia_af613763f6779c2e75fce0749b9a8a734}
+
+
+Default Constructor. 
+
+Creates a default multimedia object. \hypertarget{class_multimedia_a4b955c8674fb9ff39e57fd178f08bada}{\index{Multimedia@{Multimedia}!Multimedia@{Multimedia}}
+\index{Multimedia@{Multimedia}!Multimedia@{Multimedia}}
+\subsubsection[{Multimedia}]{\setlength{\rightskip}{0pt plus 5cm}Multimedia\-::\-Multimedia (
+\begin{DoxyParamCaption}
+\item[{string}]{name, }
+\item[{unsigned long}]{date, }
+\item[{string}]{pathname}
+\end{DoxyParamCaption}
+)}}\label{class_multimedia_a4b955c8674fb9ff39e57fd178f08bada}
+
+
+Constructor. 
+
+Constructor of the \hyperlink{class_multimedia}{Multimedia} class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \-: Name of the multimedia file \\
+\hline
+{\em date} & \-: Date when the file is added in seconds \\
+\hline
+{\em pathname} & \-: Path to the file \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_multimedia_a53798cec796a3aa8df3a35dfaa37bfe7}{\index{Multimedia@{Multimedia}!$\sim$\-Multimedia@{$\sim$\-Multimedia}}
+\index{$\sim$\-Multimedia@{$\sim$\-Multimedia}!Multimedia@{Multimedia}}
+\subsubsection[{$\sim$\-Multimedia}]{\setlength{\rightskip}{0pt plus 5cm}Multimedia\-::$\sim$\-Multimedia (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_multimedia_a53798cec796a3aa8df3a35dfaa37bfe7}
+
+
+Destructor. 
+
+Default destructor of this class. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_multimedia_a8c5b6295faee6c9690a513dd0f4b4a79}{\index{Multimedia@{Multimedia}!get\-Date@{get\-Date}}
+\index{get\-Date@{get\-Date}!Multimedia@{Multimedia}}
+\subsubsection[{get\-Date}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long Multimedia\-::get\-Date (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_a8c5b6295faee6c9690a513dd0f4b4a79}
+
+
+Date getter. 
+
+Get the date the file was added.
+
+\begin{DoxyReturn}{Returns}
+The date the file was imported in seconds. 
+\end{DoxyReturn}
+\hypertarget{class_multimedia_a8cc74dd745e553a881e6d5b210a542f6}{\index{Multimedia@{Multimedia}!get\-Name@{get\-Name}}
+\index{get\-Name@{get\-Name}!Multimedia@{Multimedia}}
+\subsubsection[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}string Multimedia\-::get\-Name (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_a8cc74dd745e553a881e6d5b210a542f6}
+
+
+Name getter. 
+
+Get the name of the file.
+
+\begin{DoxyReturn}{Returns}
+The name of file 
+\end{DoxyReturn}
+\hypertarget{class_multimedia_a6cff0cb9e8a32d2589c77ebf37250da3}{\index{Multimedia@{Multimedia}!get\-Pathname@{get\-Pathname}}
+\index{get\-Pathname@{get\-Pathname}!Multimedia@{Multimedia}}
+\subsubsection[{get\-Pathname}]{\setlength{\rightskip}{0pt plus 5cm}string Multimedia\-::get\-Pathname (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_a6cff0cb9e8a32d2589c77ebf37250da3}
+
+
+Pathname getter. 
+
+Get the path to the file.
+
+\begin{DoxyReturn}{Returns}
+The path to the file 
+\end{DoxyReturn}
+\hypertarget{class_multimedia_a1b1b48641e51f3d840cf68634554c85a}{\index{Multimedia@{Multimedia}!print@{print}}
+\index{print@{print}!Multimedia@{Multimedia}}
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}void Multimedia\-::print (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_a1b1b48641e51f3d840cf68634554c85a}
+
+
+Print description. 
+
+Print the description of the file to the standard output \hypertarget{class_multimedia_a14abd8762b4d64cba41822f2b8ad434f}{\index{Multimedia@{Multimedia}!set\-Date@{set\-Date}}
+\index{set\-Date@{set\-Date}!Multimedia@{Multimedia}}
+\subsubsection[{set\-Date}]{\setlength{\rightskip}{0pt plus 5cm}void Multimedia\-::set\-Date (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{new\-Date}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_a14abd8762b4d64cba41822f2b8ad434f}
+
+
+Date setter. 
+
+Set the date associated to the file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Date} & \-: the new value of the date in seconds. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_multimedia_a7af3fbc7c6f5eab1a70608066f05d03d}{\index{Multimedia@{Multimedia}!set\-Name@{set\-Name}}
+\index{set\-Name@{set\-Name}!Multimedia@{Multimedia}}
+\subsubsection[{set\-Name}]{\setlength{\rightskip}{0pt plus 5cm}void Multimedia\-::set\-Name (
+\begin{DoxyParamCaption}
+\item[{string}]{new\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_a7af3fbc7c6f5eab1a70608066f05d03d}
+
+
+Name setter. 
+
+Set the name of the file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Name} & \-: the new name of the file \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_multimedia_a3e06f151e9fce4cad4f74e4b92276929}{\index{Multimedia@{Multimedia}!set\-Pathname@{set\-Pathname}}
+\index{set\-Pathname@{set\-Pathname}!Multimedia@{Multimedia}}
+\subsubsection[{set\-Pathname}]{\setlength{\rightskip}{0pt plus 5cm}void Multimedia\-::set\-Pathname (
+\begin{DoxyParamCaption}
+\item[{string}]{new\-Pathname}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_a3e06f151e9fce4cad4f74e4b92276929}
+
+
+Path setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Pathname} & \-: the new path to the file. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/headers/multimedia.\-h\item 
+src/multimedia.\-cpp\end{DoxyCompactItemize}

@@ -1,0 +1,162 @@
+.TH "Multimedia" 3 "Wed Dec 10 2014" "Version 0.1" "Multimedia" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Multimedia \- 
+This class represents a multimedia file\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <multimedia\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMultimedia\fP (void)"
+.br
+.RI "\fIDefault Constructor\&. \fP"
+.ti -1c
+.RI "\fBMultimedia\fP (string name, unsigned long date, string pathname)"
+.br
+.RI "\fIConstructor\&. \fP"
+.ti -1c
+.RI "\fB~Multimedia\fP (void)"
+.br
+.RI "\fIDestructor\&. \fP"
+.ti -1c
+.RI "virtual string \fBgetName\fP (void) const "
+.br
+.RI "\fIName getter\&. \fP"
+.ti -1c
+.RI "virtual unsigned long \fBgetDate\fP (void) const "
+.br
+.RI "\fIDate getter\&. \fP"
+.ti -1c
+.RI "virtual string \fBgetPathname\fP (void) const "
+.br
+.RI "\fIPathname getter\&. \fP"
+.ti -1c
+.RI "virtual void \fBsetName\fP (string newName)"
+.br
+.RI "\fIName setter\&. \fP"
+.ti -1c
+.RI "virtual void \fBsetDate\fP (unsigned long newDate)"
+.br
+.RI "\fIDate setter\&. \fP"
+.ti -1c
+.RI "virtual void \fBsetPathname\fP (string newPathname)"
+.br
+.RI "\fIPath setter\&. \fP"
+.ti -1c
+.RI "virtual void \fBprint\fP (void) const "
+.br
+.RI "\fIPrint description\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class represents a multimedia file\&. 
+
+All multimedia files inherit from this class\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Multimedia::Multimedia (void)"
+
+.PP
+Default Constructor\&. Creates a default multimedia object\&. 
+.SS "Multimedia::Multimedia (stringname, unsigned longdate, stringpathname)"
+
+.PP
+Constructor\&. Constructor of the \fBMultimedia\fP class\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP : Name of the multimedia file 
+.br
+\fIdate\fP : Date when the file is added in seconds 
+.br
+\fIpathname\fP : Path to the file 
+.RE
+.PP
+
+.SS "Multimedia::~Multimedia (void)"
+
+.PP
+Destructor\&. Default destructor of this class\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "unsigned long Multimedia::getDate (void) const\fC [virtual]\fP"
+
+.PP
+Date getter\&. Get the date the file was added\&.
+.PP
+\fBReturns:\fP
+.RS 4
+The date the file was imported in seconds\&. 
+.RE
+.PP
+
+.SS "string Multimedia::getName (void) const\fC [virtual]\fP"
+
+.PP
+Name getter\&. Get the name of the file\&.
+.PP
+\fBReturns:\fP
+.RS 4
+The name of file 
+.RE
+.PP
+
+.SS "string Multimedia::getPathname (void) const\fC [virtual]\fP"
+
+.PP
+Pathname getter\&. Get the path to the file\&.
+.PP
+\fBReturns:\fP
+.RS 4
+The path to the file 
+.RE
+.PP
+
+.SS "void Multimedia::print (void) const\fC [virtual]\fP"
+
+.PP
+Print description\&. Print the description of the file to the standard output 
+.SS "void Multimedia::setDate (unsigned longnewDate)\fC [virtual]\fP"
+
+.PP
+Date setter\&. Set the date associated to the file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewDate\fP : the new value of the date in seconds\&. 
+.RE
+.PP
+
+.SS "void Multimedia::setName (stringnewName)\fC [virtual]\fP"
+
+.PP
+Name setter\&. Set the name of the file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewName\fP : the new name of the file 
+.RE
+.PP
+
+.SS "void Multimedia::setPathname (stringnewPathname)\fC [virtual]\fP"
+
+.PP
+Path setter\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewPathname\fP : the new path to the file\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Multimedia from the source code\&.
