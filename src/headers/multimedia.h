@@ -95,7 +95,45 @@ public:
 
     virtual string getPathname (void) const;
 
+    /*
+    * \brief Name setter
+    *
+    * Set the name of the file.
+    *
+    * \param newName : the new name of the file
+    *
+    */
 
+    virtual void setName (string newName);
+
+    /*
+    * \brief Date setter
+    *
+    * Set the date associated to the file.
+    *
+    * \param newDate : the new value of the date
+    *
+    */
+
+    virtual void setDate (long newDate);
+
+    /*
+    * \brief Path setter
+    *
+    * \param newPathname : the new path to the file
+    *
+    */
+
+    virtual void setPathname (string newPathname);
+
+    /*
+    * \brief Print description
+    *
+    * Print the description of the file to the standard output
+    *
+    */
+
+    virtual void print (void) const;
 
 };
 
