@@ -11,6 +11,32 @@
 #ifndef MULTIMEDIA_H
 #define MULTIMEDIA_H
 
+#include <string>
 
+/*
+* \class Multimedia
+* \brief This class represents a multimedia file
+*
+* All multimedia files inherit from this class.
+*/
+
+class Multimedia {
+
+private:
+    string name; //Name of the multimedia file
+    long   date; //Date of getting of the object
+    string pathname; //Path to the file
+
+public:
+    /*
+    * \brief Constructor
+    * 
+    * Constructor of the Multimedia class.
+    * \param
+    */
+    Multimedia
+
+
+}
 
 #endif
