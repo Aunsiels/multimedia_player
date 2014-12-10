@@ -34,15 +34,10 @@
 
 // Default constructor
 
-Multimedia::Multimedia(void) {
-
-    this->name     = "default";
-    // Get the time in seconds since 1970, January 1st
-    this->date     = (unsigned long) time(NULL);
-    // The default file is at the root of the computer.
-    this->pathname = "/";
-
-}
+Multimedia::Multimedia(void) :
+        name("default"),
+	date((unsigned long) time(NULL)),
+	pathname("/") {}
 
 // Constructor with all parameters
 
