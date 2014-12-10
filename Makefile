@@ -43,13 +43,13 @@ LDLIBS=
 
 all: ${PROG}
 ${PROG}: depend-${PROGNAME} ${OBJETS}
-	-mkdir -p $(BIN)
+	mkdir -p $(BIN)
 	${CXX} -o $@ ${LDFLAGS} ${OBJETS} ${LDLIBS}
 
 clean:
-	-@$(RM) *.o depend-${PROG} core 1>/dev/null 2>&1
-	-rm -rf ${BIN}
-	-rm $(OBJETS)
+	-@$(RM) depend-${PROG} core 1>/dev/null 2>&1
+	-@rm -rf ${BIN}
+	-@rm $(OBJETS)
 
 clean-all: clean
 	-@$(RM) ${PROG} 1>/dev/null 2>&1
@@ -58,7 +58,7 @@ clean-all: clean
 # l'option -MM de gcc (attention certains compilos n'ont pas cette option)
 
 depend-${PROGNAME}:
-	-mkdir bin
+	mkdir -p bin
 	${CXX} -MM ${SOURCES} > $(BIN)depend-${PROGNAME}
 
 ###########################################
