@@ -30,6 +30,15 @@ private:
     string pathname; //Path to the file
 
 public:
+
+    /*
+    * \brief Default Constructor
+    *
+    * Creates a default multimedia object.
+    *
+    */
+    Multimedia(void);
+
     /*
     * \brief Constructor
     * 
@@ -37,6 +46,7 @@ public:
     * \param name : Name of the multimedia file
     * \param date : Date when the file is added in millis
     * \param pathname : Path to the file
+    *
     */
     Multimedia(string name, long date, string pathname);
 
