@@ -2,8 +2,14 @@
 #  INF224 - TP C++ - http://www.telecom-paristech.fr/~elc/inf224
 # 
 
+# Bin files
+BIN =./bin/
+
+PROGNAME = main 
+
 # Nom du programme
-PROG=main
+PROG=$(BIN)$(PROGNAME)
+
 
 # Fichiers sources (NE PAS METTRE les .h mais seulement les .cpp)
 SOURCES=src/main.cpp src/multimedia.cpp
@@ -36,11 +42,14 @@ LDLIBS=
 # (depend sera un fichier contenant les dependances)
 
 all: ${PROG}
-${PROG}: depend-${PROG} ${OBJETS}
+${PROG}: depend-${PROGNAME} ${OBJETS}
+	-mkdir -p $(BIN)
 	${CXX} -o $@ ${LDFLAGS} ${OBJETS} ${LDLIBS}
 
 clean:
 	-@$(RM) *.o depend-${PROG} core 1>/dev/null 2>&1
+	-rm -rf ${BIN}
+	-rm $(OBJETS)
 
 clean-all: clean
 	-@$(RM) ${PROG} 1>/dev/null 2>&1
@@ -48,8 +57,9 @@ clean-all: clean
 # Gestion des dependances : creation automatique des dependances en utilisant 
 # l'option -MM de gcc (attention certains compilos n'ont pas cette option)
 
-depend-${PROG}:
-	${CXX} -MM ${SOURCES} > depend-${PROG}
+depend-${PROGNAME}:
+	-mkdir bin
+	${CXX} -MM ${SOURCES} > $(BIN)depend-${PROGNAME}
 
 ###########################################
 
@@ -76,5 +86,5 @@ depend-${PROG}:
 #############################################
 
 # Inclusion du fichier des dependances
--include depend-${PROG}
+-include $(BIN)depend-${PROG}
 
