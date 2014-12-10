@@ -26,7 +26,7 @@ class Multimedia {
 
 private:
     string name; //Name of the multimedia file
-    long   date; //Date of getting of the object
+    unsigned long   date; //Date of getting of the object
     string pathname; //Path to the file
 
 public:
@@ -51,7 +51,7 @@ public:
     *
     */
 
-    Multimedia(string name, long date, string pathname);
+    Multimedia(string name,unsigned long date, string pathname);
 
     /*
     * \brief Destructor
@@ -82,7 +82,7 @@ public:
     *
     */
 
-    virtual long getDate (void) const;
+    virtual unsigned long getDate (void) const;
 
     /*
     * \brief Pathname getter
@@ -115,7 +115,7 @@ public:
     *
     */
 
-    virtual void setDate (long newDate);
+    virtual void setDate (unsigned long newDate);
 
     /*
     * \brief Path setter
