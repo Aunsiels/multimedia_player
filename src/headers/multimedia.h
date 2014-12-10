@@ -73,6 +73,29 @@ public:
 
     virtual string getName (void) const;
 
+    /*
+    * \brief Date getter
+    *
+    * Get the date the file was added.
+    *
+    * \return The date the file was imported.
+    *
+    */
+
+    virtual long getDate (void) const;
+
+    /*
+    * \brief Pathname getter
+    *
+    * Get the path to the file.
+    *
+    * \return The path to the file
+    *
+    */
+
+    virtual string getPathname (void) const;
+
+
 
 };
 
