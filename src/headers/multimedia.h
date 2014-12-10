@@ -1,11 +1,11 @@
 /*******************************************************************************
-//
-// \file multimedia.h
-// \brief Describe what is a multimedia file
-// \author Julien Romero
-// \version 0.1
-// \date  10/12/2014
-//
+*
+* \file multimedia.h
+* \brief Describe what is a multimedia file
+* \author Julien Romero
+* \version 0.1
+* \date  10/12/2014
+*
 *******************************************************************************/
 
 #ifndef MULTIMEDIA_H
@@ -46,7 +46,7 @@ public:
     * Constructor of the Multimedia class.
     *
     * \param name : Name of the multimedia file
-    * \param date : Date when the file is added in millis
+    * \param date : Date when the file is added in seconds
     * \param pathname : Path to the file
     *
     */
@@ -78,7 +78,7 @@ public:
     *
     * Get the date the file was added.
     *
-    * \return The date the file was imported.
+    * \return The date the file was imported in seconds.
     *
     */
 
@@ -111,7 +111,7 @@ public:
     *
     * Set the date associated to the file.
     *
-    * \param newDate : the new value of the date
+    * \param newDate : the new value of the date in seconds.
     *
     */
 
@@ -120,7 +120,7 @@ public:
     /*
     * \brief Path setter
     *
-    * \param newPathname : the new path to the file
+    * \param newPathname : the new path to the file.
     *
     */
 
