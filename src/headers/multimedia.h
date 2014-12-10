@@ -13,14 +13,14 @@
 
 #include <string>
 
-/*
+using namespace std;
+
+/*!
 * \class Multimedia
-* \brief This class represents a multimedia file
+* \brief This class represents a multimedia file.
 *
 * All multimedia files inherit from this class.
 */
-
-using namespace std;
 
 class Multimedia {
 
@@ -31,7 +31,7 @@ private:
 
 public:
 
-    /*
+    /*!
     * \brief Default Constructor
     *
     * Creates a default multimedia object.
@@ -40,7 +40,7 @@ public:
 
     Multimedia(void);
 
-    /*
+    /*!
     * \brief Constructor
     * 
     * Constructor of the Multimedia class.
@@ -53,7 +53,7 @@ public:
 
     Multimedia(string name,unsigned long date, string pathname);
 
-    /*
+    /*!
     * \brief Destructor
     *
     * Default destructor of this class.
@@ -62,18 +62,18 @@ public:
 
     ~Multimedia(void);
     
-    /*
+    /*!
     * \brief Name getter
     *
     * Get the name of the file.
     *
-    * \return The name of file/
+    * \return The name of file
     *
     */
 
     virtual string getName (void) const;
 
-    /*
+    /*!
     * \brief Date getter
     *
     * Get the date the file was added.
@@ -84,7 +84,7 @@ public:
 
     virtual unsigned long getDate (void) const;
 
-    /*
+    /*!
     * \brief Pathname getter
     *
     * Get the path to the file.
@@ -95,7 +95,7 @@ public:
 
     virtual string getPathname (void) const;
 
-    /*
+    /*!
     * \brief Name setter
     *
     * Set the name of the file.
@@ -106,7 +106,7 @@ public:
 
     virtual void setName (string newName);
 
-    /*
+    /*!
     * \brief Date setter
     *
     * Set the date associated to the file.
@@ -117,7 +117,7 @@ public:
 
     virtual void setDate (unsigned long newDate);
 
-    /*
+    /*!
     * \brief Path setter
     *
     * \param newPathname : the new path to the file.
@@ -126,7 +126,7 @@ public:
 
     virtual void setPathname (string newPathname);
 
-    /*
+    /*!
     * \brief Print description
     *
     * Print the description of the file to the standard output
