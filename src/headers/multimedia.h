@@ -20,6 +20,8 @@
 * All multimedia files inherit from this class.
 */
 
+namespace std;
+
 class Multimedia {
 
 private:
@@ -32,11 +34,14 @@ public:
     * \brief Constructor
     * 
     * Constructor of the Multimedia class.
-    * \param
+    * \param name : Name of the multimedia file
+    * \param date : Date when the file is added in millis
+    * \param pathname : Path to the file
     */
-    Multimedia
+    Multimedia(string name, long date, string pathname);
 
 
-}
+
+};
 
 #endif
