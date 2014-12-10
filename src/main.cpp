@@ -32,6 +32,7 @@ int main () {
 
     Multimedia* multimedia = new Multimedia();
     multimedia->print();
+    delete multimedia;
     return 0;
 
 }

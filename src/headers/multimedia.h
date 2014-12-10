@@ -82,7 +82,7 @@ public:
     *
     */
 
-    ~Multimedia(void);
+    virtual ~Multimedia(void);
     
     /*!
     * \brief Name getter
