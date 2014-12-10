@@ -20,7 +20,7 @@
 * All multimedia files inherit from this class.
 */
 
-namespace std;
+using namespace std;
 
 class Multimedia {
 
@@ -37,19 +37,41 @@ public:
     * Creates a default multimedia object.
     *
     */
+
     Multimedia(void);
 
     /*
     * \brief Constructor
     * 
     * Constructor of the Multimedia class.
+    *
     * \param name : Name of the multimedia file
     * \param date : Date when the file is added in millis
     * \param pathname : Path to the file
     *
     */
+
     Multimedia(string name, long date, string pathname);
 
+    /*
+    * \brief Destructor
+    *
+    * Default destructor of this class.
+    *
+    */
+
+    ~Multimedia(void);
+    
+    /*
+    * \brief Name getter
+    *
+    * Get the name of the file.
+    *
+    * \return The name of file/
+    *
+    */
+
+    virtual string getName (void) const;
 
 
 };
