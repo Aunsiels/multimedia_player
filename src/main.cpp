@@ -32,7 +32,10 @@ int main () {
 
     Multimedia* multimedia = new Multimedia();
     multimedia->print();
+    Multimedia* multimedia2 = new Multimedia("test",10,"/home/julien");
+    multimedia2->print();
     delete multimedia;
+    delete multimedia2;
     return 0;
 
 }
