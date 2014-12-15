@@ -1,8 +1,8 @@
 /*******************************************************************************
 *
-* main.cpp by Julien Romero
+* photo.cpp by Julien Romero
 *
-* Main function of the program.
+* Describe a photo
 *
 *Copyright (c) 2014 JulienRomero
 *
@@ -26,30 +26,57 @@
 *WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 *
 *******************************************************************************/
-#include "headers/multimedia.h"
-#include "headers/video.h"
-#include "headers/photo.h"
 
-int main () {
+#include <iostream>
 
-    Multimedia* multimedia = new Multimedia();
-    multimedia->print();
-    Multimedia* multimedia2 = new Multimedia("test",10,"/home/julien");
-    multimedia2->print();
-    Video* video1 = new Video();
-    video1->print();
-    Video* video2 = new Video("test",11, "/home",100);
-    video2->print();
-    Photo* photo1 = new Photo();
-    photo1->print();
-    Photo* photo2 = new Photo("test",11, "/home","Paris");
-    photo2->print();
-    delete multimedia;
-    delete multimedia2;
-    delete video1;
-    delete video2;
-    delete photo1;
-    delete photo2;
-    return 0;
+#include <multimedia.h>
+#include <photo.h>
+
+using namespace std;
+
+//Default constructor
+
+Photo::Photo(void) :
+        Multimedia(),
+	place("") {}
+
+//Constructor with all parameters
+
+Photo::Photo(
+        string _name,
+	unsigned long _date,
+	string _pathname,
+	string _place) :
+	Multimedia( _name, _date, _pathname),
+	place(_place) {}
+
+//Default destructor
+
+Photo::~Photo (void) {
+    //Nothing
+}
+
+//Place getter
+
+string Photo::getPlace (void) const {
+
+    return this->place;
+
+}
+
+//Length setter
+
+void Photo::setPlace (string newPlace) {
+
+    this->place = newPlace;
+
+}
+
+//Print the video description
+
+void Photo::print (void) const {
+
+    Multimedia::print ();
+    cout << "Place    : " << this->place <<endl;
 
 }
