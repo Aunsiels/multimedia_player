@@ -1,8 +1,8 @@
 /*******************************************************************************
 *
-* main.cpp by Julien Romero
+* video.cpp by Julien Romero
 *
-* Main function of the program.
+* Describe a video
 *
 *Copyright (c) 2014 JulienRomero
 *
@@ -26,23 +26,57 @@
 *WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 *
 *******************************************************************************/
-#include "headers/multimedia.h"
-#include "headers/video.h"
 
-int main () {
+#include <iostream>
 
-    Multimedia* multimedia = new Multimedia();
-    multimedia->print();
-    Multimedia* multimedia2 = new Multimedia("test",10,"/home/julien");
-    multimedia2->print();
-    Video* video1 = new Video();
-    video1->print();
-    Video* video2 = new Video("test",11, "/home",100);
-    video2->print();
-    delete multimedia;
-    delete multimedia2;
-    delete video1;
-    delete video2;
-    return 0;
+#include <multimedia.h>
+#include <video.h>
+
+using namespace std;
+
+//Default constructor
+
+Video::Video(void) :
+        Multimedia(),
+	length(0) {}
+
+//Constructor with all parameters
+
+Video::Video(
+        string _name,
+	unsigned long _date,
+	string _pathname,
+	unsigned int _length) :
+	Multimedia( _name, _date, _pathname),
+	length(_length) {}
+
+//Default destructor
+
+Video::~Video (void) {
+    //Nothing
+}
+
+//Length getter
+
+unsigned int Video::getLength (void) const {
+
+    return this->length;
+
+}
+
+//Length setter
+
+void Video::setLength (unsigned int newLength) {
+
+    this->length = newLength;
+
+}
+
+//Print the video description
+
+void Video::print (void) const {
+
+    Multimedia::print ();
+    cout << "Length   : " << this->length <<endl;
 
 }
