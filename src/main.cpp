@@ -32,24 +32,31 @@
 
 int main () {
 
-    Multimedia* multimedia = new Multimedia();
-    multimedia->print();
-    Multimedia* multimedia2 = new Multimedia("test",10,"/home/julien");
-    multimedia2->print();
-    Video* video1 = new Video();
-    video1->print();
-    Video* video2 = new Video("test",11, "/home",100);
-    video2->print();
-    Photo* photo1 = new Photo();
-    photo1->print();
-    Photo* photo2 = new Photo("test",11, "/home","Paris");
-    photo2->print();
-    delete multimedia;
-    delete multimedia2;
-    delete video1;
-    delete video2;
-    delete photo1;
-    delete photo2;
+    int i; //for the for
+
+    Multimedia * tab[4];
+    tab[0] = new Video();
+    tab[1] = new Video("test",11, "/home",100);
+    tab[2] = new Photo();
+    tab[3] = new Photo("test",11, "/home","Paris");
+
+    /*
+    * Le polymorphisme permet d'appeler la fonction print sans connaître
+    * le type de l'objet utilisé.
+    * En C++, on a le choix entre créer des objets dynamiques (pointeurs,
+    * évalués à l'exécution) et statique (sans pointeur, évalués à la
+    * compilation).
+    * J'ai choisi de faire un tableau contenant des pointeurs de Multimedia.
+    * Il faut donc faire des deletes.
+    * En Java, la question ne se pose pas : tout passe par des références.
+    */
+
+    for (i = 0; i < 4; i++) {
+        tab[i]->print();
+    }
+    for (i = 0; i < 4; i++) {
+        delete tab[i];
+    }
     return 0;
 
 }
