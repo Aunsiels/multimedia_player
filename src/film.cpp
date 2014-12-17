@@ -60,7 +60,7 @@ Film::Film (string _name,
     //I choose the allocate manually the memory to be able to change easily the
     //parameters.
     int total_length = 0;
-    this->chapters = (unsigned int *) malloc(_number_chapters * sizeof(int));
+    this->chapters = new unsigned int[_number_chapters];
     this->number_chapters = _number_chapters;
     for (i = 0; i < _number_chapters; i++) {
         chapters[i] = _chapters[i];
@@ -73,14 +73,13 @@ Film::Film (string _name,
 
 Film::~Film (void) {
     // As I allocated manually the vector, I free the memory.
-    free(this->chapters);
+    delete[] this->chapters;
 }
 
 // Get the chapters of the movie.
 
 unsigned int const * * Film::getChapters (void) const {
-    unsigned int const * * tab = (unsigned int const * *) malloc(2 *
-    sizeof(int));
+    unsigned int const * * tab = new unsigned int const * [2];
     tab[0] = this->chapters;
     tab[1] = &this->number_chapters;
     return tab;
@@ -90,11 +89,11 @@ unsigned int const * * Film::getChapters (void) const {
 
 void Film::setChapters (unsigned int const _chapters[], unsigned int _number_chapters) {
     //I free the former vector
-    free(this->chapters);
+    delete[] this->chapters;
     //The same as in the constructor.
     unsigned int i = 0;
     unsigned int total_length = 0;
-    this->chapters = (unsigned int *) malloc(_number_chapters * sizeof(int));
+    this->chapters = new unsigned int[_number_chapters];
     this->number_chapters = _number_chapters;
     for (i = 0; i < _number_chapters; i++) {
         chapters[i] = _chapters[i];

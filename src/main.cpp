@@ -31,14 +31,28 @@
 #include "headers/photo.h"
 #include <film.h>
 #include <string>
+#include <time.h>
 
 int main () {
     
+    Video * video = new Video("Le chat",
+                            time(NULL),
+			    "/home/julien/Téléchargements/Le-Chat-et-l39aspirateur----YouTube.mp4",10);
+    video->play();
+
     unsigned int i;
     unsigned int tab[10];
     for(i =0; i<10;i++){
         tab[i] = i;
     }
+    Film * film0 = new Film("Le chat",
+                            time(NULL),
+			    "/home/julien/Téléchargements/Le-Chat-et-l39aspirateur----YouTube.mp4",tab,10);
+    film0->play();
+    delete film0;
+
+    while(1);
+
     return 0;
 
 }
