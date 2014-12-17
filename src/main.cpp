@@ -49,14 +49,14 @@ int main () {
     Film * film0 = new Film("Le chat",
                             time(NULL),
 			    "/home/julien/Téléchargements/Le-Chat-et-l39aspirateur----YouTube.mp4",tab,10);
-    film0->Video::play();
+    film0->play();
     delete film0;
 
     Photo * photo = new Photo("id",time(NULL),
                             "/home/julien/Téléchargements/id.jpg", "Paris");
     photo->play();
     delete photo;
-    
+   
     //As the videos/photos run in the background
     while(1);
 
