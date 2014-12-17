@@ -51,69 +51,76 @@ private :
 
 public:
 
-  /*!
-  * \brief Default Constructor
-  *
-  * Defaut constructor of a photo.
-  *
-  */
+    /*!
+    * \brief Default Constructor
+    *
+    * Defaut constructor of a photo.
+    *
+    */
 
-  Photo(void);
+    Photo(void);
 
-  /*!
-  * \brief Constructor
-  *
-  * Constructor of a photo.
-  *
-  * \param name : Name of the photo.
-  * \param date : Date when the file is added.
-  * \param pathname : Path to the photo.
-  * \param place : Place where the photo was taken.
-  *
-  */
+    /*!
+    * \brief Constructor
+    *
+    * Constructor of a photo.
+    *
+    * \param name : Name of the photo.
+    * \param date : Date when the file is added.
+    * \param pathname : Path to the photo.
+    * \param place : Place where the photo was taken.
+    *
+    */
 
-  Photo(string name, unsigned long date, string pathname, string place);
+    Photo(string name, unsigned long date, string pathname, string place);
 
-  /*!
-  * \brief Destructor
-  *
-  * Default destructor of this class.
-  *
-  */
+    /*!
+    * \brief Destructor
+    *
+    * Default destructor of this class.
+    *
+    */
 
-  virtual ~Photo(void);
+    virtual ~Photo(void);
 
-  /*!
-  * \brief Place getter.
-  *
-  * Get the place where the photo was taken.
-  *
-  * \return The place where the photo was taken.
-  *
-  */
+    /*!
+    * \brief Place getter.
+    *
+    * Get the place where the photo was taken.
+    *
+    * \return The place where the photo was taken.
+    *
+    */
 
-  virtual string getPlace(void) const;
+    virtual string getPlace(void) const;
 
-  /*
-  * \brief Place setter
-  *
-  * Set the place where the photo was taken.
-  *
-  * \param newPlace : the new place.
-  *
-  */
+    /*
+    * \brief Place setter
+    *
+    * Set the place where the photo was taken.
+    *
+    * \param newPlace : the new place.
+    *
+    */
 
-  virtual void setPlace (string newPlace);
+    virtual void setPlace (string newPlace);
 
-  /*
-  * \brief Print description.
-  *
-  * Print the description of a photo to the standard output.
-  *
-  */
+    /*
+    * \brief Print description.
+    *
+    * Print the description of a photo to the standard output.
+    *
+    */
 
-  virtual void print (void) const;
+    virtual void print (void) const;
 
+    /*!
+    *
+    * \brief Display the multimedia file on screen.
+    *
+    */
+
+    virtual void play (void) const;
 };
 
 #endif

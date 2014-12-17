@@ -51,69 +51,76 @@ private :
 
 public:
 
-  /*!
-  * \brief Default Constructor
-  *
-  * Defaut constructor of a video.
-  *
-  */
+    /*!
+    * \brief Default Constructor
+    *
+    * Defaut constructor of a video.
+    *
+    */
 
-  Video(void);
+    Video(void);
 
-  /*!
-  * \brief Constructor
-  *
-  * Constructor of a video.
-  *
-  * \param name : Name of the video.
-  * \param date : Date when the file is added.
-  * \param pathname : Path to the video.
-  * \param length : Length of the video in seconds.
-  *
-  */
+    /*!
+    * \brief Constructor
+    *
+    * Constructor of a video.
+    *
+    * \param name : Name of the video.
+    * \param date : Date when the file is added.
+    * \param pathname : Path to the video.
+    * \param length : Length of the video in seconds.
+    *
+    */
 
-  Video(string name, unsigned long date, string pathname, unsigned int length);
+    Video(string name, unsigned long date, string pathname, unsigned int length);
 
-  /*!
-  * \brief Destructor
-  *
-  * Default destructor of this class.
-  *
-  */
+    /*!
+    * \brief Destructor
+    *
+    * Default destructor of this class.
+    *
+    */
 
-  virtual ~Video(void);
+    virtual ~Video(void);
 
-  /*!
-  * \brief Length getter.
-  *
-  * Get the length of the video.
-  *
-  * \return The length of the video.
-  *
-  */
+    /*!
+    * \brief Length getter.
+    *
+    * Get the length of the video.
+    *
+    * \return The length of the video.
+    *
+    */
 
-  virtual unsigned int getLength (void) const;
+    virtual unsigned int getLength (void) const;
 
-  /*
-  * \brief Length setter
-  *
-  * Set the length of the video.
-  *
-  * \param newLength : the new length of the video
-  *
-  */
+    /*
+    * \brief Length setter
+    *
+    * Set the length of the video.
+    *
+    * \param newLength : the new length of the video
+    *
+    */
 
-  virtual void setLength (unsigned int newLength);
+    virtual void setLength (unsigned int newLength);
 
-  /*
-  * \brief Print description.
-  *
-  * Print the description of a video to the standard output.
-  *
-  */
+    /*
+    * \brief Print description.
+    *
+    * Print the description of a video to the standard output.
+    *
+    */
 
-  virtual void print (void) const;
+    virtual void print (void) const;
 
+    /*!
+    *
+    * \brief Display the multimedia file on screen.
+    *
+    */
+
+    virtual void play (void) const;
 };
 
 #endif

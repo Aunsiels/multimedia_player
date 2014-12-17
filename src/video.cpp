@@ -31,6 +31,8 @@
 
 #include <multimedia.h>
 #include <video.h>
+#include <stdlib.h>
+#include <string>
 
 using namespace std;
 
@@ -79,4 +81,9 @@ void Video::print (void) const {
     Multimedia::print ();
     cout << "Length   : " << this->length <<endl;
 
+}
+
+void Video::play (void) const {
+    // I use mplayer to print a video/film on screen
+    system(("mplayer " + this->getName() + " &").string::c_str());
 }

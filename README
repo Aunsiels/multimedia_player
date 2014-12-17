@@ -1,2 +1,5 @@
 A multimedia player by Julien Romero.
 Made during a school project at Telecom ParisTech.
+
+7step : For the film class, I needed to delete the tab when the object is
+destroy.

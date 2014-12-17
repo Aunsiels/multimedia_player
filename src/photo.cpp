@@ -31,6 +31,7 @@
 
 #include <multimedia.h>
 #include <photo.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -79,4 +80,9 @@ void Photo::print (void) const {
     Multimedia::print ();
     cout << "Place    : " << this->place <<endl;
 
+}
+
+void Photo::play (void) const {
+    // I use display to print a photo on screen
+    system(("display " + this->getName() + " &").string::c_str());
 }

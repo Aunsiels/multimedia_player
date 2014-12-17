@@ -48,7 +48,7 @@ class Multimedia {
 
 private:
     string name; //Name of the multimedia file
-    unsigned long   date; //Date of getting of the object
+    unsigned long date; //Date of getting of the object
     string pathname; //Path to the file
 
 public:
@@ -156,6 +156,14 @@ public:
     */
 
     virtual void print (void) const;
+
+    /*!
+    *
+    * \brief Display the multimedia file on screen.
+    *
+    */
+
+    virtual void play (void) const = 0;
 
 };
 
