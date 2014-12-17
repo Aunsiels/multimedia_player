@@ -50,6 +50,8 @@ private:
     string name; //Name of the multimedia file
     unsigned long date; //Date of getting of the object
     string pathname; //Path to the file
+    Multimedia& operator= (const Multimedia& multimedia);
+    Multimedia (const Multimedia& other);
 
 public:
 
