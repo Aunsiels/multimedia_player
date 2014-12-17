@@ -39,6 +39,7 @@ int main () {
                             time(NULL),
 			    "/home/julien/Téléchargements/Le-Chat-et-l39aspirateur----YouTube.mp4",10);
     video->play();
+    delete video;
 
     unsigned int i;
     unsigned int tab[10];
@@ -48,9 +49,15 @@ int main () {
     Film * film0 = new Film("Le chat",
                             time(NULL),
 			    "/home/julien/Téléchargements/Le-Chat-et-l39aspirateur----YouTube.mp4",tab,10);
-    film0->play();
+    film0->Video::play();
     delete film0;
 
+    Photo * photo = new Photo("id",time(NULL),
+                            "/home/julien/Téléchargements/id.jpg", "Paris");
+    photo->play();
+    delete photo;
+    
+    //As the videos/photos run in the background
     while(1);
 
     return 0;
