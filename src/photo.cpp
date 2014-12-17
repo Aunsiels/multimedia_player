@@ -84,5 +84,5 @@ void Photo::print (void) const {
 
 void Photo::play (void) const {
     // I use display to print a photo on screen
-    system(("display " + this->getName() + " &").string::c_str());
+    system(("display " + this->getPathname() + " &").string::c_str());
 }

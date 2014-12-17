@@ -32,45 +32,13 @@
 #include <film.h>
 #include <string>
 
-Film * createFilm(string name, unsigned int n);
-
 int main () {
     
-    Film * film0 = createFilm("0",0);
-    Film * film1 = createFilm("1",1);
-    Film * film2 = createFilm("2",2);
-    film0->print();
-    film0->printChapters();
-    film1->print();
-    film1->printChapters();
-    film2->print();
-    film2->printChapters();
-
-    unsigned int i;
-    unsigned int tab[11];
-    for(i =0; i<11;i++){
-        tab[i] = 100 + i;
-    }
-
-    film0->setChapters(tab,11);
-    film0->print();
-    film0->printChapters();
-
-
-    delete film1;
-    delete film2;
-    delete film0;
-    return 0;
-
-}
-
-Film * createFilm(string name, unsigned int n) {
-
     unsigned int i;
     unsigned int tab[10];
     for(i =0; i<10;i++){
-        tab[i] = n + i;
+        tab[i] = i;
     }
-    //tab is erased at the end of the function
-    return new Film(name,0,"/",tab,10);
+    return 0;
+
 }
