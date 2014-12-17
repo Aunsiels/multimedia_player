@@ -29,34 +29,48 @@
 #include "headers/multimedia.h"
 #include "headers/video.h"
 #include "headers/photo.h"
+#include <film.h>
+#include <string>
+
+Film * createFilm(string name, unsigned int n);
 
 int main () {
+    
+    Film * film0 = createFilm("0",0);
+    Film * film1 = createFilm("1",1);
+    Film * film2 = createFilm("2",2);
+    film0->print();
+    film0->printChapters();
+    film1->print();
+    film1->printChapters();
+    film2->print();
+    film2->printChapters();
 
-    int i; //for the for
-
-    Multimedia * tab[4];
-    tab[0] = new Video();
-    tab[1] = new Video("test",11, "/home",100);
-    tab[2] = new Photo();
-    tab[3] = new Photo("test",11, "/home","Paris");
-
-    /*
-    * Le polymorphisme permet d'appeler la fonction print sans connaître
-    * le type de l'objet utilisé.
-    * En C++, on a le choix entre créer des objets dynamiques (pointeurs,
-    * évalués à l'exécution) et statique (sans pointeur, évalués à la
-    * compilation).
-    * J'ai choisi de faire un tableau contenant des pointeurs de Multimedia.
-    * Il faut donc faire des deletes.
-    * En Java, la question ne se pose pas : tout passe par des références.
-    */
-
-    for (i = 0; i < 4; i++) {
-        tab[i]->print();
+    unsigned int i;
+    unsigned int tab[11];
+    for(i =0; i<11;i++){
+        tab[i] = 100 + i;
     }
-    for (i = 0; i < 4; i++) {
-        delete tab[i];
-    }
+
+    film0->setChapters(tab,11);
+    film0->print();
+    film0->printChapters();
+
+
+    delete film1;
+    delete film2;
+    delete film0;
     return 0;
 
+}
+
+Film * createFilm(string name, unsigned int n) {
+
+    unsigned int i;
+    unsigned int tab[10];
+    for(i =0; i<10;i++){
+        tab[i] = n + i;
+    }
+    //tab is erased at the end of the function
+    return new Film(name,0,"/",tab,10);
 }
