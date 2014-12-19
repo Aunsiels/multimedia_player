@@ -57,6 +57,9 @@ int main () {
     group->push_back(film0);
     group->push_back(photo);
     group->print();
+    Group * group1 = new Group ("Test1");
+    group1->push_back(video);
+    group1->print();
     delete group;
     video->print();
     return 0;
