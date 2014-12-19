@@ -33,24 +33,27 @@
 #include <string>
 #include <time.h>
 #include <group.h>
+#include <tr1/memory>
+
+using std::tr1::shared_ptr;
 
 int main () {
     
-    Video * video = new Video("Le chat",
+    shared_ptr<Video> video (new Video("Le chat",
                             time(NULL),
-			    "/home/julien/Téléchargements/Le-Chat-et-l39aspirateur----YouTube.mp4",10);
+			    "/home/julien/Téléchargements/Le-Chat-et-l39aspirateur----YouTube.mp4",10));
 
     unsigned int i;
     unsigned int tab[10];
     for(i =0; i<10;i++){
         tab[i] = i;
     }
-    Film * film0 = new Film("Le chat",
+    shared_ptr<Film> film0 (new Film("Le chat",
                             time(NULL),
-			    "/home/julien/Téléchargements/Le-Chat-et-l39aspirateur----YouTube.mp4",tab,10);
+			    "/home/julien/Téléchargements/Le-Chat-et-l39aspirateur----YouTube.mp4",tab,10));
 
-    Photo * photo = new Photo("id",time(NULL),
-                            "/home/julien/Téléchargements/id.jpg", "Paris");
+    shared_ptr<Photo> photo ( new Photo("id",time(NULL),
+                            "/home/julien/Téléchargements/id.jpg", "Paris"));
    
     Group * group = new Group ("Test");
     group->push_back(video);
@@ -61,6 +64,7 @@ int main () {
     group1->push_back(video);
     group1->print();
     delete group;
+    delete group1;
     video->print();
     return 0;
 
