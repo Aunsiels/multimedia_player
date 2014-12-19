@@ -1,7 +1,7 @@
 /*******************************************************************************
 *
 * \file group.h
-* \brief Create a group of multimedia objects
+* \brief Creates a group of multimedia objects
 * \author Julien Romero
 * \version 0.1
 * \date  18/12/2014
@@ -48,7 +48,7 @@ using namespace std;
 *
 */
 
-class Group : public list<Multimedia> {
+class Group : public list<Multimedia*> {
 
 private :
 
@@ -65,7 +65,7 @@ public :
     Group (void);
 
     /*!
-    * \brief Default Constructor.
+    * \brief Constructor.
     *
     * Creates an empty group.
     *
@@ -112,7 +112,7 @@ public :
     *
     */
 
-    virtual void print (void);
+    virtual void print (void) const;
 
 };
 
