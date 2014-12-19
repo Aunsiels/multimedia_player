@@ -94,6 +94,17 @@ public :
 	  unsigned int number_chapters);
 
     /*!
+    * \brief Copy constructor.
+    *
+    * Constructor to copy the given film.
+    *
+    * \param film : the film to copy.
+    *
+    */
+
+    Film(Film film);
+
+    /*!
     * \brief Destructor
     *
     *  Destructor of the class.

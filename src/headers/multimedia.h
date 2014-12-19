@@ -78,6 +78,17 @@ public:
     Multimedia(string name,unsigned long date, string pathname);
 
     /*!
+    * \brief Copy constructor.
+    *
+    * Constructor to copy the given multimedia object.
+    *
+    * \param multimedia : the multimedia file to copy.
+    *
+    */
+
+    Multimedia(Multimedia multimedia);
+
+    /*!
     * \brief Destructor
     *
     * Default destructor of this class.

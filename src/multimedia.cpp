@@ -49,6 +49,13 @@ Multimedia::Multimedia(
 	date(_date),
 	pathname(_pathname){}
 
+//Copy constructor
+
+Multimedia::Multimedia(Multimedia multimedia) :
+        name(multimedia.getName()),
+	date(multimedia.getDate()),
+	pathname(multimedia.getPathname()){}
+
 // Default destructor
 
 Multimedia::~Multimedia (void) {
@@ -56,7 +63,6 @@ Multimedia::~Multimedia (void) {
 }
 
 // Name getter
-
 
 string Multimedia::getName (void) const {
     

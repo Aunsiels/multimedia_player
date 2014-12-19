@@ -75,6 +75,17 @@ public:
     Video(string name, unsigned long date, string pathname, unsigned int length);
 
     /*!
+    * \brief Copy constructor.
+    *
+    * Constructor to copy the given video.
+    *
+    * \param video : the video file to copy.
+    *
+    */
+
+    Video(Video video);
+
+    /*!
     * \brief Destructor
     *
     * Default destructor of this class.

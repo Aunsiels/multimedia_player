@@ -75,6 +75,17 @@ public:
     Photo(string name, unsigned long date, string pathname, string place);
 
     /*!
+    * \brief Copy constructor.
+    *
+    * Constructor to copy the given photo.
+    *
+    * \param photo : the photo file to copy.
+    *
+    */
+
+    Photo(Photo photo);
+
+    /*!
     * \brief Destructor
     *
     * Default destructor of this class.
