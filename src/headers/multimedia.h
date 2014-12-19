@@ -34,6 +34,7 @@
 #define MULTIMEDIA_H
 
 #include <string>
+#include <intrusive_ptr.h>
 
 using namespace std;
 
@@ -44,7 +45,7 @@ using namespace std;
 * All multimedia files inherit from this class.
 */
 
-class Multimedia {
+class Multimedia : public Pointable {
 
 private:
     string name; //Name of the multimedia file

@@ -36,6 +36,7 @@
 #include <list>
 #include <multimedia.h>
 #include <string>
+#include <intrusive_ptr.h>
 
 using namespace std;
 
@@ -48,7 +49,7 @@ using namespace std;
 *
 */
 
-class Group : public list<Multimedia*> {
+class Group : public list<intrusive_ptr<Multimedia> > {
 
 private :
 
