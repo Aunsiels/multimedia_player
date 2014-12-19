@@ -43,8 +43,9 @@ LDLIBS=
 # (depend sera un fichier contenant les dependances)
 
 all: ${PROG}
+
 ${PROG}: depend-${PROGNAME} ${OBJETS}
-	mkdir -p $(BIN)
+	@mkdir -p $(BIN)
 	${CXX} -o $@ ${LDFLAGS} ${OBJETS} ${LDLIBS}
 
 clean:
@@ -59,7 +60,7 @@ clean-all: clean
 # l'option -MM de gcc (attention certains compilos n'ont pas cette option)
 
 depend-${PROGNAME}:
-	mkdir -p bin
+	@mkdir -p bin
 	${CXX} -MM ${SOURCES} > $(BIN)depend-${PROGNAME}
 
 ###########################################
