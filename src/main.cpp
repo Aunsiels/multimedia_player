@@ -58,6 +58,7 @@ int main () {
     group->push_back(photo);
     group->print();
     delete group;
+    video->print();
     return 0;
 
 }
