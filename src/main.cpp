@@ -32,14 +32,13 @@
 #include <film.h>
 #include <string>
 #include <time.h>
+#include <group.h>
 
 int main () {
     
     Video * video = new Video("Le chat",
                             time(NULL),
 			    "/home/julien/Téléchargements/Le-Chat-et-l39aspirateur----YouTube.mp4",10);
-    video->play();
-    delete video;
 
     unsigned int i;
     unsigned int tab[10];
@@ -49,17 +48,15 @@ int main () {
     Film * film0 = new Film("Le chat",
                             time(NULL),
 			    "/home/julien/Téléchargements/Le-Chat-et-l39aspirateur----YouTube.mp4",tab,10);
-    film0->play();
-    delete film0;
 
     Photo * photo = new Photo("id",time(NULL),
                             "/home/julien/Téléchargements/id.jpg", "Paris");
-    photo->play();
-    delete photo;
    
-    //As the videos/photos run in the background
-    while(1);
-
+    Group * group = new Group ("Test");
+    group->push_back(video);
+    group->push_back(film0);
+    group->push_back(photo);
+    group->print();
     return 0;
 
 }
