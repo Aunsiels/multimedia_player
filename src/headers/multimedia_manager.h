@@ -35,8 +35,8 @@
 
 #include <map>
 #include <string>
-#include <Multimedia.h>
-#include <Group.h>
+#include <multimedia.h>
+#include <group.h>
 #include <tr1/memory>
 
 using std::tr1::shared_ptr;
@@ -74,7 +74,7 @@ public :
     * Called before destruction.
     */
 
-    virtual ~Multimedia(void);
+    virtual ~MultimediaManager(void);
 
     /*!
     * \brief Creates a multimedia file.

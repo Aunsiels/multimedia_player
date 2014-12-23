@@ -39,9 +39,7 @@ using namespace std;
 
 //Constructor
 
-MultimediaManager::MultimediaManager(void) :
-        multimedia_files(new map<string,shared_ptr<Multimedia> >),
-	groups(new map<string,shared_ptr<Group>){}
+MultimediaManager::MultimediaManager(void) {}
 
 //Destructor
 
@@ -49,8 +47,8 @@ MultimediaManager::~MultimediaManager(void) {}
 
 //Create a new Multimedia file.
 
-shared_ptr<Multimedia> Create (const Multimedia& multimedia){
+shared_ptr<Multimedia> MultimediaManager::Create (const Multimedia& multimedia){
     shared_ptr<Multimedia> ptr_temp (multimedia.clone());
-    multimedia_files[multimedia.getName()] = ptr_temp;
+    this->multimedia_files[multimedia.getName()] = ptr_temp;
     return ptr_temp;
 }

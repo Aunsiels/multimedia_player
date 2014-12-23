@@ -13,7 +13,7 @@ PROG=$(BIN)$(PROGNAME)
 
 # Fichiers sources (NE PAS METTRE les .h mais seulement les .cpp)
 SOURCES=src/main.cpp src/multimedia.cpp src/video.cpp src/photo.cpp\
-src/film.cpp src/group.cpp
+src/film.cpp src/group.cpp src/multimedia_manager.cpp
 
 # Fichiers objets (ne pas modifier, sauf si l'extension n'est pas .cpp)
 OBJETS=${SOURCES:%.cpp=%.o}
