@@ -49,6 +49,10 @@ class Photo : public Multimedia {
 private :
     string place; // The place where the photo was taken
 
+protected :
+
+    Photo(const Photo&);
+
 public:
 
     /*!
@@ -73,17 +77,6 @@ public:
     */
 
     Photo(string name, unsigned long date, string pathname, string place);
-
-    /*!
-    * \brief Copy constructor.
-    *
-    * Constructor to copy the given photo.
-    *
-    * \param photo : the photo file to copy.
-    *
-    */
-
-    Photo(Photo photo);
 
     /*!
     * \brief Destructor
@@ -132,6 +125,15 @@ public:
     */
 
     virtual void play (void) const;
+
+    /*!
+    *
+    * \brief Clone the photo.
+    *
+    * \return Return a copy of the given photo.
+    */
+
+    virtual Photo * clone (void) const;
 };
 
 #endif

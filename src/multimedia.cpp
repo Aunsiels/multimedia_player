@@ -51,7 +51,7 @@ Multimedia::Multimedia(
 
 //Copy constructor
 
-Multimedia::Multimedia(Multimedia multimedia) :
+Multimedia::Multimedia(const Multimedia& multimedia) :
         name(multimedia.getName()),
 	date(multimedia.getDate()),
 	pathname(multimedia.getPathname()){}
@@ -119,4 +119,5 @@ void Multimedia::print (void) const {
 	 << "Pathname : " << this->pathname << endl;
 
 }
+
 

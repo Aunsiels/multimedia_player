@@ -49,6 +49,10 @@ class Video : public Multimedia {
 private :
     int length; // The length of a video
 
+protected :
+
+    Video(const Video&);
+
 public:
 
     /*!
@@ -73,17 +77,6 @@ public:
     */
 
     Video(string name, unsigned long date, string pathname, unsigned int length);
-
-    /*!
-    * \brief Copy constructor.
-    *
-    * Constructor to copy the given video.
-    *
-    * \param video : the video file to copy.
-    *
-    */
-
-    Video(Video video);
 
     /*!
     * \brief Destructor
@@ -132,6 +125,15 @@ public:
     */
 
     virtual void play (void) const;
+
+    /*!
+    *
+    * \brief Clone the video.
+    *
+    * \return Return a copy of the given video.
+    */
+
+    virtual Video * clone (void) const;
 };
 
 #endif

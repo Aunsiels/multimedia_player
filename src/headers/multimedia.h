@@ -51,6 +51,9 @@ private:
     unsigned long date; //Date of getting of the object
     string pathname; //Path to the file
     Multimedia& operator= (const Multimedia& multimedia);
+
+protected :
+
     Multimedia (const Multimedia& other);
 
 public:
@@ -76,17 +79,6 @@ public:
     */
 
     Multimedia(string name,unsigned long date, string pathname);
-
-    /*!
-    * \brief Copy constructor.
-    *
-    * Constructor to copy the given multimedia object.
-    *
-    * \param multimedia : the multimedia file to copy.
-    *
-    */
-
-    Multimedia(Multimedia multimedia);
 
     /*!
     * \brief Destructor
@@ -129,6 +121,7 @@ public:
     */
 
     virtual string getPathname (void) const;
+
 
     /*!
     * \brief Name setter
@@ -177,6 +170,15 @@ public:
     */
 
     virtual void play (void) const = 0;
+
+    /*!
+    *
+    * \brief Clone the multimedia object.
+    *
+    * \return Return a copy of the given multimedia object.
+    */
+
+    virtual Multimedia * clone (void) const = 0;
 
 };
 

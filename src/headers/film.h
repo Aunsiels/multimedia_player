@@ -50,6 +50,10 @@ private :
     unsigned int * chapters;
     unsigned int number_chapters;
 
+protected :
+
+    Film(const Film&);
+
 public :
 
     /*!
@@ -94,17 +98,6 @@ public :
 	  unsigned int number_chapters);
 
     /*!
-    * \brief Copy constructor.
-    *
-    * Constructor to copy the given film.
-    *
-    * \param film : the film to copy.
-    *
-    */
-
-    Film(Film film);
-
-    /*!
     * \brief Destructor
     *
     *  Destructor of the class.
@@ -146,6 +139,15 @@ public :
     */
 
     virtual void printChapters (void) const; 
+
+    /*!
+    *
+    * \brief Clone the film.
+    *
+    * \return Return a copy of the given film.
+    */
+
+    virtual Film * clone (void) const;
 
 };
 

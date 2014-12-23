@@ -52,6 +52,12 @@ Video::Video(
 	Multimedia( _name, _date, _pathname),
 	length(_length) {}
 
+//Copy constructor
+
+Video::Video(const Video& video) :
+        Multimedia(video),
+	length(video.getLength()){}
+
 //Default destructor
 
 Video::~Video (void) {
@@ -87,4 +93,10 @@ void Video::play (void) const {
     // I use mplayer to print a video/film on screen
     cout<< "Ici" <<endl;
     system(("mplayer " + this->getPathname() + " &").string::c_str());
+}
+
+//Clone the video
+
+Video * Video::clone (void) const {
+    return new Video(*this);
 }

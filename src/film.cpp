@@ -69,6 +69,19 @@ Film::Film (string _name,
     this->setLength(total_length);
 }
 
+//Copy constructor
+
+Film::Film(const Film& film) :
+        Video(film){
+    unsigned int const * * chapters = film.getChapters();
+    this->number_chapters = *chapters[1];
+    this->chapters = new unsigned int[this->number_chapters];
+    unsigned int i = 0;
+    for(i = 0; i < this->number_chapters ; i++){
+        this->chapters[i] = chapters[0][i];
+    }
+}
+
 //Destructor
 
 Film::~Film (void) {
@@ -109,4 +122,10 @@ void Film::printChapters (void) const {
     for (i = 0; i < this->number_chapters; i++) {
         cout << "Chapter " << i << " : " << chapters[i] << " seconds." << endl;
     }
+}
+
+//Clone the film
+
+Film * Film::clone (void) const {
+    return new Film(*this);
 }

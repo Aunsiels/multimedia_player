@@ -51,6 +51,12 @@ Photo::Photo(
 	Multimedia( _name, _date, _pathname),
 	place(_place) {}
 
+//Copy constructor
+
+Photo::Photo(const Photo& photo) :
+    Multimedia(photo),
+    place(photo.getPlace()) {}
+
 //Default destructor
 
 Photo::~Photo (void) {
@@ -85,4 +91,10 @@ void Photo::print (void) const {
 void Photo::play (void) const {
     // I use display to print a photo on screen
     system(("display " + this->getPathname() + " &").string::c_str());
+}
+
+//Clone the photo
+
+Photo * Photo::clone (void) const {
+    return new Photo(*this);
 }
