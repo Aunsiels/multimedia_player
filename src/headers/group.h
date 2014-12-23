@@ -56,6 +56,7 @@ class Group : public list<shared_ptr<Multimedia> > {
 private :
 
     string name; //The name of the group
+    Group (const Group&);
 
 public :
 
@@ -116,6 +117,15 @@ public :
     */
 
     virtual void print (void) const;
+
+    /*!
+    * \brief Clone the group.
+    *
+    * \return A copy of the group.
+    *
+    */
+
+    virtual Group * clone (void) const;
 
 };
 

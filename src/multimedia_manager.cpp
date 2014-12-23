@@ -52,3 +52,9 @@ shared_ptr<Multimedia> MultimediaManager::Create (const Multimedia& multimedia){
     this->multimedia_files[multimedia.getName()] = ptr_temp;
     return ptr_temp;
 }
+
+shared_ptr<Group> MultimediaManager::Create (const Group& group){
+    shared_ptr<Group> ptr_temp (group.clone());
+    this->groups[group.getName()] = ptr_temp;
+    return ptr_temp;
+}

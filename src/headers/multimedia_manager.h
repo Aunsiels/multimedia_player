@@ -88,6 +88,18 @@ public :
 
     virtual shared_ptr<Multimedia> Create (const Multimedia& multimedia);
 
+    /*!
+    * \brief Creates a group.
+    *
+    * Create a new group and add it to the manager.
+    *
+    * \param group : the group to create.
+    *
+    * \return A shared pointer to the group created.
+    */
+
+    virtual shared_ptr<Group> Create (const Group& group);
+
 };
 
 #endif

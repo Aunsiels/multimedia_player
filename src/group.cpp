@@ -50,6 +50,11 @@ Group::Group(void) : name("default") {
 Group::Group(string _name) :
         name(_name) {}
 
+//Copy constructor
+Group::Group (const Group& group) :
+        list::list(group),
+        name(group.getName()){}
+
 //Destructor
 Group::~Group(void) {
 }
@@ -74,4 +79,9 @@ void Group::print (void) const {
     for(;lit!=lend;++lit) {
         (*lit)->print();
     }
+}
+
+//Clone method
+Group * Group::clone (void) const {
+    return new Group(*this);
 }
