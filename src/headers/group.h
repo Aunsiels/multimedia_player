@@ -127,6 +127,17 @@ public :
 
     virtual Group * clone (void) const;
 
+    /*!
+    * \brief Remove a multimedia file by name.
+    *
+    * Remove all the multimedia files in the group with the given name.
+    *
+    * \param name : the name of the multimedia file to remove.
+    *
+    */
+
+    virtual void remove (string name);
+
 };
 
 #endif

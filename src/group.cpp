@@ -85,3 +85,13 @@ void Group::print (void) const {
 Group * Group::clone (void) const {
     return new Group(*this);
 }
+
+void Group::remove (string name) {
+    list<shared_ptr<Multimedia> >::iterator
+        lit(this->begin()),
+	lend(this->end());
+    for(;lit!=lend;++lit) {
+        if ((*lit)->getName() == name)
+            erase(lit);
+    }
+}

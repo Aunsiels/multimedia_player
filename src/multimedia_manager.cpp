@@ -47,14 +47,36 @@ MultimediaManager::~MultimediaManager(void) {}
 
 //Create a new Multimedia file.
 
-shared_ptr<Multimedia> MultimediaManager::Create (const Multimedia& multimedia){
+shared_ptr<Multimedia> MultimediaManager::create (const Multimedia& multimedia){
     shared_ptr<Multimedia> ptr_temp (multimedia.clone());
     this->multimedia_files[multimedia.getName()] = ptr_temp;
     return ptr_temp;
 }
 
-shared_ptr<Group> MultimediaManager::Create (const Group& group){
+//Create a new group
+
+shared_ptr<Group> MultimediaManager::create (const Group& group){
     shared_ptr<Group> ptr_temp (group.clone());
     this->groups[group.getName()] = ptr_temp;
     return ptr_temp;
+}
+
+// remove a multimedia file
+
+void MultimediaManager::remove_multimedia (string name) {
+    map<string,shared_ptr<Group> >::const_iterator
+        lit(groups.begin()),
+	lend(groups.end());
+    //For all the groups...
+    for(;lit!=lend;++lit) {
+        //I remove the groups with the given name.
+        lit->second->remove(name);
+    }
+    multimedia_files.erase(name);
+}
+
+//Remove a group
+
+void MultimediaManager::remove_group (string name) {
+    groups.erase(name);
 }

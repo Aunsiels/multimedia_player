@@ -86,7 +86,7 @@ public :
     * \return A shared pointer to the object created.
     */
 
-    virtual shared_ptr<Multimedia> Create (const Multimedia& multimedia);
+    virtual shared_ptr<Multimedia> create (const Multimedia& multimedia);
 
     /*!
     * \brief Creates a group.
@@ -98,8 +98,29 @@ public :
     * \return A shared pointer to the group created.
     */
 
-    virtual shared_ptr<Group> Create (const Group& group);
+    virtual shared_ptr<Group> create (const Group& group);
 
+    /*!
+    * \brief Remove a multimedia file.
+    *
+    * Remove a multimedia file from the manager.
+    *
+    * \param The name of the multimedia file to remove
+    *
+    */
+
+    virtual void remove_multimedia (string name);
+
+    /*!
+    * \brief Remove a group.
+    *
+    * Remove a group from the manager.
+    *
+    * \param The name of the group to remove
+    *
+    */
+
+    virtual void remove_group (string name);
 };
 
 #endif
