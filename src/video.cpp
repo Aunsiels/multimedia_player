@@ -91,7 +91,6 @@ void Video::print (void) const {
 
 void Video::play (void) const {
     // I use mplayer to print a video/film on screen
-    cout<< "Ici" <<endl;
     system(("mplayer " + this->getPathname() + " &").string::c_str());
 }
 

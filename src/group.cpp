@@ -91,7 +91,9 @@ void Group::remove (string name) {
         lit(this->begin()),
 	lend(this->end());
     for(;lit!=lend;++lit) {
-        if ((*lit)->getName() == name)
-            erase(lit);
+        if ((*lit)->getName() == name){
+            lit = erase(lit);
+	    lit--;
+	}
     }
 }

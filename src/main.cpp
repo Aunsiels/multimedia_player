@@ -30,6 +30,7 @@
 #include "headers/video.h"
 #include "headers/photo.h"
 #include <film.h>
+#include <multimedia_manager.h>
 #include <string>
 #include <time.h>
 #include <group.h>
@@ -39,7 +40,8 @@ using std::tr1::shared_ptr;
 
 int main () {
     
-    shared_ptr<Video> video (new Video("Le chat",
+    MultimediaManager manager = MultimediaManager();
+    shared_ptr<Multimedia> video = manager.create(Video("Le chat",
                             time(NULL),
 			    "/home/julien/Téléchargements/Le-Chat-et-l39aspirateur----YouTube.mp4",10));
 
@@ -48,24 +50,26 @@ int main () {
     for(i =0; i<10;i++){
         tab[i] = i;
     }
-    shared_ptr<Film> film0 (new Film("Le chat",
+    shared_ptr<Multimedia> film0 = manager.create(Film("Le chat2",
                             time(NULL),
 			    "/home/julien/Téléchargements/Le-Chat-et-l39aspirateur----YouTube.mp4",tab,10));
 
-    shared_ptr<Photo> photo ( new Photo("id",time(NULL),
+    shared_ptr<Multimedia> photo = manager.create(Photo("id",time(NULL),
                             "/home/julien/Téléchargements/id.jpg", "Paris"));
    
-    Group * group = new Group ("Test");
+    shared_ptr<Group> group = manager.create(Group ("Test"));
     group->push_back(video);
     group->push_back(film0);
     group->push_back(photo);
-    group->print();
-    Group * group1 = new Group ("Test1");
+    shared_ptr<Group> group1 = manager.create(Group ("Test1"));
     group1->push_back(video);
-    group1->print();
-    delete group;
-    delete group1;
-    video->print();
+    manager.search_group("Test");
+    manager.search_multimedia("Le chat");
+    manager.remove_multimedia("Le chat");
+    manager.search_multimedia("Le chat");
+    manager.search_group("Test");
+    manager.remove_group("Test");
+    manager.search_group("Test");
     return 0;
 
 }
