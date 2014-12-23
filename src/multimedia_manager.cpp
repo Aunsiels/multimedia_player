@@ -100,3 +100,12 @@ void MultimediaManager::search_group (string name) const {
     else
         cout << "No group found" <<endl;
 }
+
+void MultimediaManager::play (string name) const {
+    map<string,shared_ptr<Multimedia> >::const_iterator it
+        (multimedia_files.find(name));
+    if (it != multimedia_files.end())
+        it->second->play();
+    else
+        cout << "No file found" <<endl;
+}

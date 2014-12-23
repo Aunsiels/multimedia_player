@@ -143,6 +143,17 @@ public :
     */
 
     virtual void search_group (string name) const;
+
+    /*!
+    * \brief Play a multimedia file.
+    *
+    * Search by name a multimedia file and play it.
+    *
+    * \param name : The name of the file to play.
+    *
+    */
+
+    virtual void play (string name) const;
 };
 
 #endif
