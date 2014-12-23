@@ -116,11 +116,33 @@ public :
     *
     * Remove a group from the manager.
     *
-    * \param The name of the group to remove
+    * \param name : the name of the group to remove
     *
     */
 
     virtual void remove_group (string name);
+
+    /*!
+    * \brief Search a multimedia file and print it.
+    *
+    * Search a multimedia file by its name and print it.
+    *
+    * \param name : The name of the searched multimedia file.
+    *
+    */
+
+    virtual void search_multimedia (string name) const;
+
+    /*!
+    * \brief Search a group and print it.
+    *
+    * Search a group by its name and print it.
+    *
+    * \param name : The name of the searched group.
+    *
+    */
+
+    virtual void search_group (string name) const;
 };
 
 #endif

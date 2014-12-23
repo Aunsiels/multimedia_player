@@ -30,7 +30,7 @@
 #include <multimedia_manager.h>
 #include <multimedia.h>
 #include <group.h>
-
+#include <iostream>
 #include <tr1/memory>
 
 using std::tr1::shared_ptr;
@@ -79,4 +79,24 @@ void MultimediaManager::remove_multimedia (string name) {
 
 void MultimediaManager::remove_group (string name) {
     groups.erase(name);
+}
+
+//Search a multimedia file and print it on the standard output.
+
+void MultimediaManager::search_multimedia (string name) const {
+    map<string,shared_ptr<Multimedia> >::const_iterator it
+        (multimedia_files.find(name));
+    if (it != multimedia_files.end())
+        it->second->print();
+    else
+        cout << "No file found" <<endl;
+}
+
+void MultimediaManager::search_group (string name) const {
+    map<string,shared_ptr<Group> >::const_iterator it
+        (groups.find(name));
+    if (it != groups.end())
+        it->second->print();
+    else
+        cout << "No group found" <<endl;
 }
