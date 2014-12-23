@@ -37,6 +37,9 @@
 #include <string>
 #include <multimedia.h>
 #include <group.h>
+#include <photo.h>
+#include <video.h>
+#include <film.h>
 #include <tr1/memory>
 
 using std::tr1::shared_ptr;
@@ -87,6 +90,42 @@ public :
     */
 
     virtual shared_ptr<Multimedia> create (const Multimedia& multimedia);
+
+    /*!
+    * \brief Creates a video file.
+    *
+    * Add a video file in the manager.
+    *
+    * \param video : a video object.
+    *
+    * \return A shared pointer to the object created.
+    */
+
+    virtual shared_ptr<Video> create (const Video& video);
+
+    /*!
+    * \brief Creates a photo file.
+    *
+    * Add a photo file in the manager.
+    *
+    * \param photo : a photo object.
+    *
+    * \return A shared pointer to the object created.
+    */
+
+    virtual shared_ptr<Photo> create (const Photo& photo);
+
+    /*!
+    * \brief Creates a film file.
+    *
+    * Add a film file in the manager.
+    *
+    * \param film : a film object.
+    *
+    * \return A shared pointer to the object created.
+    */
+
+    virtual shared_ptr<Film> create (const Film& film);
 
     /*!
     * \brief Creates a group.

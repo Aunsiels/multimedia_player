@@ -29,6 +29,9 @@
 
 #include <multimedia_manager.h>
 #include <multimedia.h>
+#include <photo.h>
+#include <video.h>
+#include <film.h>
 #include <group.h>
 #include <iostream>
 #include <tr1/memory>
@@ -50,6 +53,30 @@ MultimediaManager::~MultimediaManager(void) {}
 shared_ptr<Multimedia> MultimediaManager::create (const Multimedia& multimedia){
     shared_ptr<Multimedia> ptr_temp (multimedia.clone());
     this->multimedia_files[multimedia.getName()] = ptr_temp;
+    return ptr_temp;
+}
+
+//Create a new Photo file.
+
+shared_ptr<Photo> MultimediaManager::create (const Photo& photo){
+    shared_ptr<Photo> ptr_temp (photo.clone());
+    this->multimedia_files[photo.getName()] = ptr_temp;
+    return ptr_temp;
+}
+
+//Create a new Video file.
+
+shared_ptr<Video> MultimediaManager::create (const Video& video){
+    shared_ptr<Video> ptr_temp (video.clone());
+    this->multimedia_files[video.getName()] = ptr_temp;
+    return ptr_temp;
+}
+
+//Create a new Film file.
+
+shared_ptr<Film> MultimediaManager::create (const Film& film){
+    shared_ptr<Film> ptr_temp (film.clone());
+    this->multimedia_files[film.getName()] = ptr_temp;
     return ptr_temp;
 }
 
