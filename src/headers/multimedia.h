@@ -47,7 +47,6 @@ using namespace std;
 class Multimedia {
 
     friend class MultimediaManager;
-    friend class Deleter;
 
 private:
     string name; //Name of the multimedia file
@@ -57,15 +56,8 @@ private:
 
 protected :
 
-    //A class to access to the delete method.
-
-    class Deleter
-    {
-    public :
-        void operator() (Multimedia * multimedia){
-	    delete multimedia;
-	}
-    };
+    class DeleterMultimedia;
+    friend class DeleterMultimedia;
 
     Multimedia (const Multimedia& other);
 

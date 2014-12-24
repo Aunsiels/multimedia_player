@@ -121,3 +121,13 @@ void Multimedia::print (void) const {
 }
 
 
+//A class to access to the delete method.
+
+class Multimedia::DeleterMultimedia
+{
+    public :
+        void operator() (Multimedia * multimedia){
+	    delete multimedia;
+        }
+};
+

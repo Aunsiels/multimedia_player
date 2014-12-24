@@ -47,7 +47,6 @@ using namespace std;
 class Film : public Video {
 
     friend class MultimediaManager;
-    friend Deleter;
 
 private :
     unsigned int * chapters;
@@ -55,14 +54,17 @@ private :
 
 protected :
 
-    //A class to access to the delete method.
+    class DeleterFilm;
+    friend class DeleterFilm;
 
-    class Deleter
+    //A class to access to the delete method.
+    
+    class DeleterFilm
     {
     public :
         void operator() (Film * film){
-	    delete film;
-	}
+            delete film;
+        }
     };
 
     Film(const Film&);

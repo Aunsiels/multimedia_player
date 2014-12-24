@@ -47,21 +47,23 @@ using namespace std;
 class Photo : public Multimedia {
 
     friend class MultimediaManager;
-    friend Deleter;
 
 private :
     string place; // The place where the photo was taken
 
 protected :
 
-    //A class to access to the delete method.
+    class DeleterPhoto;
+    friend class DeleterPhoto;
 
-    class Deleter
+    //A class to access to the delete method.
+    
+    class DeleterPhoto
     {
     public :
         void operator() (Photo * photo){
-	    delete photo;
-	}
+            delete photo;
+        }
     };
 
     Photo(const Photo&);

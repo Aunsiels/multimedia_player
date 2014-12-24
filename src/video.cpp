@@ -99,3 +99,4 @@ void Video::play (void) const {
 Video * Video::clone (void) const {
     return new Video(*this);
 }
+

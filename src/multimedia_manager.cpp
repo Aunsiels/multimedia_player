@@ -56,7 +56,7 @@ shared_ptr<Photo> MultimediaManager::create_photo
 	 string pathname,
 	 string place){
     shared_ptr<Photo> ptr_temp (new Photo(name, date, pathname, place),
-        Photo::Deleter());
+        Photo::DeleterPhoto());
     this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
@@ -64,7 +64,7 @@ shared_ptr<Photo> MultimediaManager::create_photo
 //Create a new default Photo file.
 
 shared_ptr<Photo> MultimediaManager::create_photo (void){
-    shared_ptr<Photo> ptr_temp (new Photo(), Photo::Deleter());
+    shared_ptr<Photo> ptr_temp (new Photo(), Photo::DeleterPhoto());
     this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
@@ -72,7 +72,7 @@ shared_ptr<Photo> MultimediaManager::create_photo (void){
 //Create a new default Video file.
 
 shared_ptr<Video> MultimediaManager::create_video (void){
-    shared_ptr<Video> ptr_temp (new Video(), Video::Deleter());
+    shared_ptr<Video> ptr_temp (new Video(), Video::DeleterVideo());
     this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
@@ -85,7 +85,7 @@ shared_ptr<Video> MultimediaManager::create_video
 	 string pathname,
 	 unsigned int length){
     shared_ptr<Video> ptr_temp (new Video(name,date,pathname,length),
-        Video::Deleter ());
+        Video::DeleterVideo ());
     this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
@@ -93,7 +93,7 @@ shared_ptr<Video> MultimediaManager::create_video
 //Create a new default Film file.
 
 shared_ptr<Film> MultimediaManager::create_film (void){
-    shared_ptr<Film> ptr_temp (new Film(), Film::Deleter ());
+    shared_ptr<Film> ptr_temp (new Film(), Film::DeleterFilm ());
     this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
@@ -104,7 +104,7 @@ shared_ptr<Film> MultimediaManager::create_film
           (string name,
            unsigned long date,
 	   string pathname){
-    shared_ptr<Film> ptr_temp (new Film(name,date,pathname), Film::Deleter());
+    shared_ptr<Film> ptr_temp (new Film(name,date,pathname), Film::DeleterFilm());
     this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
@@ -118,7 +118,7 @@ shared_ptr<Film> MultimediaManager::create_film
 	   unsigned int const chapters[],
 	   unsigned int number_chapters){
     shared_ptr<Film> ptr_temp (new Film(name,date,pathname, chapters,
-        number_chapters), Film::Deleter());
+        number_chapters), Film::DeleterFilm());
     this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }

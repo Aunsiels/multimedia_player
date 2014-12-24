@@ -47,21 +47,23 @@ using namespace std;
 class Video : public Multimedia {
 
     friend class MultimediaManager;
-    friend Deleter;
 
 private :
     int length; // The length of a video
 
 protected :
 
-    //A class to access to the delete method.
+    class DeleterVideo;
+    friend class DeleterVideo;
 
-    class Deleter
+    //A class to access to the delete method.
+    
+    class DeleterVideo
     {
     public :
         void operator() (Video * video){
-	    delete video;
-	}
+            delete video;
+        }
     };
 
     Video(const Video&);
