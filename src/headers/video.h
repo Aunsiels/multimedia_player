@@ -46,14 +46,25 @@ using namespace std;
 
 class Video : public Multimedia {
 
+    friend class MultimediaManager;
+    friend Deleter;
+
 private :
     int length; // The length of a video
 
 protected :
 
-    Video(const Video&);
+    //A class to access to the delete method.
 
-public:
+    class Deleter
+    {
+    public :
+        void operator() (Video * video){
+	    delete video;
+	}
+    };
+
+    Video(const Video&);
 
     /*!
     * \brief Default Constructor
@@ -86,6 +97,17 @@ public:
     */
 
     virtual ~Video(void);
+
+    /*!
+    *
+    * \brief Clone the video.
+    *
+    * \return Return a copy of the given video.
+    */
+
+    virtual Video * clone (void) const;
+
+public:
 
     /*!
     * \brief Length getter.
@@ -125,15 +147,6 @@ public:
     */
 
     virtual void play (void) const;
-
-    /*!
-    *
-    * \brief Clone the video.
-    *
-    * \return Return a copy of the given video.
-    */
-
-    virtual Video * clone (void) const;
 };
 
 #endif

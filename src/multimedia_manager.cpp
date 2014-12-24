@@ -48,35 +48,78 @@ MultimediaManager::MultimediaManager(void) {}
 
 MultimediaManager::~MultimediaManager(void) {}
 
-//Create a new Multimedia file.
+//Create a new Photo file.
 
-shared_ptr<Multimedia> MultimediaManager::create (const Multimedia& multimedia){
-    shared_ptr<Multimedia> ptr_temp (multimedia.clone());
-    this->multimedia_files[multimedia.getName()] = ptr_temp;
+shared_ptr<Photo> MultimediaManager::create_photo
+        (string name,
+	 unsigned long date,
+	 string pathname,
+	 string place){
+    shared_ptr<Photo> ptr_temp (new Photo(name, date, pathname, place),
+        Photo::Deleter());
+    this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
 
-//Create a new Photo file.
+//Create a new default Photo file.
 
-shared_ptr<Photo> MultimediaManager::create (const Photo& photo){
-    shared_ptr<Photo> ptr_temp (photo.clone());
-    this->multimedia_files[photo.getName()] = ptr_temp;
+shared_ptr<Photo> MultimediaManager::create_photo (void){
+    shared_ptr<Photo> ptr_temp (new Photo(), Photo::Deleter());
+    this->multimedia_files[ptr_temp->getName()] = ptr_temp;
+    return ptr_temp;
+}
+
+//Create a new default Video file.
+
+shared_ptr<Video> MultimediaManager::create_video (void){
+    shared_ptr<Video> ptr_temp (new Video(), Video::Deleter());
+    this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
 
 //Create a new Video file.
 
-shared_ptr<Video> MultimediaManager::create (const Video& video){
-    shared_ptr<Video> ptr_temp (video.clone());
-    this->multimedia_files[video.getName()] = ptr_temp;
+shared_ptr<Video> MultimediaManager::create_video 
+        (string name,
+	 unsigned long date,
+	 string pathname,
+	 unsigned int length){
+    shared_ptr<Video> ptr_temp (new Video(name,date,pathname,length),
+        Video::Deleter ());
+    this->multimedia_files[ptr_temp->getName()] = ptr_temp;
+    return ptr_temp;
+}
+
+//Create a new default Film file.
+
+shared_ptr<Film> MultimediaManager::create_film (void){
+    shared_ptr<Film> ptr_temp (new Film(), Film::Deleter ());
+    this->multimedia_files[ptr_temp->getName()] = ptr_temp;
+    return ptr_temp;
+}
+
+//Create a new Film file with no chapter.
+
+shared_ptr<Film> MultimediaManager::create_film
+          (string name,
+           unsigned long date,
+	   string pathname){
+    shared_ptr<Film> ptr_temp (new Film(name,date,pathname), Film::Deleter());
+    this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
 
 //Create a new Film file.
 
-shared_ptr<Film> MultimediaManager::create (const Film& film){
-    shared_ptr<Film> ptr_temp (film.clone());
-    this->multimedia_files[film.getName()] = ptr_temp;
+shared_ptr<Film> MultimediaManager::create_film
+          (string name,
+           unsigned long date,
+	   string pathname,
+	   unsigned int const chapters[],
+	   unsigned int number_chapters){
+    shared_ptr<Film> ptr_temp (new Film(name,date,pathname, chapters,
+        number_chapters), Film::Deleter());
+    this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
 

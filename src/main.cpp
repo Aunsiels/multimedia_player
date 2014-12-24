@@ -41,21 +41,21 @@ using std::tr1::shared_ptr;
 int main () {
     
     MultimediaManager manager = MultimediaManager();
-    shared_ptr<Video> video = manager.create(Video("Le chat",
+    shared_ptr<Video> video = manager.create_video("Le chat",
                             time(NULL),
-			    "/home/julien/Téléchargements/Le-Chat-et-l39aspirateur----YouTube.mp4",10));
+			    "/home/julien/Téléchargements/Le-Chat-et-l39aspirateur----YouTube.mp4",10);
 
     unsigned int i;
     unsigned int tab[10];
     for(i =0; i<10;i++){
         tab[i] = i;
     }
-    shared_ptr<Film> film0 = manager.create(Film("Le chat2",
+    shared_ptr<Film> film0 = manager.create_film("Le chat2",
                             time(NULL),
-			    "/home/julien/Téléchargements/Le-Chat-et-l39aspirateur----YouTube.mp4",tab,10));
+			    "/home/julien/Téléchargements/Le-Chat-et-l39aspirateur----YouTube.mp4",tab,10);
 
-    shared_ptr<Photo> photo = manager.create(Photo("id",time(NULL),
-                            "/home/julien/Téléchargements/id.jpg", "Paris"));
+    shared_ptr<Photo> photo = manager.create_photo("id",time(NULL),
+                            "/home/julien/Téléchargements/id.jpg", "Paris");
    
     shared_ptr<Group> group = manager.create(Group ("Test"));
     group->push_back(video);

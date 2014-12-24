@@ -80,52 +80,110 @@ public :
     virtual ~MultimediaManager(void);
 
     /*!
-    * \brief Creates a multimedia file.
+    * \brief Creates a default photo.
     *
-    * Add a multimedia file in the manager.
-    *
-    * \param multimedia : a multimedia object.
+    * Add a default photo to the manager.
     *
     * \return A shared pointer to the object created.
     */
 
-    virtual shared_ptr<Multimedia> create (const Multimedia& multimedia);
-
-    /*!
-    * \brief Creates a video file.
-    *
-    * Add a video file in the manager.
-    *
-    * \param video : a video object.
-    *
-    * \return A shared pointer to the object created.
-    */
-
-    virtual shared_ptr<Video> create (const Video& video);
+    virtual shared_ptr<Photo> create_photo (void);
 
     /*!
     * \brief Creates a photo file.
     *
     * Add a photo file in the manager.
     *
-    * \param photo : a photo object.
+    * \param name : The name of the photo.
+    * \param date : The date of the creation of the object, in seconds
+    * \param pathname : The path to the file.
+    * \param place : The place where the photo was taken
     *
     * \return A shared pointer to the object created.
     */
 
-    virtual shared_ptr<Photo> create (const Photo& photo);
+    virtual shared_ptr<Photo> create_photo
+        (string name,
+	 unsigned long date,
+	 string pathname,
+	 string place);
 
     /*!
-    * \brief Creates a film file.
+    * \brief Creates a default video.
+    *
+    * Add a video file in the manager.
+    *
+    * \return A shared pointer to the object created.
+    */
+
+    virtual shared_ptr<Video> create_video (void);
+
+    /*!
+    * \brief Creates a video.
+    *
+    * Add a video file in the manager.
+    *
+    * \param name : The name of the video
+    * \param date : The date when the file was created
+    * \param pathname : The path to the video.
+    * \param length : The length of the video.
+    *
+    * \return A shared pointer to the object created.
+    */
+
+    virtual shared_ptr<Video> create_video
+        (string name,
+	 unsigned long date,
+	 string pathname,
+	 unsigned int length);
+
+    /*!
+    * \brief Creates a default film.
     *
     * Add a film file in the manager.
     *
-    * \param film : a film object.
+    * \return A shared pointer to the object created.
+    */
+
+    virtual shared_ptr<Film> create_film (void);
+
+    /*!
+    * \brief Creates a film with no chapter.
+    *
+    * Add a film file in the manager.
+    *
+    * \param name : Name of the film.
+    * \param date : The date when the file was created.
+    * \param pathname : The path to the file.
     *
     * \return A shared pointer to the object created.
     */
 
-    virtual shared_ptr<Film> create (const Film& film);
+    virtual shared_ptr<Film> create_film 
+          (string name,
+           unsigned long date,
+	   string pathname);
+
+    /*!
+    * \brief Creates a film.
+    *
+    * Add a film file in the manager.
+    *
+    * \param name : Name of the film.
+    * \param date : The date when the file was created.
+    * \param pathname : The path to the file.
+    * \param chapters : The array the the length of the chapters.
+    * \param number_chapters : The number of chapter in the film.
+    *
+    * \return A shared pointer to the object created.
+    */
+
+    virtual shared_ptr<Film> create_film 
+          (string name,
+           unsigned long date,
+	   string pathname,
+	   unsigned int const chapters[],
+	   unsigned int number_chapters);
 
     /*!
     * \brief Creates a group.

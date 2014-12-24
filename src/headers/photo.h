@@ -46,14 +46,25 @@ using namespace std;
 
 class Photo : public Multimedia {
 
+    friend class MultimediaManager;
+    friend Deleter;
+
 private :
     string place; // The place where the photo was taken
 
 protected :
 
-    Photo(const Photo&);
+    //A class to access to the delete method.
 
-public:
+    class Deleter
+    {
+    public :
+        void operator() (Photo * photo){
+	    delete photo;
+	}
+    };
+
+    Photo(const Photo&);
 
     /*!
     * \brief Default Constructor
@@ -86,6 +97,17 @@ public:
     */
 
     virtual ~Photo(void);
+
+    /*!
+    *
+    * \brief Clone the photo.
+    *
+    * \return Return a copy of the given photo.
+    */
+
+    virtual Photo * clone (void) const;
+
+public:
 
     /*!
     * \brief Place getter.
@@ -125,15 +147,6 @@ public:
     */
 
     virtual void play (void) const;
-
-    /*!
-    *
-    * \brief Clone the photo.
-    *
-    * \return Return a copy of the given photo.
-    */
-
-    virtual Photo * clone (void) const;
 };
 
 #endif

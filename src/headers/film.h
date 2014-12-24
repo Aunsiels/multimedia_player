@@ -46,15 +46,26 @@ using namespace std;
 
 class Film : public Video {
 
+    friend class MultimediaManager;
+    friend Deleter;
+
 private :
     unsigned int * chapters;
     unsigned int number_chapters;
 
 protected :
 
-    Film(const Film&);
+    //A class to access to the delete method.
 
-public :
+    class Deleter
+    {
+    public :
+        void operator() (Film * film){
+	    delete film;
+	}
+    };
+
+    Film(const Film&);
 
     /*!
     * \brief Default Constructor
@@ -107,6 +118,17 @@ public :
     ~Film (void);
 
     /*!
+    *
+    * \brief Clone the film.
+    *
+    * \return Return a copy of the given film.
+    */
+
+    virtual Film * clone (void) const;
+
+public :
+
+    /*!
     * \brief Chapters getter.
     *
     * Get the tab of the chapters.
@@ -139,15 +161,6 @@ public :
     */
 
     virtual void printChapters (void) const; 
-
-    /*!
-    *
-    * \brief Clone the film.
-    *
-    * \return Return a copy of the given film.
-    */
-
-    virtual Film * clone (void) const;
 
 };
 

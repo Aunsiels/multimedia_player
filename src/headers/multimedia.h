@@ -46,6 +46,9 @@ using namespace std;
 
 class Multimedia {
 
+    friend class MultimediaManager;
+    friend class Deleter;
+
 private:
     string name; //Name of the multimedia file
     unsigned long date; //Date of getting of the object
@@ -54,9 +57,17 @@ private:
 
 protected :
 
-    Multimedia (const Multimedia& other);
+    //A class to access to the delete method.
 
-public:
+    class Deleter
+    {
+    public :
+        void operator() (Multimedia * multimedia){
+	    delete multimedia;
+	}
+    };
+
+    Multimedia (const Multimedia& other);
 
     /*!
     * \brief Default Constructor
@@ -88,7 +99,18 @@ public:
     */
 
     virtual ~Multimedia(void);
+
+    /*!
+    *
+    * \brief Clone the multimedia object.
+    *
+    * \return Return a copy of the given multimedia object.
+    */
+
+    virtual Multimedia * clone (void) const = 0;
     
+public:
+
     /*!
     * \brief Name getter
     *
@@ -170,15 +192,6 @@ public:
     */
 
     virtual void play (void) const = 0;
-
-    /*!
-    *
-    * \brief Clone the multimedia object.
-    *
-    * \return Return a copy of the given multimedia object.
-    */
-
-    virtual Multimedia * clone (void) const = 0;
 
 };
 
