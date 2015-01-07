@@ -1,20 +1,14 @@
+#
+#  Makefile du client
 #  Eric Lecolinet - Reda Dehak - Telecom ParisTech 2013
 #  INF224 - TP C++ - http://www.telecom-paristech.fr/~elc/inf224
 # 
 
-# Bin files
-BIN =./bin/
-
-PROGNAME = main 
-
 # Nom du programme
-PROG=$(BIN)$(PROGNAME)
-
+PROG=client
 
 # Fichiers sources (NE PAS METTRE les .h mais seulement les .cpp)
-SOURCES=src/main.cpp src/multimedia.cpp src/video.cpp src/photo.cpp\
-src/film.cpp src/group.cpp src/multimedia_manager.cpp src/Server/Server.cpp\
-src/Server/TCPServer.cpp
+SOURCES=Socket.cpp client.cpp
 
 # Fichiers objets (ne pas modifier, sauf si l'extension n'est pas .cpp)
 OBJETS=${SOURCES:%.cpp=%.o}
@@ -27,15 +21,15 @@ CCC= ${CXX}
 # Options du compilateur C++
 # -g pour debugger, -O optimise, -Wall affiche les erreurs, -I pour les headers
 # Exemple pour Qt: CXXFLAGS= -g -Wall -I/usr/local/qt/include
-CXXFLAGS= -g -Wall -Werror -I src/headers
+CXXFLAGS= -g -Wall -I ../headers
 CCFLAGS= ${CXXFLAGS}
 
 # Options de l'editeur de liens
-LDFLAGS= 
+LDFLAGS= -lpthread
 
 # Librairies a utiliser
 # Exemple pour Qt: LDLIBS = -L/usr/local/qt/lib -lqt
-LDLIBS= -lpthread
+LDLIBS= 
 
 
 ##########################################
@@ -45,24 +39,20 @@ LDLIBS= -lpthread
 
 all: ${PROG}
 
-${PROG}: depend-${PROGNAME} ${OBJETS}
-	@mkdir -p $(BIN)
+${PROG}: depend-${PROG} ${OBJETS}
 	${CXX} -o $@ ${LDFLAGS} ${OBJETS} ${LDLIBS}
 
 clean:
-	-@$(RM) depend-${PROG} core 1>/dev/null 2>&1
-	-@rm -rf ${BIN}
-	-@rm $(OBJETS)
+	-@$(RM) *.o depend-${PROG} core 1>/dev/null 2>&1
 
 clean-all: clean
-	-@$(RM) ${PROG} 1>/dev/null 2>&1
-
+	-@$(RM) myprog 1>/dev/null 2>&1
+  
 # Gestion des dependances : creation automatique des dependances en utilisant 
 # l'option -MM de gcc (attention certains compilos n'ont pas cette option)
 
-depend-${PROGNAME}:
-	@mkdir -p bin
-	${CXX} -MM ${SOURCES} > $(BIN)depend-${PROGNAME}
+depend-${PROG}:
+	${CXX} -MM ${SOURCES} > depend-${PROG}
 
 ###########################################
 
@@ -89,5 +79,4 @@ depend-${PROGNAME}:
 #############################################
 
 # Inclusion du fichier des dependances
--include $(BIN)depend-${PROG}
-
+-include depend-${PROG}

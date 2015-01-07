@@ -39,7 +39,12 @@
 using std::tr1::shared_ptr;
 
 int main () {
-    
+
+    //Create server
+    TCPServer * server = new TCPServer();
+    //Begin to listen
+    server.run(3331);
+
     MultimediaManager manager = MultimediaManager();
     shared_ptr<Video> video = manager.create_video("Le chat",
                             time(NULL),
