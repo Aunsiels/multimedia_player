@@ -81,10 +81,10 @@ void Photo::setPlace (string newPlace) {
 
 //Print the video description
 
-void Photo::print (void) const {
+string Photo::print (void) const {
 
     Multimedia::print ();
-    cout << "Place    : " << this->place <<endl;
+    return "Place    : " + this->place + '\r';
 
 }
 

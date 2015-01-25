@@ -35,6 +35,7 @@
 #include <time.h>
 #include <group.h>
 #include <tr1/memory>
+#include <TCPServer.h>
 
 using std::tr1::shared_ptr;
 
@@ -43,39 +44,7 @@ int main () {
     //Create server
     TCPServer * server = new TCPServer();
     //Begin to listen
-    server.run(3331);
-
-    MultimediaManager manager = MultimediaManager();
-    shared_ptr<Video> video = manager.create_video("Le chat",
-                            time(NULL),
-			    "/home/julien/Téléchargements/Le-Chat-et-l39aspirateur----YouTube.mp4",10);
-
-    unsigned int i;
-    unsigned int tab[10];
-    for(i =0; i<10;i++){
-        tab[i] = i;
-    }
-    shared_ptr<Film> film0 = manager.create_film("Le chat2",
-                            time(NULL),
-			    "/home/julien/Téléchargements/Le-Chat-et-l39aspirateur----YouTube.mp4",tab,10);
-
-    shared_ptr<Photo> photo = manager.create_photo("id",time(NULL),
-                            "/home/julien/Téléchargements/id.jpg", "Paris");
-   
-    shared_ptr<Group> group = manager.create(Group ("Test"));
-    group->push_back(video);
-    group->push_back(film0);
-    group->push_back(photo);
-    shared_ptr<Group> group1 = manager.create(Group ("Test1"));
-    group1->push_back(video);
-    manager.search_group("Test");
-    manager.search_multimedia("Le chat");
-    manager.remove_multimedia("Le chat");
-    manager.search_multimedia("Le chat");
-    manager.search_group("Test");
-    manager.remove_group("Test");
-    manager.search_group("Test");
-    video->getLength();
+    server->run(3331);
+    while(1);
     return 0;
-
 }

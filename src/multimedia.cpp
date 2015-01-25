@@ -112,11 +112,11 @@ void Multimedia::setPathname (string newPathname){
 
 //Print description
 
-void Multimedia::print (void) const {
+string Multimedia::print (void) const {
 
-    cout << "Name     : " << this->name     << endl
-         << "Date     : " << this->date     << endl
-	 << "Pathname : " << this->pathname << endl;
+    return "Name     : " + this->name +
+           "\rDate     : " + to_string(this->date) +
+	   "\rPathname : " + this->pathname +"\r";
 
 }
 

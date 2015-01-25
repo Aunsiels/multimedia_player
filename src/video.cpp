@@ -82,10 +82,10 @@ void Video::setLength (unsigned int newLength) {
 
 //Print the video description
 
-void Video::print (void) const {
+string Video::print (void) const {
 
     Multimedia::print ();
-    cout << "Length   : " << this->length <<endl;
+    return "Length   : " + this->length + '\r';
 
 }
 

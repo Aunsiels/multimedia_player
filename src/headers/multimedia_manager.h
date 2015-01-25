@@ -35,14 +35,12 @@
 
 #include <map>
 #include <string>
-#include <multimedia.h>
-#include <group.h>
-#include <photo.h>
-#include <video.h>
-#include <film.h>
+#include "multimedia.h"
+#include "group.h"
+#include "photo.h"
+#include "video.h"
+#include "film.h"
 #include <tr1/memory>
-
-using std::tr1::shared_ptr;
 
 using namespace std;
 
@@ -103,10 +101,10 @@ public :
     */
 
     virtual shared_ptr<Photo> create_photo
-        (string name,
+        (const string & name,
 	 unsigned long date,
-	 string pathname,
-	 string place);
+	 const string & pathname,
+	 const string & place);
 
     /*!
     * \brief Creates a default video.
@@ -132,9 +130,9 @@ public :
     */
 
     virtual shared_ptr<Video> create_video
-        (string name,
+        (const string & name,
 	 unsigned long date,
-	 string pathname,
+	 const string & pathname,
 	 unsigned int length);
 
     /*!
@@ -160,9 +158,9 @@ public :
     */
 
     virtual shared_ptr<Film> create_film 
-          (string name,
+          (const string & name,
            unsigned long date,
-	   string pathname);
+	   const string & pathname);
 
     /*!
     * \brief Creates a film.
@@ -179,9 +177,9 @@ public :
     */
 
     virtual shared_ptr<Film> create_film 
-          (string name,
+          (const string & name,
            unsigned long date,
-	   string pathname,
+	   const string & pathname,
 	   unsigned int const chapters[],
 	   unsigned int number_chapters);
 
@@ -198,6 +196,28 @@ public :
     virtual shared_ptr<Group> create (const Group& group);
 
     /*!
+    * \brief Creates a default group.
+    *
+    * Create a new group and add it to the manager.
+    *
+    * \return A shared pointer to the group created.
+    */
+
+    virtual shared_ptr<Group> create_group ();
+
+    /*!
+    * \brief Creates a group.
+    *
+    * Create a new group and add it to the manager.
+    *
+    * \param group : the name of the group to create.
+    *
+    * \return A shared pointer to the group created.
+    */
+
+    virtual shared_ptr<Group> create_group (const string&);
+
+    /*!
     * \brief Remove a multimedia file.
     *
     * Remove a multimedia file from the manager.
@@ -206,7 +226,7 @@ public :
     *
     */
 
-    virtual void remove_multimedia (string name);
+    virtual void remove_multimedia (const string & name);
 
     /*!
     * \brief Remove a group.
@@ -217,7 +237,7 @@ public :
     *
     */
 
-    virtual void remove_group (string name);
+    virtual void remove_group (const string & name);
 
     /*!
     * \brief Search a multimedia file and print it.
@@ -228,7 +248,7 @@ public :
     *
     */
 
-    virtual void search_multimedia (string name) const;
+    virtual string search_multimedia (const string & name) const;
 
     /*!
     * \brief Search a group and print it.
@@ -239,7 +259,7 @@ public :
     *
     */
 
-    virtual void search_group (string name) const;
+    virtual string search_group (const string & name) const;
 
     /*!
     * \brief Play a multimedia file.
@@ -250,7 +270,7 @@ public :
     *
     */
 
-    virtual void play (string name) const;
+    virtual void play (const string & name) const;
 };
 
 #endif

@@ -13,7 +13,7 @@ PROG=$(BIN)$(PROGNAME)
 
 # Fichiers sources (NE PAS METTRE les .h mais seulement les .cpp)
 SOURCES=src/main.cpp src/multimedia.cpp src/video.cpp src/photo.cpp\
-src/film.cpp src/group.cpp src/multimedia_manager.cpp src/Server/Server.cpp\
+src/film.cpp src/group.cpp src/multimedia_manager.cpp src/Server/Socket.cpp\
 src/Server/TCPServer.cpp
 
 # Fichiers objets (ne pas modifier, sauf si l'extension n'est pas .cpp)
@@ -27,7 +27,7 @@ CCC= ${CXX}
 # Options du compilateur C++
 # -g pour debugger, -O optimise, -Wall affiche les erreurs, -I pour les headers
 # Exemple pour Qt: CXXFLAGS= -g -Wall -I/usr/local/qt/include
-CXXFLAGS= -g -Wall -Werror -I src/headers
+CXXFLAGS= -g -Wall -Werror -I src/headers -std=c++11
 CCFLAGS= ${CXXFLAGS}
 
 # Options de l'editeur de liens
@@ -35,7 +35,7 @@ LDFLAGS=
 
 # Librairies a utiliser
 # Exemple pour Qt: LDLIBS = -L/usr/local/qt/lib -lqt
-LDLIBS= -lpthread
+LDLIBS= -lpthread -lboost_serialization
 
 
 ##########################################

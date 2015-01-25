@@ -36,8 +36,6 @@
 #include <iostream>
 #include <tr1/memory>
 
-using std::tr1::shared_ptr;
-
 using namespace std;
 
 //Constructor
@@ -51,10 +49,10 @@ MultimediaManager::~MultimediaManager(void) {}
 //Create a new Photo file.
 
 shared_ptr<Photo> MultimediaManager::create_photo
-        (string name,
+        (const string & name,
 	 unsigned long date,
-	 string pathname,
-	 string place){
+	 const string & pathname,
+	 const string & place){
     shared_ptr<Photo> ptr_temp (new Photo(name, date, pathname, place),
         Photo::DeleterPhoto());
     this->multimedia_files[ptr_temp->getName()] = ptr_temp;
@@ -80,9 +78,9 @@ shared_ptr<Video> MultimediaManager::create_video (void){
 //Create a new Video file.
 
 shared_ptr<Video> MultimediaManager::create_video 
-        (string name,
+        (const string & name,
 	 unsigned long date,
-	 string pathname,
+	 const string & pathname,
 	 unsigned int length){
     shared_ptr<Video> ptr_temp (new Video(name,date,pathname,length),
         Video::DeleterVideo ());
@@ -101,9 +99,9 @@ shared_ptr<Film> MultimediaManager::create_film (void){
 //Create a new Film file with no chapter.
 
 shared_ptr<Film> MultimediaManager::create_film
-          (string name,
+          (const string & name,
            unsigned long date,
-	   string pathname){
+	   const string & pathname){
     shared_ptr<Film> ptr_temp (new Film(name,date,pathname), Film::DeleterFilm());
     this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
@@ -112,9 +110,9 @@ shared_ptr<Film> MultimediaManager::create_film
 //Create a new Film file.
 
 shared_ptr<Film> MultimediaManager::create_film
-          (string name,
+          (const string & name,
            unsigned long date,
-	   string pathname,
+	   const string & pathname,
 	   unsigned int const chapters[],
 	   unsigned int number_chapters){
     shared_ptr<Film> ptr_temp (new Film(name,date,pathname, chapters,
@@ -131,9 +129,25 @@ shared_ptr<Group> MultimediaManager::create (const Group& group){
     return ptr_temp;
 }
 
+//Create a group
+
+shared_ptr<Group> MultimediaManager::create_group (){
+    shared_ptr<Group> ptr_temp (new Group());
+    this->groups[ptr_temp->getName()] = ptr_temp;
+    return ptr_temp;
+}
+
+//Create a group
+
+shared_ptr<Group> MultimediaManager::create_group (const string& name){
+    shared_ptr<Group> ptr_temp (new Group(name));
+    this->groups[name] = ptr_temp;
+    return ptr_temp;
+}
+
 // remove a multimedia file
 
-void MultimediaManager::remove_multimedia (string name) {
+void MultimediaManager::remove_multimedia (const string & name) {
     map<string,shared_ptr<Group> >::const_iterator
         lit(groups.begin()),
 	lend(groups.end());
@@ -147,31 +161,31 @@ void MultimediaManager::remove_multimedia (string name) {
 
 //Remove a group
 
-void MultimediaManager::remove_group (string name) {
+void MultimediaManager::remove_group (const string & name) {
     groups.erase(name);
 }
 
 //Search a multimedia file and print it on the standard output.
 
-void MultimediaManager::search_multimedia (string name) const {
+string MultimediaManager::search_multimedia (const string & name) const {
     map<string,shared_ptr<Multimedia> >::const_iterator it
         (multimedia_files.find(name));
     if (it != multimedia_files.end())
-        it->second->print();
+        return it->second->print();
     else
-        cout << "No file found" <<endl;
+        return "No file found\r";
 }
 
-void MultimediaManager::search_group (string name) const {
+string MultimediaManager::search_group (const string & name) const {
     map<string,shared_ptr<Group> >::const_iterator it
         (groups.find(name));
     if (it != groups.end())
-        it->second->print();
+        return it->second->print();
     else
-        cout << "No group found" <<endl;
+        return "No group found\r";
 }
 
-void MultimediaManager::play (string name) const {
+void MultimediaManager::play (const string & name) const {
     map<string,shared_ptr<Multimedia> >::const_iterator it
         (multimedia_files.find(name));
     if (it != multimedia_files.end())

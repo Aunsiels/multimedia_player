@@ -37,8 +37,6 @@
 #include <intrusive_ptr.h>
 #include <tr1/memory>
 
-using std::tr1::shared_ptr;
-
 using namespace std;
 
 //Default constructor
@@ -70,15 +68,16 @@ void Group::setName(string newName) {
 }
  
 //Print the elements of the group
-void Group::print (void) const {
-    cout << "Group " << this->name << " :" << endl;
+string Group::print (void) const {
+    string result = "Group " + this->name + " :" + '\r';
     //I just visit all the elements and use their print method.
     list<shared_ptr<Multimedia> >::const_iterator
         lit(this->begin()),
 	lend(this->end());
     for(;lit!=lend;++lit) {
-        (*lit)->print();
+        result += (*lit)->print();
     }
+    return result;
 }
 
 //Clone method

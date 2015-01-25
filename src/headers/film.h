@@ -33,7 +33,7 @@
 #ifndef FILM_H
 #define FILM_H
 
-#include <video.h>
+#include "video.h"
 
 using namespace std;
 
@@ -159,10 +159,11 @@ public :
     * \brief Print chapters.
     *
     * Print the chapters of a film.
+    * \return Return a string which contains the chapters list. 
     *
     */
 
-    virtual void printChapters (void) const; 
+    virtual string printChapters (void) const; 
 
 };
 

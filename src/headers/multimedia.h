@@ -172,10 +172,11 @@ public:
     * \brief Print description
     *
     * Print the description of the file to the standard output
+    * \return Return a string which contains the file description. 
     *
     */
 
-    virtual void print (void) const;
+    virtual string print (void) const;
 
     /*!
     *

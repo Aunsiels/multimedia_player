@@ -34,11 +34,9 @@
 #define GROUP_H
 
 #include <list>
-#include <multimedia.h>
+#include "multimedia.h"
 #include <string>
 #include <tr1/memory>
-
-using std::tr1::shared_ptr;
 
 using namespace std;
 
@@ -51,7 +49,7 @@ using namespace std;
 *
 */
 
-class Group : public list<shared_ptr<Multimedia> > {
+class Group : public list<shared_ptr<Multimedia>> {
 
 private :
 
@@ -116,7 +114,7 @@ public :
     *
     */
 
-    virtual void print (void) const;
+    virtual string print (void) const;
 
     /*!
     * \brief Clone the group.

@@ -34,7 +34,7 @@
 #define VIDEO_H
 
 #include <string>
-#include <multimedia.h>
+#include "multimedia.h"
 
 using namespace std;
 
@@ -137,10 +137,11 @@ public:
     * \brief Print description.
     *
     * Print the description of a video to the standard output.
+    * \return Return a string which contains the file description. 
     *
     */
 
-    virtual void print (void) const;
+    virtual string print (void) const;
 
     /*!
     *

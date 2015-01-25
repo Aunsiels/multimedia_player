@@ -32,6 +32,7 @@
 #include <iostream>
 #include <video.h>
 #include <stdlib.h>
+#include <sstream>
 
 // Default constructor
 
@@ -117,11 +118,13 @@ void Film::setChapters (unsigned int const _chapters[], unsigned int _number_cha
 
 //Print chapters
 
-void Film::printChapters (void) const {
+string Film::printChapters (void) const {
     unsigned int i = 0;
+    stringstream ss;
     for (i = 0; i < this->number_chapters; i++) {
-        cout << "Chapter " << i << " : " << chapters[i] << " seconds." << endl;
+        ss << "Chapter " << i << " : " << chapters[i] << " seconds.\r";
     }
+    return ss.str();
 }
 
 //Clone the film
