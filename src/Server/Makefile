@@ -21,15 +21,15 @@ CCC= ${CXX}
 # Options du compilateur C++
 # -g pour debugger, -O optimise, -Wall affiche les erreurs, -I pour les headers
 # Exemple pour Qt: CXXFLAGS= -g -Wall -I/usr/local/qt/include
-CXXFLAGS= -g -Wall -I ../headers
+CXXFLAGS= -g -Wall -I ../headers -std=c++11
 CCFLAGS= ${CXXFLAGS}
 
 # Options de l'editeur de liens
-LDFLAGS= -lpthread
+LDFLAGS= 
 
 # Librairies a utiliser
 # Exemple pour Qt: LDLIBS = -L/usr/local/qt/lib -lqt
-LDLIBS= 
+LDLIBS= -lpthread -lboost_serialization
 
 
 ##########################################

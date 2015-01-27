@@ -326,7 +326,6 @@ ssize_t SocketBuffer::write(const void* buffer, size_t buffer_size) {
     else p += sent;
   }
   while (sent > 0 && p < end);
-  
   return p - (const char*)buffer;
 }
 
@@ -334,7 +333,7 @@ ssize_t SocketBuffer::write(const void* buffer, size_t buffer_size) {
 ssize_t SocketBuffer::writeLine(const char* str, size_t num) {
   char buffer[num];
   ::memcpy(buffer, str, num-1);
-  buffer[num-1] = '\n';              // add delimiter (instead of final 0)
+  buffer[num-1] = '|';              // add delimiter (instead of final 0)
   return write(buffer, num);
 }
 
@@ -343,7 +342,7 @@ ssize_t SocketBuffer::writeLine(const string& str) {
   size_t len = str.length();
   char buffer[len+1];
   ::memcpy(buffer, str.c_str(), len);
-  buffer[len] = '\n';                  // add delimiter (instead of final 0)
+  buffer[len] = '|';                  // add delimiter (instead of final 0)
   return write(buffer, len+1);
 }
 
@@ -390,10 +389,13 @@ ssize_t SocketBuffer::readLine(char* str, size_t num, bool& truncated) {
     
     // chercher le delimiteur
     char* pdelim = pcurrent;
-    while (pdelim < pcurrent+received && *pdelim != '\n' && *pdelim != '\r')
+    while (pdelim < pcurrent+received && *pdelim != '|'){
+      //cout << "In while" << endl;
       ++pdelim;
+    }
     
-    if (*pdelim == '\n' || *pdelim == '\r') {
+    if (*pdelim == '|') {
+      //cout << "| found" << endl;
       *pdelim = '\0';   // delimiteur trouvé => le remplacer par nul terminator
       // sauver ce qui suit pour appel suivant de la fonction
       saveRemaining(pdelim+1, received-(pdelim-str+1), remaining, remaining_size);
@@ -434,7 +436,12 @@ ssize_t SocketBuffer::readLine(string& str) {
     recv = readLine(buffer, sizeof(buffer), truncated);
     //cout << "readLine: received: " << recv << endl;
     if (recv < 0) return recv;
-    else if (recv > 0) {str += buffer; total_recv += recv;}
+    else if (recv > 0) {
+        ssize_t i;
+	for (i=0; i<recv; ++i)
+            str += buffer[i];
+	total_recv += recv;
+    }
   }
   while (truncated && recv > 0);
   return total_recv;

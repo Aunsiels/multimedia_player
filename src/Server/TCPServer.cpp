@@ -169,15 +169,22 @@ bool TCPServer::processMessage(const std::string& message, std::string& response
   // par defaut on suppose que oui
   bool change_data = true;
 
-
   //String stream
   std::stringstream ss;
   ss << message;
-  std::string function_name;
-  ss >> function_name;
+  //arguments first
   std::map<string, std::string> args;
   boost::archive::binary_iarchive iarch(ss);
   iarch >> args;
+  std::string function_name;
+  std::map<string, string>::const_iterator function_it =
+      args.find("function_name");
+
+  if (function_it == args.end()) {
+      function_name = "";
+  } else {
+      function_name = function_it->second;
+  }
 
   // suivant le cas, bloquer le verrou en mode WRITE ou en mode READ
   if (change_data)
@@ -189,9 +196,9 @@ bool TCPServer::processMessage(const std::string& message, std::string& response
   // executer la commande et calculer la reponse
 
   std::map<string, FunctionManager>::iterator it = 
-       functions.find("function_name");
+       functions.find(function_name);
   if (it != functions.end()){
-  FunctionManager ptr = it->second;
+    FunctionManager ptr = it->second;
     response = (this->*ptr)(args);
   }else {
     response = "Unknown function";

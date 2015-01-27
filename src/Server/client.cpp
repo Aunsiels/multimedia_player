@@ -7,6 +7,13 @@
 #include <cstring>
 #include <cstdlib>
 #include "Socket.h"
+#include <sstream>
+#include <map>
+
+#include <boost/serialization/serialization.hpp>                                            
+#include <boost/serialization/map.hpp>
+#include <boost/archive/binary_oarchive.hpp>
+
 using namespace std;
 
 static const char* DEFAULT_HOST = "localhost";
@@ -36,6 +43,18 @@ int main(int argc, char* argv[]) {
     cout << "Message: ";
     string message;
     getline(cin, message);
+
+    stringstream ss;
+
+    map<string,string> args = {{"name","bob"},
+                          {"date","0"},
+			  {"pathname", "/home"},
+			  {"place","paris"},
+			  {"function_name","create_photo"}};
+    boost::archive::binary_oarchive oarch(ss);
+    oarch << args;
+
+    message = ss.str();
 
     ssize_t sent = sockbuf.writeLine(message);
     if (sent < 0) {
