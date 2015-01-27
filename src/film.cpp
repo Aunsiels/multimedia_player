@@ -133,4 +133,34 @@ Film * Film::clone (void) const {
     return new Film(*this);
 }
 
+void Film::write (ostream & stream) {
+    stream << "FILM" << endl
+           << this->getName() << endl
+	   << this->getDate() << endl
+	   << this->getPathname() << endl
+	   << this->number_chapters << endl;
+    unsigned int i;
+    for (i = 0; i < this->number_chapters; ++i) {
+        stream << chapters[i] << endl;
+    }
+}
 
+void Film::read (istream & stream) {
+    string name, pathname;
+    unsigned int date;
+    getline(stream, name);
+    stream >> date;
+    stream.ignore();
+    getline(stream,pathname);
+    stream >> this->number_chapters;
+    unsigned int i;
+    this->chapters = new unsigned int [this->number_chapters];
+    for (i = 0; i < this->number_chapters; ++i) {
+        stream >> chapters[i];
+    }
+    //Reload the video length
+    this->setChapters(this->chapters, this->number_chapters);
+    setName(name);
+    setPathname(pathname);
+    setDate(date);
+}

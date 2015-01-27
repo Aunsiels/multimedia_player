@@ -150,6 +150,24 @@ public:
     */
 
     virtual void play (void) const;
+
+    /*!
+    *
+    * \brief Serialize the multimedia object.
+    * \param stream : the output stream where the object will be written.
+    *
+    */
+
+    virtual void write (ostream & stream);
+
+    /*!
+    *
+    * \brief Read from a serialized object.
+    * \param stream : the input stream where the object will be read.
+    *
+    */
+
+    virtual void read (istream & stream);
 };
 
 #endif

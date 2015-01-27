@@ -34,6 +34,7 @@
 #define MULTIMEDIA_H
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -186,6 +187,23 @@ public:
 
     virtual void play (void) const = 0;
 
+    /*!
+    *
+    * \brief Serialize the multimedia object.
+    * \param stream : the output stream where the object will be written.
+    *
+    */
+
+    virtual void write (ostream & stream) = 0;
+
+    /*!
+    *
+    * \brief Read from a serialized object.
+    * \param stream : the input stream where the object will be read.
+    *
+    */
+
+    virtual void read (istream & stream) = 0;
 };
 
 #endif

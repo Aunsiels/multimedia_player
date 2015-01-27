@@ -32,6 +32,7 @@
 #include <multimedia.h>
 #include <photo.h>
 #include <stdlib.h>
+#include <iostream>
 
 using namespace std;
 
@@ -98,3 +99,28 @@ void Photo::play (void) const {
 Photo * Photo::clone (void) const {
     return new Photo(*this);
 }
+
+//Write the photo
+
+void Photo::write(ostream & stream) {
+    stream << "PHOTO" << endl
+           << this->getName() << endl
+	   << this->getDate() << endl
+	   << this->getPathname() << endl
+	   << this->getPlace() << endl;
+}
+
+void Photo::read (istream & stream) {
+    string name, pathname, place;
+    unsigned int date;
+    getline(stream, name);
+    stream >> date;
+    stream.ignore();
+    getline(stream, pathname);
+    getline(stream, place);
+    setName(name);
+    setPathname(pathname);
+    setPlace(place);
+    setDate(date);
+}
+

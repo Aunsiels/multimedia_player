@@ -33,6 +33,7 @@
 #include <video.h>
 #include <stdlib.h>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -100,3 +101,25 @@ Video * Video::clone (void) const {
     return new Video(*this);
 }
 
+void Video::write (ostream & stream) {
+    stream << "VIDEO" << endl
+           << this->getName() << endl
+	   << this->getDate() << endl
+	   << this->getPathname() << endl
+	   << this->getLength() << endl;
+}
+
+void Video::read (istream & stream) {
+    string name, pathname;
+    unsigned int date, length;
+    getline(stream, name);
+    stream >> date;
+    stream.ignore();
+    getline(stream, pathname);
+    stream >> length;
+    stream.ignore();
+    setName(name);
+    setPathname(pathname);
+    setDate(date);
+    setLength(length);
+}
