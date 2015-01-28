@@ -133,7 +133,7 @@ Film * Film::clone (void) const {
     return new Film(*this);
 }
 
-void Film::write (ostream & stream) {
+void Film::write (ostream & stream) const {
     stream << "FILM" << endl
            << this->getName() << endl
 	   << this->getDate() << endl
@@ -158,6 +158,7 @@ void Film::read (istream & stream) {
     for (i = 0; i < this->number_chapters; ++i) {
         stream >> chapters[i];
     }
+    stream.ignore();
     //Reload the video length
     this->setChapters(this->chapters, this->number_chapters);
     setName(name);

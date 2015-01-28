@@ -194,7 +194,7 @@ public:
     *
     */
 
-    virtual void write (ostream & stream) = 0;
+    virtual void write (ostream & stream) const = 0;
 
     /*!
     *

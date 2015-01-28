@@ -35,16 +35,21 @@
 #include <group.h>
 #include <iostream>
 #include <tr1/memory>
+#include <fstream>
 
 using namespace std;
 
 //Constructor
 
-MultimediaManager::MultimediaManager(void) {}
+MultimediaManager::MultimediaManager(void) {
+    read("manager");
+}
 
 //Destructor
 
-MultimediaManager::~MultimediaManager(void) {}
+MultimediaManager::~MultimediaManager(void) {
+    write("manager");
+}
 
 //Create a new Photo file.
 
@@ -67,6 +72,18 @@ shared_ptr<Photo> MultimediaManager::create_photo (void){
     return ptr_temp;
 }
 
+//Deserializes a photo
+
+shared_ptr<Photo> MultimediaManager::create_photo(istream & is) {
+    Photo photo = Photo();
+    photo.read(is);
+    return create_photo(
+        photo.getName(),
+        photo.getDate(),
+        photo.getPathname(),
+        photo.getPlace());
+}
+
 //Create a new default Video file.
 
 shared_ptr<Video> MultimediaManager::create_video (void){
@@ -86,6 +103,18 @@ shared_ptr<Video> MultimediaManager::create_video
         Video::DeleterVideo ());
     this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
+}
+
+//Deserializes a video
+
+shared_ptr<Video> MultimediaManager::create_video (istream & is) {
+    Video video = Video();
+    video.read(is);
+    return create_video(
+       video.getName(),
+       video.getDate(),
+       video.getPathname(),
+       video.getLength());
 }
 
 //Create a new default Film file.
@@ -119,6 +148,23 @@ shared_ptr<Film> MultimediaManager::create_film
         number_chapters), Film::DeleterFilm());
     this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
+}
+
+//Deserialize a film
+
+shared_ptr<Film> MultimediaManager::create_film (istream & is) {
+    Film film = Film();
+    film.read(is);
+    unsigned int const * * chapters;
+    chapters = film.getChapters();
+    shared_ptr<Film> ptr = create_film(
+        film.getName(),
+        film.getDate(),
+        film.getPathname(),
+        chapters[0],
+        *chapters[1]);
+    delete[] chapters;
+    return ptr;
 }
 
 //Create a new group
@@ -192,4 +238,39 @@ void MultimediaManager::play (const string & name) const {
         it->second->play();
     else
         cout << "No file found" <<endl;
+}
+
+void MultimediaManager::write (const string & name) const {
+    ofstream file(name.c_str(), ios::out | ios::trunc); //Open file
+    if (file) {
+        map<string,shared_ptr<Multimedia> >::const_iterator it;
+        for (it = multimedia_files.begin(); it != multimedia_files.end(); ++it) {
+	    cout << it->second->print() << endl;
+            it->second->write(file);
+        }
+	file.close();
+    } else {
+        cout << "Problem when writing the manager" << endl;
+    }
+}
+
+void MultimediaManager::read (const string & name) {
+    ifstream file(name.c_str(), ios::in); //Open file
+    if (file) {
+        string s;
+	while(getline(file, s)) {
+	   cout << s << endl;
+           if (s == "PHOTO") {
+	       create_photo(file);
+	   } else if (s == "VIDEO") {
+	       create_video(file);
+	   } else if (s == "FILM") {
+	       create_film(file);
+	   } else {
+	       break;
+	   }
+	}
+    } else {
+        cout << "Problem when reading the file" << endl;
+    }
 }

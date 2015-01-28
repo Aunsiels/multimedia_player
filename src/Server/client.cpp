@@ -10,10 +10,6 @@
 #include <sstream>
 #include <map>
 
-#include <boost/serialization/serialization.hpp>                                            
-#include <boost/serialization/map.hpp>
-#include <boost/archive/binary_oarchive.hpp>
-
 using namespace std;
 
 static const char* DEFAULT_HOST = "localhost";
@@ -46,13 +42,11 @@ int main(int argc, char* argv[]) {
 
     stringstream ss;
 
-    map<string,string> args = {{"name","bob"},
-                          {"date","0"},
-			  {"pathname", "/home"},
-			  {"place","paris"},
-			  {"function_name","create_photo"}};
-    boost::archive::binary_oarchive oarch(ss);
-    oarch << args;
+    ss     << "create_photo" << endl
+           << "photo" << endl
+	   << 0 << endl
+	   << "/" << endl
+	   << "paris" << endl;
 
     message = ss.str();
 

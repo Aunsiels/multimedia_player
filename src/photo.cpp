@@ -102,7 +102,7 @@ Photo * Photo::clone (void) const {
 
 //Write the photo
 
-void Photo::write(ostream & stream) {
+void Photo::write(ostream & stream) const {
     stream << "PHOTO" << endl
            << this->getName() << endl
 	   << this->getDate() << endl

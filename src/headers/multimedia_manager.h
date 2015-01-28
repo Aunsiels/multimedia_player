@@ -41,6 +41,7 @@
 #include "video.h"
 #include "film.h"
 #include <tr1/memory>
+#include <iostream>
 
 using namespace std;
 
@@ -107,6 +108,15 @@ public :
 	 const string & place);
 
     /*!
+    * \brief Deserialize a photo
+    * \param The stream where the photo will be read.
+    * \return A shared pointer to the object created.
+    *
+    */
+
+    virtual shared_ptr<Photo> create_photo (istream & is);
+
+    /*!
     * \brief Creates a default video.
     *
     * Add a video file in the manager.
@@ -134,6 +144,15 @@ public :
 	 unsigned long date,
 	 const string & pathname,
 	 unsigned int length);
+
+    /*!
+    * \brief Deserialize a video
+    * \param The stream where the video will be read.
+    * \return A shared pointer to the object created.
+    *
+    */
+
+    virtual shared_ptr<Video> create_video (istream & is);
 
     /*!
     * \brief Creates a default film.
@@ -182,6 +201,15 @@ public :
 	   const string & pathname,
 	   unsigned int const chapters[],
 	   unsigned int number_chapters);
+
+    /*!
+    * \brief Deserialize a film
+    * \param The stream where the film will be read.
+    * \return A shared pointer to the object created.
+    *
+    */
+
+    virtual shared_ptr<Film> create_film (istream & is);
 
     /*!
     * \brief Creates a group.
@@ -271,6 +299,24 @@ public :
     */
 
     virtual void play (const string & name) const;
+
+    /*!
+    * \brief Serialize the manager with its content.
+    *
+    * \param The name where the manager is stored.
+    *
+    */
+
+    virtual void write (const string & name) const;
+
+    /*!
+    * \brief Read a manager.
+    *
+    * \param The name where the manager is stored.
+    *
+    */
+
+    virtual void read (const string & name);
 };
 
 #endif

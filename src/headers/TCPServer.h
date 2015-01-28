@@ -47,7 +47,7 @@ protected:
 private: // disables copy.
   //Return if it modifies program datas.
   //Takes the name of the function, the args (map) and the string to send.
-  typedef string (TCPServer::*FunctionManager)(const map<string,string>&);
+  typedef string (TCPServer::*FunctionManager)(stringstream&);
 
   MultimediaManager manager;
   TCPServer(const TCPServer&);
@@ -55,23 +55,23 @@ private: // disables copy.
   //Map to find the corresponding function.
   map<string, FunctionManager> functions;
   //Create photo alias
-  string create_photo (const map<string,string>&);
+  string create_photo (stringstream &);
   //Create video alias
-  string create_video (const map<string,string>&);
+  string create_video (stringstream &);
   //Create film alias
-  string create_film (const map<string,string>&);
+  string create_film (stringstream &);
   //create group
-  string create_group (const map<string,string>&);
+  string create_group (stringstream &);
   //remove multimedia alias
-  string remove_multimedia (const map<string,string>&);
+  string remove_multimedia (stringstream &);
   //remove group alias
-  string remove_group (const map<string,string>&);
+  string remove_group (stringstream &);
   //search multimedia file.
-  string search_multimedia (const map<string,string>&);
+  string search_multimedia (stringstream &);
   //search group file.
-  string search_group (const map<string,string>&);
+  string search_group (stringstream &);
   //play multimedia file
-  string play (const map<string,string>&);
+  string play (stringstream &);
 };
 
 

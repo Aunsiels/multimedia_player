@@ -158,7 +158,7 @@ public:
     *
     */
 
-    virtual void write (ostream & stream);
+    virtual void write (ostream & stream) const;
 
     /*!
     *

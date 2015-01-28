@@ -10,10 +10,6 @@
 #include <sstream>
 #include <multimedia_manager.h>
 
-#include <boost/serialization/serialization.hpp>
-#include <boost/serialization/map.hpp>
-#include <boost/archive/binary_iarchive.hpp>
-
 using namespace std;
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -172,19 +168,9 @@ bool TCPServer::processMessage(const std::string& message, std::string& response
   //String stream
   std::stringstream ss;
   ss << message;
-  //arguments first
-  std::map<string, std::string> args;
-  boost::archive::binary_iarchive iarch(ss);
-  iarch >> args;
-  std::string function_name;
-  std::map<string, string>::const_iterator function_it =
-      args.find("function_name");
 
-  if (function_it == args.end()) {
-      function_name = "";
-  } else {
-      function_name = function_it->second;
-  }
+  std::string function_name;
+  getline(ss, function_name);
 
   // suivant le cas, bloquer le verrou en mode WRITE ou en mode READ
   if (change_data)
@@ -199,7 +185,7 @@ bool TCPServer::processMessage(const std::string& message, std::string& response
        functions.find(function_name);
   if (it != functions.end()){
     FunctionManager ptr = it->second;
-    response = (this->*ptr)(args);
+    response = (this->*ptr)(ss);
   }else {
     response = "Unknown function";
   }
@@ -217,172 +203,54 @@ bool TCPServer::processMessage(const std::string& message, std::string& response
   return true;
 }
 
-string TCPServer::create_photo (const std::map<string,string>& args) {
-    std::map<string, std::string>::const_iterator it_name, it_date, it_path, it_place;
-    it_name  = args.find("name");
-    it_date  = args.find("date");
-    it_path  = args.find("pathname");
-    it_place = args.find("place");
-    if (it_name  == args.end() 
-     && it_date  == args.end()
-     && it_path  == args.end()
-     && it_place == args.end()) {
-        manager.create_photo();
-        return "A new default photo was created.";
-    } else if (it_name  == args.end()
-            || it_date  == args.end()
-            || it_path  == args.end()
-            || it_place == args.end()) {
-        return "A problem appeared when reading arguments";
-    } else {
-        std::string name  = it_name->second;
-	string path  = it_path->second;
-	string place = it_place->second;
-	unsigned long date = stoul(it_date->second);
-	manager.create_photo(name, date, path, place);
-	return "Your photo was created";
-    }
+string TCPServer::create_photo (stringstream & ss) {
+    manager.create_photo(ss);
+    return "Your photo was created";
 }
 
-string TCPServer::create_video (const std::map<string,string>& args) {
-    std::map<string, std::string>::const_iterator it_name, it_date, it_path, it_length;
-    it_name  = args.find("name");
-    it_date  = args.find("date");
-    it_path  = args.find("pathname");
-    it_length = args.find("length");
-    if (it_name  == args.end() 
-     && it_date  == args.end()
-     && it_path  == args.end()
-     && it_length == args.end()) {
-        manager.create_video();
-        return "A new default video was created.";
-    } else if (it_name  == args.end()
-            || it_date  == args.end()
-            || it_path  == args.end()
-            || it_length == args.end()) {
-        return "A problem appeared when reading arguments";
-    } else {
-        std::string name  = it_name->second;
-	string path  = it_path->second;
-	unsigned int length = stoul(it_length->second);
-	unsigned long date = stoul(it_date->second);
-	manager.create_video(name, date, path, length);
-	return "Your video was created";
-    }
+string TCPServer::create_video (stringstream & ss) {
+    manager.create_video(ss);
+    return "Your video was created";
 }
 
-string TCPServer::create_film (const std::map<string,string>& args) {
-    std::map<string, std::string>::const_iterator it_name, it_date, it_path, it_chapters,
-        it_number;
-    it_name  = args.find("name");
-    it_date  = args.find("date");
-    it_path  = args.find("pathname");
-    it_chapters  = args.find("chapters");
-    it_number    = args.find("number_chapters");
-    if (it_name  == args.end() 
-     && it_date  == args.end()
-     && it_path  == args.end()
-     && it_chapters == args.end()
-     && it_number   == args.end()) {
-        manager.create_film();
-        return "A new default video was created.";
-    } else if (it_name  == args.end()
-            || it_date  == args.end()
-            || it_path  == args.end()){
-        return "A problem appeared when reading arguments";
-    } else {
-        std::string name  = it_name->second;
-	string path  = it_path->second;
-	unsigned long date = stoul(it_date->second);
-	if (it_chapters == args.end() && it_number == args.end()) {
-	    manager.create_film(name, date, path);
-	    return "Your film was created";
-	} else if (it_chapters != args.end() && it_number != args.end()) {
-            unsigned int number = stoul(it_number->second);
-	    unsigned int i = 0;
-	    std::stringstream ss;
-	    return "Your film was created";
-	    ss << it_chapters->second;
-	    unsigned int * chapters = new unsigned int[number];
-            for (i = 0; i < number; i++) {
-                ss >> chapters[i];
-            }
-	    manager.create_film(name,date,path,chapters,number);
-	    delete chapters;
-	    return "Your film was created";
-	} else {
-            return "A problem appeared when reading arguments";
-	}
-    }
+string TCPServer::create_film (stringstream & ss) {
+    manager.create_film(ss);
+    return "Your film was created";
 }
 
-string TCPServer::create_group (const std::map<string,string>& args) {
-    std::map<string, std::string>::const_iterator it_name;
-    it_name = args.find("name");
-    if (it_name == args.end()) {
-        manager.create_group();
-	return "Default group created";
-    } else {
-        std::string name = it_name->second;
-	manager.remove_group(name);
-	return "Group created";
-    }
+string TCPServer::create_group (stringstream & ss) {
+    return "Not implemented yet";
 }
 
-string TCPServer::remove_multimedia (const std::map<string,string>& args) {
-    std::map<string, std::string>::const_iterator it_name;
-    it_name = args.find("name");
-    if (it_name == args.end()) {
-        return "A problem appeared when reading arguments";
-    } else {
-        std::string name = it_name->second;
-	manager.remove_multimedia(name);
-	return "Multimedia file removed";
-    }
+string TCPServer::remove_multimedia (stringstream & ss) {
+    std::string name;
+    getline(ss, name);
+    manager.remove_multimedia(name);
+    return "Multimedia file removed";
 }
 
-string TCPServer::remove_group (const std::map<string,string>& args) {
-    std::map<string, std::string>::const_iterator it_name;
-    it_name = args.find("name");
-    if (it_name == args.end()) {
-        return "A problem appeared when reading arguments";
-    } else {
-        std::string name = it_name->second;
-	manager.remove_group(name);
-	return "Group removed";
-    }
+string TCPServer::remove_group (stringstream & ss) {
+    std::string name;
+    getline(ss, name);
+    manager.remove_group(name);
+    return "Group removed";
 }
 
-string TCPServer::search_multimedia (const std::map<string,string>& args) {
-    std::map<string, std::string>::const_iterator it_name;
-    it_name = args.find("name");
-    if (it_name == args.end()) {
-        return "A problem appeared when reading arguments";
-    } else {
-        std::string name = it_name->second;
-	return manager.search_multimedia(name);
-    }
+string TCPServer::search_multimedia (stringstream & ss) {
+    std::string name;
+    getline(ss, name);
+    return manager.search_multimedia(name);
 }
 
-string TCPServer::search_group (const std::map<string,string>& args) {
-    std::map<string, std::string>::const_iterator it_name;
-    it_name = args.find("name");
-    if (it_name == args.end()) {
-        return "A problem appeared when reading arguments";
-    } else {
-        std::string name = it_name->second;
-	return manager.search_group(name);
-    }
+string TCPServer::search_group (stringstream & ss) {
+    std::string name;
+    getline(ss, name);
+    return manager.search_group(name);
 }
 
-string TCPServer::play (const std::map<string,string>& args) {
-    std::map<string, std::string>::const_iterator it_name;
-    it_name = args.find("name");
-    if (it_name == args.end()) {
-        return "A problem appeared when reading arguments";
-    } else {
-        std::string name = it_name->second;
-	manager.play(name);
-	return "Playing...";
-    }
+string TCPServer::play (stringstream & ss) {
+    std::string name;
+    getline(ss,name);
+    manager.play(name);
+    return "Playing...";
 }

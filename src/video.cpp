@@ -101,7 +101,7 @@ Video * Video::clone (void) const {
     return new Video(*this);
 }
 
-void Video::write (ostream & stream) {
+void Video::write (ostream & stream) const {
     stream << "VIDEO" << endl
            << this->getName() << endl
 	   << this->getDate() << endl
