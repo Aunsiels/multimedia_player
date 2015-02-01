@@ -60,6 +60,11 @@ shared_ptr<Photo> MultimediaManager::create_photo
 	 const string & place){
     shared_ptr<Photo> ptr_temp (new Photo(name, date, pathname, place),
         Photo::DeleterPhoto());
+    map<string,shared_ptr<Multimedia> >::const_iterator it
+        (multimedia_files.find(ptr_temp->getName()));
+    if (it != multimedia_files.end()){
+        throw runtime_error("Error : name already taken");
+    }
     this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
@@ -68,6 +73,17 @@ shared_ptr<Photo> MultimediaManager::create_photo
 
 shared_ptr<Photo> MultimediaManager::create_photo (void){
     shared_ptr<Photo> ptr_temp (new Photo(), Photo::DeleterPhoto());
+    //Remember the name
+    string name = ptr_temp->getName();
+    map<string,shared_ptr<Multimedia> >::const_iterator it
+        (multimedia_files.find(ptr_temp->getName()));
+    int i = 0;
+    //The default file has not specified name
+    while(it != multimedia_files.end()){
+        ptr_temp->setName(name + to_string(i));
+	it = multimedia_files.find(ptr_temp->getName());
+	++i;
+    }
     this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
@@ -77,6 +93,11 @@ shared_ptr<Photo> MultimediaManager::create_photo (void){
 shared_ptr<Photo> MultimediaManager::create_photo(istream & is) {
     shared_ptr<Photo> photo (new Photo(), Photo::DeleterPhoto());
     photo->read(is);
+    map<string,shared_ptr<Multimedia> >::const_iterator it
+        (multimedia_files.find(photo->getName()));
+    if (it != multimedia_files.end()){
+        throw runtime_error("Error : name already taken");
+    }
     this->multimedia_files[photo->getName()] = photo;
     return photo;
 }
@@ -85,6 +106,17 @@ shared_ptr<Photo> MultimediaManager::create_photo(istream & is) {
 
 shared_ptr<Video> MultimediaManager::create_video (void){
     shared_ptr<Video> ptr_temp (new Video(), Video::DeleterVideo());
+    //Remember the name
+    string name = ptr_temp->getName();
+    map<string,shared_ptr<Multimedia> >::const_iterator it
+        (multimedia_files.find(ptr_temp->getName()));
+    int i = 0;
+    //The default file has not specified name
+    while(it != multimedia_files.end()){
+        ptr_temp->setName(name + to_string(i));
+	it = multimedia_files.find(ptr_temp->getName());
+	++i;
+    }
     this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
@@ -98,6 +130,11 @@ shared_ptr<Video> MultimediaManager::create_video
 	 unsigned int length){
     shared_ptr<Video> ptr_temp (new Video(name,date,pathname,length),
         Video::DeleterVideo ());
+    map<string,shared_ptr<Multimedia> >::const_iterator it
+        (multimedia_files.find(ptr_temp->getName()));
+    if (it != multimedia_files.end()){
+        throw runtime_error("Error : name already taken");
+    }
     this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
@@ -107,6 +144,11 @@ shared_ptr<Video> MultimediaManager::create_video
 shared_ptr<Video> MultimediaManager::create_video (istream & is) {
     shared_ptr<Video> ptr_temp (new Video(), Video::DeleterVideo());
     ptr_temp->read(is);
+    map<string,shared_ptr<Multimedia> >::const_iterator it
+        (multimedia_files.find(ptr_temp->getName()));
+    if (it != multimedia_files.end()){
+        throw runtime_error("Error : name already taken");
+    }
     this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
@@ -115,6 +157,17 @@ shared_ptr<Video> MultimediaManager::create_video (istream & is) {
 
 shared_ptr<Film> MultimediaManager::create_film (void){
     shared_ptr<Film> ptr_temp (new Film(), Film::DeleterFilm ());
+    //Remember the name
+    string name = ptr_temp->getName();
+    map<string,shared_ptr<Multimedia> >::const_iterator it
+        (multimedia_files.find(ptr_temp->getName()));
+    int i = 0;
+    //The default file has not specified name
+    while(it != multimedia_files.end()){
+        ptr_temp->setName(name + to_string(i));
+	it = multimedia_files.find(ptr_temp->getName());
+	++i;
+    }
     this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
@@ -126,6 +179,11 @@ shared_ptr<Film> MultimediaManager::create_film
            unsigned long date,
 	   const string & pathname){
     shared_ptr<Film> ptr_temp (new Film(name,date,pathname), Film::DeleterFilm());
+    map<string,shared_ptr<Multimedia> >::const_iterator it
+        (multimedia_files.find(ptr_temp->getName()));
+    if (it != multimedia_files.end()){
+        throw runtime_error("Error : name already taken");
+    }
     this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
@@ -140,6 +198,11 @@ shared_ptr<Film> MultimediaManager::create_film
 	   unsigned int number_chapters){
     shared_ptr<Film> ptr_temp (new Film(name,date,pathname, chapters,
         number_chapters), Film::DeleterFilm());
+    map<string,shared_ptr<Multimedia> >::const_iterator it
+        (multimedia_files.find(ptr_temp->getName()));
+    if (it != multimedia_files.end()){
+        throw runtime_error("Error : name already taken");
+    }
     this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
@@ -149,6 +212,11 @@ shared_ptr<Film> MultimediaManager::create_film
 shared_ptr<Film> MultimediaManager::create_film (istream & is) {
     shared_ptr<Film> ptr_temp (new Film(), Film::DeleterFilm ());
     ptr_temp->read(is);
+    map<string,shared_ptr<Multimedia> >::const_iterator it
+        (multimedia_files.find(ptr_temp->getName()));
+    if (it != multimedia_files.end()){
+        throw runtime_error("Error : name already taken");
+    }
     this->multimedia_files[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
@@ -157,6 +225,11 @@ shared_ptr<Film> MultimediaManager::create_film (istream & is) {
 
 shared_ptr<Group> MultimediaManager::create (const Group& group){
     shared_ptr<Group> ptr_temp (group.clone());
+    map<string,shared_ptr<Group> >::const_iterator it
+        (groups.find(ptr_temp->getName()));
+    if (it != groups.end()){
+        throw runtime_error("Error : name already taken");
+    }
     this->groups[group.getName()] = ptr_temp;
     return ptr_temp;
 }
@@ -165,6 +238,17 @@ shared_ptr<Group> MultimediaManager::create (const Group& group){
 
 shared_ptr<Group> MultimediaManager::create_group (){
     shared_ptr<Group> ptr_temp (new Group());
+    //Remember the name
+    string name = ptr_temp->getName();
+    map<string,shared_ptr<Group> >::const_iterator it
+        (groups.find(ptr_temp->getName()));
+    int i = 0;
+    //The default file has not specified name
+    while(it != groups.end()){
+        ptr_temp->setName(name + to_string(i));
+	it = groups.find(ptr_temp->getName());
+	++i;
+    }
     this->groups[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
@@ -172,6 +256,11 @@ shared_ptr<Group> MultimediaManager::create_group (){
 //Create a group
 
 shared_ptr<Group> MultimediaManager::create_group (const string& name){
+    map<string,shared_ptr<Group> >::const_iterator it
+        (groups.find(name));
+    if (it != groups.end()){
+        throw runtime_error("Error : name already taken");
+    }
     shared_ptr<Group> ptr_temp (new Group(name));
     this->groups[name] = ptr_temp;
     return ptr_temp;
@@ -182,6 +271,11 @@ shared_ptr<Group> MultimediaManager::create_group (const string& name){
 shared_ptr<Group> MultimediaManager::create_group (istream & is){
     shared_ptr<Group> ptr_temp (new Group());
     ptr_temp->read(is, this);
+    map<string,shared_ptr<Group> >::const_iterator it
+        (groups.find(ptr_temp->getName()));
+    if (it != groups.end()){
+        throw runtime_error("Error : name already taken");
+    }
     this->groups[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
