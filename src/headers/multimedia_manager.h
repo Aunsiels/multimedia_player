@@ -36,14 +36,16 @@
 #include <map>
 #include <string>
 #include "multimedia.h"
-#include "group.h"
 #include "photo.h"
 #include "video.h"
 #include "film.h"
 #include <tr1/memory>
 #include <iostream>
+#include <group.h>
 
 using namespace std;
+
+class Group;
 
 /*!
 * \class MultimediaManager
@@ -246,6 +248,18 @@ public :
     virtual shared_ptr<Group> create_group (const string&);
 
     /*!
+    * \brief Creates a group from a stream.
+    *
+    * Create a new group and add it to the manager.
+    *
+    * \param is : the stream from which the group is created.
+    *
+    * \return A shared pointer to the group created.
+    */
+
+    virtual shared_ptr<Group> create_group (istream & is);
+
+    /*!
     * \brief Remove a multimedia file.
     *
     * Remove a multimedia file from the manager.
@@ -273,10 +287,21 @@ public :
     * Search a multimedia file by its name and print it.
     *
     * \param name : The name of the searched multimedia file.
+    * \return The description of the file.
     *
     */
 
     virtual string search_multimedia (const string & name) const;
+
+    /*!
+    * \brief Search a multimedia file and print its pointer.
+    *
+    * \param name : The name of the searched multimedia file.
+    * \return A pointer to the multimedia file.
+    */
+
+    virtual shared_ptr<Multimedia> search_multimedia_ptr (const string & name)
+        const;
 
     /*!
     * \brief Search a group and print it.
@@ -284,6 +309,7 @@ public :
     * Search a group by its name and print it.
     *
     * \param name : The name of the searched group.
+    * \return The description of the group.
     *
     */
 
@@ -317,6 +343,7 @@ public :
     */
 
     virtual void read (const string & name);
+
 };
 
 #endif

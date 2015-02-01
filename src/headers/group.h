@@ -37,8 +37,11 @@
 #include "multimedia.h"
 #include <string>
 #include <tr1/memory>
+#include <multimedia_manager.h>
 
 using namespace std;
+
+class MultimediaManager;
 
 /*!
 * \class Group
@@ -48,6 +51,7 @@ using namespace std;
 * be the same.
 *
 */
+
 
 class Group : public list<shared_ptr<Multimedia>> {
 
@@ -135,6 +139,23 @@ public :
     */
 
     virtual void remove (string name);
+
+    /*!
+    * \brief Serializes a group
+    * \param stream : An output stream where the group will be written.
+    *
+    */
+
+    virtual void write (ostream & stream) const;
+
+    /*!
+    * \brief Deserializes a group.
+    * \param stream : An input stream where the group is read
+    * \param manager : The manager where the multimedia files are stored.
+    *
+    */
+
+    virtual void read (istream & stream, const MultimediaManager * manager);
 
 };
 

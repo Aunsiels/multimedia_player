@@ -75,13 +75,10 @@ shared_ptr<Photo> MultimediaManager::create_photo (void){
 //Deserializes a photo
 
 shared_ptr<Photo> MultimediaManager::create_photo(istream & is) {
-    Photo photo = Photo();
-    photo.read(is);
-    return create_photo(
-        photo.getName(),
-        photo.getDate(),
-        photo.getPathname(),
-        photo.getPlace());
+    shared_ptr<Photo> photo (new Photo(), Photo::DeleterPhoto());
+    photo->read(is);
+    this->multimedia_files[photo->getName()] = photo;
+    return photo;
 }
 
 //Create a new default Video file.
@@ -108,13 +105,10 @@ shared_ptr<Video> MultimediaManager::create_video
 //Deserializes a video
 
 shared_ptr<Video> MultimediaManager::create_video (istream & is) {
-    Video video = Video();
-    video.read(is);
-    return create_video(
-       video.getName(),
-       video.getDate(),
-       video.getPathname(),
-       video.getLength());
+    shared_ptr<Video> ptr_temp (new Video(), Video::DeleterVideo());
+    ptr_temp->read(is);
+    this->multimedia_files[ptr_temp->getName()] = ptr_temp;
+    return ptr_temp;
 }
 
 //Create a new default Film file.
@@ -153,18 +147,10 @@ shared_ptr<Film> MultimediaManager::create_film
 //Deserialize a film
 
 shared_ptr<Film> MultimediaManager::create_film (istream & is) {
-    Film film = Film();
-    film.read(is);
-    unsigned int const * * chapters;
-    chapters = film.getChapters();
-    shared_ptr<Film> ptr = create_film(
-        film.getName(),
-        film.getDate(),
-        film.getPathname(),
-        chapters[0],
-        *chapters[1]);
-    delete[] chapters;
-    return ptr;
+    shared_ptr<Film> ptr_temp (new Film(), Film::DeleterFilm ());
+    ptr_temp->read(is);
+    this->multimedia_files[ptr_temp->getName()] = ptr_temp;
+    return ptr_temp;
 }
 
 //Create a new group
@@ -188,6 +174,15 @@ shared_ptr<Group> MultimediaManager::create_group (){
 shared_ptr<Group> MultimediaManager::create_group (const string& name){
     shared_ptr<Group> ptr_temp (new Group(name));
     this->groups[name] = ptr_temp;
+    return ptr_temp;
+}
+
+//Create a group
+
+shared_ptr<Group> MultimediaManager::create_group (istream & is){
+    shared_ptr<Group> ptr_temp (new Group());
+    ptr_temp->read(is, this);
+    this->groups[ptr_temp->getName()] = ptr_temp;
     return ptr_temp;
 }
 
@@ -222,6 +217,16 @@ string MultimediaManager::search_multimedia (const string & name) const {
         return "No file found\r";
 }
 
+shared_ptr<Multimedia> MultimediaManager::search_multimedia_ptr (
+        const string & name) const {
+    map<string,shared_ptr<Multimedia> >::const_iterator it
+        (multimedia_files.find(name));
+    if (it != multimedia_files.end())
+        return it->second;
+    else
+        return NULL;
+}
+
 string MultimediaManager::search_group (const string & name) const {
     map<string,shared_ptr<Group> >::const_iterator it
         (groups.find(name));
@@ -245,8 +250,14 @@ void MultimediaManager::write (const string & name) const {
     if (file) {
         map<string,shared_ptr<Multimedia> >::const_iterator it;
         for (it = multimedia_files.begin(); it != multimedia_files.end(); ++it) {
+	    //TODO : Remove  ??
 	    cout << it->second->print() << endl;
             it->second->write(file);
+        }
+	map<string,shared_ptr<Group> >::const_iterator itg;
+        for (itg = groups.begin(); itg != groups.end(); ++itg) {
+	    cout << itg->second->print() << endl;
+            itg->second->write(file);
         }
 	file.close();
     } else {
@@ -266,6 +277,8 @@ void MultimediaManager::read (const string & name) {
 	       create_video(file);
 	   } else if (s == "FILM") {
 	       create_film(file);
+	   } else if (s == "GROUP") {
+	       create_group(file);
 	   } else {
 	       break;
 	   }

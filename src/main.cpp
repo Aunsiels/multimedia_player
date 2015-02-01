@@ -37,8 +37,6 @@
 #include <tr1/memory>
 #include <TCPServer.h>
 
-using std::tr1::shared_ptr;
-
 int main () {
 
     //Create server

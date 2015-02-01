@@ -96,3 +96,35 @@ void Group::remove (string name) {
 	}
     }
 }
+
+//write in a stream the group
+
+void Group::write (ostream & stream) const {
+    int size = this->size();
+    stream << "GROUP" << endl
+           << size << endl
+	   << this->getName() << endl;
+    list<shared_ptr<Multimedia>>::const_iterator it_begin;
+    for (it_begin = this->begin(); it_begin != this->end(); ++it_begin){
+        stream << (*it_begin)->getName() << endl;
+    }
+}
+
+//read a group in a stream
+
+void Group::read (istream & stream, const MultimediaManager * manager) {
+    int size;
+    string newName;
+    stream >> size;
+    stream.ignore();
+    getline(stream,name);
+    this->setName(name);
+    int i;
+    for(i=0; i < size; ++i){
+       string multimediaName;
+       getline(stream, multimediaName);
+       shared_ptr<Multimedia> m = manager->search_multimedia_ptr(multimediaName);
+       if (m != NULL)
+           this->push_back(m);
+    }
+}
