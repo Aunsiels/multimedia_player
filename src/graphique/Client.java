@@ -43,20 +43,9 @@ public class Client {
     // pour lire depuis la console
     BufferedReader cin = new BufferedReader(new InputStreamReader(System.in));
 
-    window = new MainWindow();
+    window = new MainWindow(client);
     
     while (true) {
-      System.out.print("Message: ");
-      try {
-        String message = cin.readLine();
-	message = "search_multimedia\nphoto\n";
-        String response = client.send(message);
-	JOptionPane.showMessageDialog(window, response);
-      }
-      catch (java.io.IOException e) {
-        System.out.println("Client: IO error");
-        return;
-      }
     }
   }
 

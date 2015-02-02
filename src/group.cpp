@@ -69,7 +69,7 @@ void Group::setName(string newName) {
  
 //Print the elements of the group
 string Group::print (void) const {
-    string result = "Group " + this->name + " :" + '\r';
+    string result = "Group : " + this->name + '\n';
     //I just visit all the elements and use their print method.
     list<shared_ptr<Multimedia> >::const_iterator
         lit(this->begin()),

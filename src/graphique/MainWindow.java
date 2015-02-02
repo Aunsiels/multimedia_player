@@ -34,6 +34,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 
 /*!
 *
@@ -49,9 +50,9 @@ public class MainWindow extends JFrame {
      //A text area
      private JTextArea text;
      //2 buttons to write in JTextArea and one to close the program
-     private JButton btn1, btn2, btn3;
+     private JButton btn1, btn2, btn3, btn_grp, btn_multimedia;
      //The panel which will contain the buttons.
-     private JPanel panel;
+     private JPanel panel_buttons, panel_grp, panel_multimedia, panel_center;
      //A scroller for the text
      private JScrollPane textscroller;
      //Menu bar
@@ -62,6 +63,12 @@ public class MainWindow extends JFrame {
      private JMenuItem item1, item2, item3;
      //ToolBar
      private JToolBar toolBar;
+     //One line text
+     private JTextField grp_text, multimedia_text;
+     //client for communications
+     private Client client;
+     //Reference to this object
+     private MainWindow window;
 
      //Actions for the buttons
      private AbstractAction add1 = new AbstractAction("Add 1") {
@@ -79,16 +86,6 @@ public class MainWindow extends JFrame {
 	     System.exit(0);
 	 }
      };
-     
-     /*!
-     * \brief Main function of the program.
-     *
-     * Just creates the window.
-     */
-
-     public static void main(String argv[]) {
-         new MainWindow();
-     }
 
      /*!
      *
@@ -97,14 +94,59 @@ public class MainWindow extends JFrame {
      * Creates the main window.
      */
 
-     public MainWindow() {
+     public MainWindow(Client cl) {
 
+         this.client = cl;
+	 this.window = this;
          //Elements declarations
          btn1 = new JButton(add1);
          btn2 = new JButton(add2);
 	 btn3 = new JButton(close);
 	 text = new JTextArea(10,100);
-	 panel = new JPanel();
+
+	 btn_grp = new JButton("Search group");
+	 btn_multimedia = new JButton("Search multimedia");
+
+         btn_grp.addActionListener(new ActionListener () {
+	     public void actionPerformed(ActionEvent e){
+	         StringBuffer sb = new StringBuffer();
+		 sb.append("search_group\n");
+		 sb.append(grp_text.getText());
+		 sb.append("\n");
+		 System.out.println(sb.toString());
+                 String response = client.send(sb.toString());
+	         JOptionPane.showMessageDialog(window, response);
+	     }
+	 });
+
+         btn_multimedia.addActionListener(new ActionListener () {
+	     public void actionPerformed(ActionEvent e){
+	         StringBuffer sb = new StringBuffer();
+		 sb.append("search_multimedia\n");
+		 sb.append(multimedia_text.getText());
+		 sb.append("\n");
+		 System.out.println(sb.toString());
+                 String response = client.send(sb.toString());
+	         JOptionPane.showMessageDialog(window, response);
+	     }
+	 });
+	 
+	 panel_buttons = new JPanel();
+         panel_grp = new JPanel(new GridLayout(2,1));
+	 panel_multimedia = new JPanel(new GridLayout(2,1));
+	 panel_center = new JPanel();
+
+         grp_text = new JTextField();
+	 multimedia_text = new JTextField();
+
+         //Search group panel definition
+	 panel_grp.add(grp_text);
+	 panel_grp.add(btn_grp);
+
+         //Search multimedia panel definition
+	 panel_multimedia.add(multimedia_text);
+	 panel_multimedia.add(btn_multimedia);
+
          textscroller = new JScrollPane(text);
 	 menu = new JMenu("Actions");
 	 item1 = new JMenuItem(add1);
@@ -112,6 +154,11 @@ public class MainWindow extends JFrame {
 	 item3 = new JMenuItem(close);
          menuBar = new JMenuBar();
 	 toolBar = new JToolBar();
+
+	 //Center panel definition
+	 panel_center.add(panel_grp,FlowLayout.LEFT);
+	 panel_center.add(textscroller,FlowLayout.CENTER);
+	 panel_center.add(panel_multimedia,FlowLayout.RIGHT);
 
          menu.setMnemonic('a');
 
@@ -140,12 +187,12 @@ public class MainWindow extends JFrame {
 	 toolBar.add(close);
 
 	 //Add the objects to the frame
-	 this.add(textscroller, BorderLayout.CENTER);
-	 panel.add(btn1, FlowLayout.LEFT);
-	 panel.add(btn2, FlowLayout.CENTER);
-	 panel.add(btn3, FlowLayout.RIGHT);
+	 this.add(panel_center, BorderLayout.CENTER);
+	 panel_buttons.add(btn1, FlowLayout.LEFT);
+	 panel_buttons.add(btn2, FlowLayout.CENTER);
+	 panel_buttons.add(btn3, FlowLayout.RIGHT);
 
-	 this.add(panel, BorderLayout.SOUTH);
+	 this.add(panel_buttons, BorderLayout.SOUTH);
 	 this.add(toolBar,BorderLayout.NORTH);
 
 	 this.setJMenuBar(menuBar);
