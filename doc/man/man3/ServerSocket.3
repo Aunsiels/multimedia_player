@@ -1,0 +1,122 @@
+.TH "ServerSocket" 3 "Mon Feb 2 2015" "Version 0.1" "Multimedia" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ServerSocket \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Socket\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBServerSocket\fP ()"
+.br
+.ti -1c
+.RI "virtual \fBSocket\fP * \fBaccept\fP ()"
+.br
+.ti -1c
+.RI "virtual int \fBbind\fP (int port, int backlog=50)"
+.br
+.ti -1c
+.RI "virtual int \fBclose\fP ()"
+.br
+.RI "\fICloses the socket\&. \fP"
+.ti -1c
+.RI "int \fBgetFileDescriptor\fP () const "
+.br
+.RI "\fIReturns the file descriptor of the socket\&. \fP"
+.ti -1c
+.RI "void \fBhandleSigPipe\fP (void(*function)(int signal))"
+.br
+.ti -1c
+.RI "void \fBignoreSigPipe\fP ()"
+.br
+.RI "\fIIgnore SIGPIPE signals (\&. \fP"
+.ti -1c
+.RI "int \fBgetOption\fP (int level, int optname, void *optval, socklen_t *optlen)"
+.br
+.ti -1c
+.RI "int \fBsetOption\fP (int level, int optname, const void *optval, socklen_t optlen)"
+.br
+.ti -1c
+.RI "int \fBsetReceiveBufferSize\fP (int size)"
+.br
+.RI "\fISets the SO_RCVBUF option to the specified value\&. \fP"
+.ti -1c
+.RI "int \fBsetReuseAddress\fP (bool)"
+.br
+.RI "\fIEnables/disables the SO_REUSEADDR socket option\&. \fP"
+.ti -1c
+.RI "int \fBsetSoTimeout\fP (int timeout)"
+.br
+.RI "\fIEnables/disables SO_TIMEOUT with the specified timeout (in milliseconds)\&. \fP"
+.ti -1c
+.RI "int \fBsetTcpNoDelay\fP (bool)"
+.br
+.RI "\fITurns on/off TCP coalescence (useful in some cases to avoid delays)\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+TCP/IP \fBSocket\fP Server\&. Note: this class supports AF_INET connections following the IPv4 Internet protocol\&. Other families, such as AF_INET6 or AF_UNIX are not yet supported\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ServerSocket::ServerSocket ()"
+creates a new \fBServerSocket\fP\&. Creates a listening AF_INET socket (using the IPv4 Internet protocol) that waits for connection requests by TCP/IP (SOCK_STREAM) client sockets\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBSocket\fP * ServerSocket::accept ()\fC [virtual]\fP"
+Accepts a new connection request and returns the corresponding socket\&. By default, this function blocks the caller until a connection is present 
+.PP
+\fBReturns:\fP
+.RS 4
+Returns the new \fBSocket\fP or NULL on error 
+.RE
+.PP
+
+.SS "int ServerSocket::bind (intport, intbacklog = \fC50\fP)\fC [virtual]\fP"
+Assigns the socket to the local address\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+0 on success or a negative value on error which is one of \fBSocket::Errors\fP 
+.RE
+.PP
+
+.SS "int ServerSocket::getOption (intlevel, intoptname, void *optval, socklen_t *optlen)"
+Gets socket options\&. Same arguments and effect as the getsockopt() system call\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+On success, zero is returned\&. On error, -1 is returned\&. 
+.RE
+.PP
+
+.SS "void ServerSocket::handleSigPipe (void(*)(int signal)function)"
+Handle SIGPIPE signals\&. Sockets may abort programs by throwing a SIGPIPE signal\&. The function given as an argument will be called instead of aborting the program\&.  \fBignoreSigPipe()\fP 
+.SS "void ServerSocket::ignoreSigPipe ()"
+
+.PP
+Ignore SIGPIPE signals (\&. 
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBhandleSigPipe()\fP)\&. 
+.RE
+.PP
+
+.SS "int ServerSocket::setOption (intlevel, intoptname, const void *optval, socklen_toptlen)"
+Sets socket options\&. Same arguments and effect as the setsockopt() system call\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+On success, zero is returned\&. On error, -1 is returned\&.  helper functions \fBsetReuseAddress()\fP, \fBsetTcpNoDelay()\fP, etc\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Multimedia from the source code\&.

@@ -1,0 +1,210 @@
+\hypertarget{class_group}{\section{Group Class Reference}
+\label{class_group}\index{Group@{Group}}
+}
+
+
+This class represents a group of multimedia objects.  
+
+
+
+
+{\ttfamily \#include $<$group.\-h$>$}
+
+Inheritance diagram for Group\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_group}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_group_aa6af2d4a3c356458f28074b21da1e4cd}{Group} (void)
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_group_af214c730661c4bb60beb522c9e727539}{Group} (string name)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_group_a574dd20ac1bc1b887a20674270ef0771}{$\sim$\-Group} (void)
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+virtual string \hyperlink{class_group_a74b6a431e3cc5ea73fe3c827c86124b0}{get\-Name} (void) const 
+\begin{DoxyCompactList}\small\item\em Name getter. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_group_abefb2124b85c16a71c4f2507fcc1b929}{set\-Name} (string new\-Name)
+\begin{DoxyCompactList}\small\item\em Name setter. \end{DoxyCompactList}\item 
+virtual string \hyperlink{class_group_ae6aa5031cd7a0fe6e29d64953dfbb541}{print} (void) const 
+\begin{DoxyCompactList}\small\item\em Print all the members. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_group}{Group} $\ast$ \hyperlink{class_group_a8a97ac6e71d54db8b11847b584da5e2d}{clone} (void) const 
+\begin{DoxyCompactList}\small\item\em Clone the group. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_group_a7906d57eec77398426a976d8c8af7d79}{remove} (string name)
+\begin{DoxyCompactList}\small\item\em Remove a multimedia file by name. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_group_abc1a9d8e555c99b902bc7af12c80bd74}{write} (ostream \&stream) const 
+\begin{DoxyCompactList}\small\item\em Serializes a group. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_group_a427c00deaef1bd3f04f2986232b68dcd}{read} (istream \&stream, const \hyperlink{class_multimedia_manager}{Multimedia\-Manager} $\ast$manager)
+\begin{DoxyCompactList}\small\item\em Deserializes a group. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class represents a group of multimedia objects. 
+
+The group is represented by a list of multimedia objects, so the methods will be the same. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_group_aa6af2d4a3c356458f28074b21da1e4cd}{\index{Group@{Group}!Group@{Group}}
+\index{Group@{Group}!Group@{Group}}
+\subsubsection[{Group}]{\setlength{\rightskip}{0pt plus 5cm}Group\-::\-Group (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_group_aa6af2d4a3c356458f28074b21da1e4cd}
+
+
+Default Constructor. 
+
+Creates an empty group. \hypertarget{class_group_af214c730661c4bb60beb522c9e727539}{\index{Group@{Group}!Group@{Group}}
+\index{Group@{Group}!Group@{Group}}
+\subsubsection[{Group}]{\setlength{\rightskip}{0pt plus 5cm}Group\-::\-Group (
+\begin{DoxyParamCaption}
+\item[{string}]{name}
+\end{DoxyParamCaption}
+)}}\label{class_group_af214c730661c4bb60beb522c9e727539}
+
+
+Constructor. 
+
+Creates an empty group.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \-: Name of the group \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_group_a574dd20ac1bc1b887a20674270ef0771}{\index{Group@{Group}!$\sim$\-Group@{$\sim$\-Group}}
+\index{$\sim$\-Group@{$\sim$\-Group}!Group@{Group}}
+\subsubsection[{$\sim$\-Group}]{\setlength{\rightskip}{0pt plus 5cm}Group\-::$\sim$\-Group (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_group_a574dd20ac1bc1b887a20674270ef0771}
+
+
+Default destructor. 
+
+Clean everything before deleting the object. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_group_a8a97ac6e71d54db8b11847b584da5e2d}{\index{Group@{Group}!clone@{clone}}
+\index{clone@{clone}!Group@{Group}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Group} $\ast$ Group\-::clone (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_group_a8a97ac6e71d54db8b11847b584da5e2d}
+
+
+Clone the group. 
+
+\begin{DoxyReturn}{Returns}
+A copy of the group. 
+\end{DoxyReturn}
+\hypertarget{class_group_a74b6a431e3cc5ea73fe3c827c86124b0}{\index{Group@{Group}!get\-Name@{get\-Name}}
+\index{get\-Name@{get\-Name}!Group@{Group}}
+\subsubsection[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}string Group\-::get\-Name (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_group_a74b6a431e3cc5ea73fe3c827c86124b0}
+
+
+Name getter. 
+
+Give the name of the group.
+
+\begin{DoxyReturn}{Returns}
+The name of the group. 
+\end{DoxyReturn}
+\hypertarget{class_group_ae6aa5031cd7a0fe6e29d64953dfbb541}{\index{Group@{Group}!print@{print}}
+\index{print@{print}!Group@{Group}}
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}string Group\-::print (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_group_ae6aa5031cd7a0fe6e29d64953dfbb541}
+
+
+Print all the members. 
+
+Print the members of the group on the standard output. \hypertarget{class_group_a427c00deaef1bd3f04f2986232b68dcd}{\index{Group@{Group}!read@{read}}
+\index{read@{read}!Group@{Group}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}void Group\-::read (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{stream, }
+\item[{const {\bf Multimedia\-Manager} $\ast$}]{manager}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_group_a427c00deaef1bd3f04f2986232b68dcd}
+
+
+Deserializes a group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & \-: An input stream where the group is read \\
+\hline
+{\em manager} & \-: The manager where the multimedia files are stored. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_group_a7906d57eec77398426a976d8c8af7d79}{\index{Group@{Group}!remove@{remove}}
+\index{remove@{remove}!Group@{Group}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void Group\-::remove (
+\begin{DoxyParamCaption}
+\item[{string}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_group_a7906d57eec77398426a976d8c8af7d79}
+
+
+Remove a multimedia file by name. 
+
+Remove all the multimedia files in the group with the given name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \-: the name of the multimedia file to remove. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_group_abefb2124b85c16a71c4f2507fcc1b929}{\index{Group@{Group}!set\-Name@{set\-Name}}
+\index{set\-Name@{set\-Name}!Group@{Group}}
+\subsubsection[{set\-Name}]{\setlength{\rightskip}{0pt plus 5cm}void Group\-::set\-Name (
+\begin{DoxyParamCaption}
+\item[{string}]{new\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_group_abefb2124b85c16a71c4f2507fcc1b929}
+
+
+Name setter. 
+
+Set the name of the group.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Name} & \-: the new name of the group. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_group_abc1a9d8e555c99b902bc7af12c80bd74}{\index{Group@{Group}!write@{write}}
+\index{write@{write}!Group@{Group}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}void Group\-::write (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{stream}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_group_abc1a9d8e555c99b902bc7af12c80bd74}
+
+
+Serializes a group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & \-: An output stream where the group will be written. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/headers/group.\-h\item 
+src/group.\-cpp\end{DoxyCompactItemize}

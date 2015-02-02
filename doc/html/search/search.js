@@ -7,16 +7,18 @@
 
 var indexSectionsWithContent =
 {
-  0: "gmps~",
-  1: "m",
-  2: "gmps~"
+  0: "abcdefghimprstvw~",
+  1: "dfgimpstv",
+  2: "abcfghimprsvw~",
+  3: "e"
 };
 
 var indexSectionNames =
 {
   0: "all",
   1: "classes",
-  2: "functions"
+  2: "functions",
+  3: "enums"
 };
 
 function convertToId(search)

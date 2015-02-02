@@ -1,0 +1,163 @@
+.TH "Group" 3 "Mon Feb 2 2015" "Version 0.1" "Multimedia" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Group \- 
+.PP
+This class represents a group of multimedia objects\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <group\&.h>\fP
+.PP
+Inherits list< shared_ptr< Multimedia > >\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGroup\fP (void)"
+.br
+.RI "\fIDefault Constructor\&. \fP"
+.ti -1c
+.RI "\fBGroup\fP (string name)"
+.br
+.RI "\fIConstructor\&. \fP"
+.ti -1c
+.RI "virtual \fB~Group\fP (void)"
+.br
+.RI "\fIDefault destructor\&. \fP"
+.ti -1c
+.RI "virtual string \fBgetName\fP (void) const "
+.br
+.RI "\fIName getter\&. \fP"
+.ti -1c
+.RI "virtual void \fBsetName\fP (string newName)"
+.br
+.RI "\fIName setter\&. \fP"
+.ti -1c
+.RI "virtual string \fBprint\fP (void) const "
+.br
+.RI "\fIPrint all the members\&. \fP"
+.ti -1c
+.RI "virtual \fBGroup\fP * \fBclone\fP (void) const "
+.br
+.RI "\fIClone the group\&. \fP"
+.ti -1c
+.RI "virtual void \fBremove\fP (string name)"
+.br
+.RI "\fIRemove a multimedia file by name\&. \fP"
+.ti -1c
+.RI "virtual void \fBwrite\fP (ostream &stream) const "
+.br
+.RI "\fISerializes a group\&. \fP"
+.ti -1c
+.RI "virtual void \fBread\fP (istream &stream, const \fBMultimediaManager\fP *manager)"
+.br
+.RI "\fIDeserializes a group\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class represents a group of multimedia objects\&. 
+
+The group is represented by a list of multimedia objects, so the methods will be the same\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Group::Group (void)"
+
+.PP
+Default Constructor\&. Creates an empty group\&. 
+.SS "Group::Group (stringname)"
+
+.PP
+Constructor\&. Creates an empty group\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP : Name of the group 
+.RE
+.PP
+
+.SS "Group::~Group (void)\fC [virtual]\fP"
+
+.PP
+Default destructor\&. Clean everything before deleting the object\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBGroup\fP * Group::clone (void) const\fC [virtual]\fP"
+
+.PP
+Clone the group\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+A copy of the group\&. 
+.RE
+.PP
+
+.SS "string Group::getName (void) const\fC [virtual]\fP"
+
+.PP
+Name getter\&. Give the name of the group\&.
+.PP
+\fBReturns:\fP
+.RS 4
+The name of the group\&. 
+.RE
+.PP
+
+.SS "string Group::print (void) const\fC [virtual]\fP"
+
+.PP
+Print all the members\&. Print the members of the group on the standard output\&. 
+.SS "void Group::read (istream &stream, const \fBMultimediaManager\fP *manager)\fC [virtual]\fP"
+
+.PP
+Deserializes a group\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstream\fP : An input stream where the group is read 
+.br
+\fImanager\fP : The manager where the multimedia files are stored\&. 
+.RE
+.PP
+
+.SS "void Group::remove (stringname)\fC [virtual]\fP"
+
+.PP
+Remove a multimedia file by name\&. Remove all the multimedia files in the group with the given name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP : the name of the multimedia file to remove\&. 
+.RE
+.PP
+
+.SS "void Group::setName (stringnewName)\fC [virtual]\fP"
+
+.PP
+Name setter\&. Set the name of the group\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewName\fP : the new name of the group\&. 
+.RE
+.PP
+
+.SS "void Group::write (ostream &stream) const\fC [virtual]\fP"
+
+.PP
+Serializes a group\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstream\fP : An output stream where the group will be written\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Multimedia from the source code\&.

@@ -1,0 +1,65 @@
+\hypertarget{class_t_c_p_server}{\section{T\-C\-P\-Server Class Reference}
+\label{class_t_c_p_server}\index{T\-C\-P\-Server@{T\-C\-P\-Server}}
+}
+
+
+{\ttfamily \#include $<$T\-C\-P\-Server.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual int \hyperlink{class_t_c_p_server_a1409041961e91f1dbc4933483b4c3b23}{run} (int port)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{class_t_c_p_server_a707f8004c0fc8c50aafd12d187b853b9}{process\-Message} (const std\-::string \&message, std\-::string \&response)
+\item 
+\hypertarget{class_t_c_p_server_a5d1c3dced9ab7bdc5d5f13866f1eee79}{virtual void \hyperlink{class_t_c_p_server_a5d1c3dced9ab7bdc5d5f13866f1eee79}{read\-Messages} (\hyperlink{class_socket}{Socket} $\ast$)}\label{class_t_c_p_server_a5d1c3dced9ab7bdc5d5f13866f1eee79}
+
+\begin{DoxyCompactList}\small\item\em reads messages from a client. \end{DoxyCompactList}\item 
+\hypertarget{class_t_c_p_server_aa1852e58a77d6e3ddb24ff09dd2acef0}{virtual void \hyperlink{class_t_c_p_server_aa1852e58a77d6e3ddb24ff09dd2acef0}{close\-Socket\-And\-Thread} (\hyperlink{class_socket}{Socket} $\ast$, const char $\ast$msg)}\label{class_t_c_p_server_aa1852e58a77d6e3ddb24ff09dd2acef0}
+
+\begin{DoxyCompactList}\small\item\em closes the socket (and the corresponding thread) of a client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_t_c_p_server_a42c2409be8cbdebb705966d42675440d}{static void $\ast$ \hyperlink{class_t_c_p_server_a42c2409be8cbdebb705966d42675440d}{start\-Read\-Messages} (void $\ast$)}\label{class_t_c_p_server_a42c2409be8cbdebb705966d42675440d}
+
+\begin{DoxyCompactList}\small\item\em callback function of pthread\-\_\-create() that calls \hyperlink{class_t_c_p_server_a5d1c3dced9ab7bdc5d5f13866f1eee79}{read\-Messages()}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_t_c_p_server_a2399732a7af844b9a314e03a68fd6195}{\hyperlink{class_server_socket}{Server\-Socket} {\bfseries servsock}}\label{class_t_c_p_server_a2399732a7af844b9a314e03a68fd6195}
+
+\item 
+\hypertarget{class_t_c_p_server_a7c10a0dd08a54a659b7dc55719dbb322}{pthread\-\_\-rwlock\-\_\-t {\bfseries lock}}\label{class_t_c_p_server_a7c10a0dd08a54a659b7dc55719dbb322}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_t_c_p_server}{T\-C\-P\-Server}\-: T\-C\-P/\-I\-P I\-N\-E\-T Server. This class supports T\-C\-P/\-I\-P A\-F\-\_\-\-I\-N\-E\-T connections following the I\-Pv4 Internet protocol. Other families, such as A\-F\-\_\-\-I\-N\-E\-T6 or A\-F\-\_\-\-U\-N\-I\-X are not yet supported. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_t_c_p_server_a707f8004c0fc8c50aafd12d187b853b9}{\index{T\-C\-P\-Server@{T\-C\-P\-Server}!process\-Message@{process\-Message}}
+\index{process\-Message@{process\-Message}!TCPServer@{T\-C\-P\-Server}}
+\subsubsection[{process\-Message}]{\setlength{\rightskip}{0pt plus 5cm}bool T\-C\-P\-Server\-::process\-Message (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{message, }
+\item[{std\-::string \&}]{response}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_t_c_p_server_a707f8004c0fc8c50aafd12d187b853b9}
+processes a message and returns the response the connection with the client will be closed if false is returned. \hypertarget{class_t_c_p_server_a1409041961e91f1dbc4933483b4c3b23}{\index{T\-C\-P\-Server@{T\-C\-P\-Server}!run@{run}}
+\index{run@{run}!TCPServer@{T\-C\-P\-Server}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}int T\-C\-P\-Server\-::run (
+\begin{DoxyParamCaption}
+\item[{int}]{port}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_t_c_p_server_a1409041961e91f1dbc4933483b4c3b23}
+starts the main loop of the server on this port. returns 0 for normal termination, a negative value otherwise. 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/headers/T\-C\-P\-Server.\-h\item 
+src/\-Server/T\-C\-P\-Server.\-cpp\end{DoxyCompactItemize}

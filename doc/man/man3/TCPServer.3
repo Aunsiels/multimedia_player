@@ -1,0 +1,63 @@
+.TH "TCPServer" 3 "Mon Feb 2 2015" "Version 0.1" "Multimedia" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TCPServer \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <TCPServer\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBrun\fP (int port)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual bool \fBprocessMessage\fP (const std::string &message, std::string &response)"
+.br
+.ti -1c
+.RI "virtual void \fBreadMessages\fP (\fBSocket\fP *)"
+.br
+.RI "\fIreads messages from a client\&. \fP"
+.ti -1c
+.RI "virtual void \fBcloseSocketAndThread\fP (\fBSocket\fP *, const char *msg)"
+.br
+.RI "\fIcloses the socket (and the corresponding thread) of a client\&. \fP"
+.in -1c
+.SS "Static Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void * \fBstartReadMessages\fP (void *)"
+.br
+.RI "\fIcallback function of pthread_create() that calls \fBreadMessages()\fP\&. \fP"
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBServerSocket\fP \fBservsock\fP"
+.br
+.ti -1c
+.RI "pthread_rwlock_t \fBlock\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBTCPServer\fP: TCP/IP INET Server\&. This class supports TCP/IP AF_INET connections following the IPv4 Internet protocol\&. Other families, such as AF_INET6 or AF_UNIX are not yet supported\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "bool TCPServer::processMessage (const std::string &message, std::string &response)\fC [protected]\fP, \fC [virtual]\fP"
+processes a message and returns the response the connection with the client will be closed if false is returned\&. 
+.SS "int TCPServer::run (intport)\fC [virtual]\fP"
+starts the main loop of the server on this port\&. returns 0 for normal termination, a negative value otherwise\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Multimedia from the source code\&.

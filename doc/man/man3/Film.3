@@ -1,0 +1,211 @@
+.TH "Film" 3 "Mon Feb 2 2015" "Version 0.1" "Multimedia" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Film \- 
+This class represents a film file\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <film\&.h>\fP
+.PP
+Inherits \fBVideo\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBDeleterFilm\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual unsigned int const ** \fBgetChapters\fP (void) const "
+.br
+.RI "\fIChapters getter\&. \fP"
+.ti -1c
+.RI "virtual void \fBsetChapters\fP (unsigned int const chapters[], unsigned int number_chapters)"
+.br
+.RI "\fIChapters setter\&. \fP"
+.ti -1c
+.RI "virtual string \fBprintChapters\fP (void) const "
+.br
+.RI "\fIPrint chapters\&. \fP"
+.ti -1c
+.RI "virtual void \fBwrite\fP (ostream &stream) const "
+.br
+.RI "\fISerialize the multimedia object\&. \fP"
+.ti -1c
+.RI "virtual void \fBread\fP (istream &stream)"
+.br
+.RI "\fIRead from a serialized object\&. \fP"
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFilm\fP (const \fBFilm\fP &)"
+.br
+.ti -1c
+.RI "\fBFilm\fP (void)"
+.br
+.RI "\fIDefault Constructor\&. \fP"
+.ti -1c
+.RI "\fBFilm\fP (string name, unsigned long date, string pathname)"
+.br
+.RI "\fIConstructor with no chapter\&. \fP"
+.ti -1c
+.RI "\fBFilm\fP (string name, unsigned long date, string pathname, unsigned int const chapters[], unsigned int number_chapters)"
+.br
+.RI "\fIComplete constructor\&. \fP"
+.ti -1c
+.RI "\fB~Film\fP (void)"
+.br
+.RI "\fIDestructor\&. \fP"
+.ti -1c
+.RI "virtual \fBFilm\fP * \fBclone\fP (void) const "
+.br
+.RI "\fIClone the film\&. \fP"
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBMultimediaManager\fP"
+.br
+.ti -1c
+.RI "class \fBDeleterFilm\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class represents a film file\&. 
+
+It inherits from Movie and contains the chapters of the movie\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Film::Film (void)\fC [protected]\fP"
+
+.PP
+Default Constructor\&. Creates a default film with no chapter\&. 
+.SS "Film::Film (stringname, unsigned longdate, stringpathname)\fC [protected]\fP"
+
+.PP
+Constructor with no chapter\&. Creates a film with no chapter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP : The name of the film\&. 
+.br
+\fIdate\fP : The date the film was imported\&. 
+.br
+\fIpathname\fP : The path to the film\&. 
+.RE
+.PP
+
+.SS "Film::Film (stringname, unsigned longdate, stringpathname, unsigned int constchapters[], unsigned intnumber_chapters)\fC [protected]\fP"
+
+.PP
+Complete constructor\&. The complete constructor of a film (with chapters)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP : The name of the film\&. 
+.br
+\fIdate\fP : The date the film was imported\&. 
+.br
+\fIpathname\fP : The path to the film\&. 
+.br
+\fIchapter\fP : The vector of the length of each chapter in seconds\&. 
+.br
+\fInumber_chapters\fP : The number of chapter there are\&. 
+.RE
+.PP
+
+.SS "Film::~Film (void)\fC [protected]\fP"
+
+.PP
+Destructor\&. Destructor of the class\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBFilm\fP * Film::clone (void) const\fC [protected]\fP, \fC [virtual]\fP"
+
+.PP
+Clone the film\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Return a copy of the given film\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBVideo\fP\&.
+.SS "unsigned int const ** Film::getChapters (void) const\fC [virtual]\fP"
+
+.PP
+Chapters getter\&. Get the tab of the chapters\&.
+.PP
+\fBReturns:\fP
+.RS 4
+A vector with two elements\&. The first one is a reference to the vector of the chapters and the second one is a reference to the number of chapters\&. 
+.RE
+.PP
+
+.SS "string Film::printChapters (void) const\fC [virtual]\fP"
+
+.PP
+Print chapters\&. Print the chapters of a film\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Return a string which contains the chapters list\&. 
+.RE
+.PP
+
+.SS "void Film::read (istream &stream)\fC [virtual]\fP"
+
+.PP
+Read from a serialized object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstream\fP : the input stream where the object will be read\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBVideo\fP\&.
+.SS "void Film::setChapters (unsigned int constchapters[], unsigned intnumber_chapters)\fC [virtual]\fP"
+
+.PP
+Chapters setter\&. Set the tab of the chapters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIchapters\fP : The vector of the length of the chapters\&. 
+.br
+\fInumber_chapters\fP : The number of chapters in the film\&. 
+.RE
+.PP
+
+.SS "void Film::write (ostream &stream) const\fC [virtual]\fP"
+
+.PP
+Serialize the multimedia object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstream\fP : the output stream where the object will be written\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBVideo\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Multimedia from the source code\&.

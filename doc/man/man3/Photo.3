@@ -1,0 +1,181 @@
+.TH "Photo" 3 "Mon Feb 2 2015" "Version 0.1" "Multimedia" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Photo \- 
+.PP
+This class represents a photo file\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <photo\&.h>\fP
+.PP
+Inherits \fBMultimedia\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBDeleterPhoto\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual string \fBgetPlace\fP (void) const "
+.br
+.RI "\fIPlace getter\&. \fP"
+.ti -1c
+.RI "virtual void \fBsetPlace\fP (string newPlace)"
+.br
+.ti -1c
+.RI "virtual string \fBprint\fP (void) const "
+.br
+.RI "\fIPrint description\&. \fP"
+.ti -1c
+.RI "virtual void \fBplay\fP (void) const "
+.br
+.RI "\fIDisplay the multimedia file on screen\&. \fP"
+.ti -1c
+.RI "virtual void \fBwrite\fP (ostream &stream) const "
+.br
+.RI "\fISerialize the multimedia object\&. \fP"
+.ti -1c
+.RI "virtual void \fBread\fP (istream &stream)"
+.br
+.RI "\fIRead from a serialized object\&. \fP"
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPhoto\fP (const \fBPhoto\fP &)"
+.br
+.ti -1c
+.RI "\fBPhoto\fP (void)"
+.br
+.RI "\fIDefault Constructor\&. \fP"
+.ti -1c
+.RI "\fBPhoto\fP (string name, unsigned long date, string pathname, string place)"
+.br
+.RI "\fIConstructor\&. \fP"
+.ti -1c
+.RI "virtual \fB~Photo\fP (void)"
+.br
+.RI "\fIDestructor\&. \fP"
+.ti -1c
+.RI "virtual \fBPhoto\fP * \fBclone\fP (void) const "
+.br
+.RI "\fIClone the photo\&. \fP"
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBMultimediaManager\fP"
+.br
+.ti -1c
+.RI "class \fBDeleterPhoto\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class represents a photo file\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Photo::Photo (void)\fC [protected]\fP"
+
+.PP
+Default Constructor\&. Defaut constructor of a photo\&. 
+.SS "Photo::Photo (stringname, unsigned longdate, stringpathname, stringplace)\fC [protected]\fP"
+
+.PP
+Constructor\&. Constructor of a photo\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP : Name of the photo\&. 
+.br
+\fIdate\fP : Date when the file is added\&. 
+.br
+\fIpathname\fP : Path to the photo\&. 
+.br
+\fIplace\fP : Place where the photo was taken\&. 
+.RE
+.PP
+
+.SS "Photo::~Photo (void)\fC [protected]\fP, \fC [virtual]\fP"
+
+.PP
+Destructor\&. Default destructor of this class\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBPhoto\fP * Photo::clone (void) const\fC [protected]\fP, \fC [virtual]\fP"
+
+.PP
+Clone the photo\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Return a copy of the given photo\&. 
+.RE
+.PP
+
+.PP
+Implements \fBMultimedia\fP\&.
+.SS "string Photo::getPlace (void) const\fC [virtual]\fP"
+
+.PP
+Place getter\&. Get the place where the photo was taken\&.
+.PP
+\fBReturns:\fP
+.RS 4
+The place where the photo was taken\&. 
+.RE
+.PP
+
+.SS "string Photo::print (void) const\fC [virtual]\fP"
+
+.PP
+Print description\&. Print the description of the file to the standard output 
+.PP
+\fBReturns:\fP
+.RS 4
+Return a string which contains the file description\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBMultimedia\fP\&.
+.SS "void Photo::read (istream &stream)\fC [virtual]\fP"
+
+.PP
+Read from a serialized object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstream\fP : the input stream where the object will be read\&. 
+.RE
+.PP
+
+.PP
+Implements \fBMultimedia\fP\&.
+.SS "void Photo::write (ostream &stream) const\fC [virtual]\fP"
+
+.PP
+Serialize the multimedia object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstream\fP : the output stream where the object will be written\&. 
+.RE
+.PP
+
+.PP
+Implements \fBMultimedia\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Multimedia from the source code\&.

@@ -1,0 +1,143 @@
+.TH "SocketBuffer" 3 "Mon Feb 2 2015" "Version 0.1" "Multimedia" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SocketBuffer \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Socket\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSocketBuffer\fP (\fBSocket\fP *)"
+.br
+.ti -1c
+.RI "\fBSocketBuffer\fP (\fBSocket\fP &)"
+.br
+.ti -1c
+.RI "virtual ssize_t \fBwrite\fP (const void *buf, size_t len)"
+.br
+.ti -1c
+.RI "virtual ssize_t \fBread\fP (void *buf, size_t len)"
+.br
+.ti -1c
+.RI "virtual ssize_t \fBwriteLine\fP (const std::string &)"
+.br
+.ti -1c
+.RI "virtual ssize_t \fBreadLine\fP (std::string &)"
+.br
+.ti -1c
+.RI "virtual ssize_t \fBwriteLine\fP (const char *str, size_t len)"
+.br
+.ti -1c
+.RI "virtual ssize_t \fBreadLine\fP (char *str, size_t len, bool &truncated)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class for exchanging data blocks or text lines between TCP/IP sockets\&. TCP/IP connected sockets (type SOCK_STREAM) do not preserve record boundaries\&. Messages can thus be split or merged so that one call to \fBSocket::send()\fP on the sending side does not necessarily correspond to one call to \fBSocket::receive()\fP on the receiving side\&. This class makes it easier to solve this problem by providing functions that call send() or receive() as many times as needed\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "SocketBuffer::SocketBuffer (\fBSocket\fP *_sock)"
+constructor\&. The argument must be a valid connected (SOCK_STREAM) \fBSocket\fP which must not be destructed while the \fBSocketBuffer\fP object is used\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "ssize_t SocketBuffer::read (void *buf, size_tlen)\fC [virtual]\fP"
+Receives a given number of bytes from a connected socket\&. Reads \fIexactly\fP \fIlen\fP bytes from the socket (in constrast with \fBSocket::receive()\fP that reads \fIat most\fP \fIlen\fP bytes) except if end-of-stream is reached (shutdownOutput() was called on the other side) or an error occurs\&. Practically, this function calls \fBSocket::receive()\fP several times if needed\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the number of bytes received, 0 at end-of-stream, -1 in case of an error\&. 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBSocket::receive()\fP for more details\&. 
+.RE
+.PP
+
+.SS "virtual ssize_t SocketBuffer::readLine (std::string &)\fC [virtual]\fP"
+Reads a line of text from a connected socket\&. Reads characters from the socket and stores them into \fIstr\fP until a newline is read (character '
+.br
+' or ''), end-of-stream is reached (shutdownOutput() was called on the other side) or an error occurs\&. Practically, this function calls \fBSocket::receive()\fP several times if needed\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the number of bytes received (including the newline), 0 at end-of-stream, -1 in case of an error\&. 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBread()\fP for more detail\&. 
+.RE
+.PP
+
+.SS "ssize_t SocketBuffer::readLine (char *str, size_tlen, bool &truncated)\fC [virtual]\fP"
+Reads a line of text from a connected socket\&. Reads characters from the socket and stores them into \fIstr\fP until: a) len-1 bytes are read, b) a newline is read (character '
+.br
+' or ''), c) end-of-stream is reached (shutdownOutput() was called on the other side), d) an error occurs\&. Practically, this function calls \fBSocket::receive()\fP several times if needed\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the number of bytes received (including the newline), 0 at end-of-stream, -1 in case of an error\&. \fItruncated\fP is true if the function receives more than len-1 bytes\&. The remaining bytes can be read by calling this function again\&. \fIstr\fP is always nul terminated\&. 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBread()\fP for more details\&. 
+.RE
+.PP
+
+.SS "ssize_t SocketBuffer::write (const void *buf, size_tlen)\fC [virtual]\fP"
+Sends a given number of bytes to a connected socket\&. Writes \fIexactly\fP \fIlen\fP bytes to the socket (in constrast with \fBSocket::send()\fP which may not send all bytes) except if an error occurs\&. Practically, this function calls \fBSocket::send()\fP several times if needed\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the number of bytes sent or -1 in case of an error 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBSocket::send()\fP for more details\&. 
+.RE
+.PP
+
+.SS "virtual ssize_t SocketBuffer::writeLine (const std::string &)\fC [virtual]\fP"
+Sends a line of text to a connected socket\&. Same effect as \fBwrite()\fP except that a newline (character '
+.br
+' ) is added to the end of the string\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the number of bytes sent (including the newline) or -1 in case of an error\&. 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBwrite()\fP for more details\&. 
+.RE
+.PP
+
+.SS "ssize_t SocketBuffer::writeLine (const char *str, size_tlen)\fC [virtual]\fP"
+Sends a line of text to a connected socket\&. Same effect as \fBwrite()\fP except that a newline (character '
+.br
+' ) is added to the end of the string\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the number of bytes sent (including the newline) or -1 in case of an error\&. 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBwrite()\fP for more details\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Multimedia from the source code\&.

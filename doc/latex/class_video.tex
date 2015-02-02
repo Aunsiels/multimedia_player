@@ -1,0 +1,231 @@
+\hypertarget{class_video}{\section{Video Class Reference}
+\label{class_video}\index{Video@{Video}}
+}
+
+
+This class represents a video file.  
+
+
+
+
+{\ttfamily \#include $<$video.\-h$>$}
+
+Inheritance diagram for Video\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_video}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_video_1_1_deleter_video}{Deleter\-Video}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual unsigned int \hyperlink{class_video_a3b3cfffbd171368fcfb70cd58bff60a8}{get\-Length} (void) const 
+\begin{DoxyCompactList}\small\item\em Length getter. \end{DoxyCompactList}\item 
+\hypertarget{class_video_a01da0b8e9ee9f91e515cf453f03b1bea}{virtual void {\bfseries set\-Length} (unsigned int new\-Length)}\label{class_video_a01da0b8e9ee9f91e515cf453f03b1bea}
+
+\item 
+virtual string \hyperlink{class_video_a9f6e63647c81fabd59452ad1d695d190}{print} (void) const 
+\begin{DoxyCompactList}\small\item\em Print description. \end{DoxyCompactList}\item 
+\hypertarget{class_video_a0bcf77c9b87b314385c95d92c3cba71e}{virtual void \hyperlink{class_video_a0bcf77c9b87b314385c95d92c3cba71e}{play} (void) const }\label{class_video_a0bcf77c9b87b314385c95d92c3cba71e}
+
+\begin{DoxyCompactList}\small\item\em Display the multimedia file on screen. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_video_a4bfb8bf83498fa30a6515065559ccbff}{write} (ostream \&stream) const 
+\begin{DoxyCompactList}\small\item\em Serialize the multimedia object. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_video_a6be318a4e05ddfdb52fbcc1cab5ab573}{read} (istream \&stream)
+\begin{DoxyCompactList}\small\item\em Read from a serialized object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_video_a77b13b3504ce1250d9d85988738d1ed3}{{\bfseries Video} (const \hyperlink{class_video}{Video} \&)}\label{class_video_a77b13b3504ce1250d9d85988738d1ed3}
+
+\item 
+\hyperlink{class_video_a0e0e31382d40c5f80e68d8441872eb56}{Video} (void)
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_video_a11c9bacf664b637c4e3a214054df0ecf}{Video} (string name, unsigned long date, string pathname, unsigned int length)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_video_a887b39f51487f64733e9541838118cf3}{$\sim$\-Video} (void)
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_video}{Video} $\ast$ \hyperlink{class_video_a450def61b99cd5c338b83cbfa136c25a}{clone} (void) const 
+\begin{DoxyCompactList}\small\item\em Clone the video. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_video_a29a97f20d6ded769adf9ecc47158e24f}{class {\bfseries Multimedia\-Manager}}\label{class_video_a29a97f20d6ded769adf9ecc47158e24f}
+
+\item 
+\hypertarget{class_video_ae6b99bde93d4652991dcd292ac9dcbd8}{class {\bfseries Deleter\-Video}}\label{class_video_ae6b99bde93d4652991dcd292ac9dcbd8}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class represents a video file. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_video_a0e0e31382d40c5f80e68d8441872eb56}{\index{Video@{Video}!Video@{Video}}
+\index{Video@{Video}!Video@{Video}}
+\subsubsection[{Video}]{\setlength{\rightskip}{0pt plus 5cm}Video\-::\-Video (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_video_a0e0e31382d40c5f80e68d8441872eb56}
+
+
+Default Constructor. 
+
+Defaut constructor of a video. \hypertarget{class_video_a11c9bacf664b637c4e3a214054df0ecf}{\index{Video@{Video}!Video@{Video}}
+\index{Video@{Video}!Video@{Video}}
+\subsubsection[{Video}]{\setlength{\rightskip}{0pt plus 5cm}Video\-::\-Video (
+\begin{DoxyParamCaption}
+\item[{string}]{name, }
+\item[{unsigned long}]{date, }
+\item[{string}]{pathname, }
+\item[{unsigned int}]{length}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_video_a11c9bacf664b637c4e3a214054df0ecf}
+
+
+Constructor. 
+
+Constructor of a video.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \-: Name of the video. \\
+\hline
+{\em date} & \-: Date when the file is added. \\
+\hline
+{\em pathname} & \-: Path to the video. \\
+\hline
+{\em length} & \-: Length of the video in seconds. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_video_a887b39f51487f64733e9541838118cf3}{\index{Video@{Video}!$\sim$\-Video@{$\sim$\-Video}}
+\index{$\sim$\-Video@{$\sim$\-Video}!Video@{Video}}
+\subsubsection[{$\sim$\-Video}]{\setlength{\rightskip}{0pt plus 5cm}Video\-::$\sim$\-Video (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_video_a887b39f51487f64733e9541838118cf3}
+
+
+Destructor. 
+
+Default destructor of this class. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_video_a450def61b99cd5c338b83cbfa136c25a}{\index{Video@{Video}!clone@{clone}}
+\index{clone@{clone}!Video@{Video}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Video} $\ast$ Video\-::clone (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_video_a450def61b99cd5c338b83cbfa136c25a}
+
+
+Clone the video. 
+
+\begin{DoxyReturn}{Returns}
+Return a copy of the given video. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_multimedia_a2955c15860b8310ee684d391e7b3386f}{Multimedia}.
+
+
+
+Reimplemented in \hyperlink{class_film_aa0b3eb1efeba4721d86c37ae5e671382}{Film}.
+
+\hypertarget{class_video_a3b3cfffbd171368fcfb70cd58bff60a8}{\index{Video@{Video}!get\-Length@{get\-Length}}
+\index{get\-Length@{get\-Length}!Video@{Video}}
+\subsubsection[{get\-Length}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Video\-::get\-Length (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_video_a3b3cfffbd171368fcfb70cd58bff60a8}
+
+
+Length getter. 
+
+Get the length of the video.
+
+\begin{DoxyReturn}{Returns}
+The length of the video. 
+\end{DoxyReturn}
+\hypertarget{class_video_a9f6e63647c81fabd59452ad1d695d190}{\index{Video@{Video}!print@{print}}
+\index{print@{print}!Video@{Video}}
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}string Video\-::print (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_video_a9f6e63647c81fabd59452ad1d695d190}
+
+
+Print description. 
+
+Print the description of the file to the standard output \begin{DoxyReturn}{Returns}
+Return a string which contains the file description. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_multimedia_a4960a7ffd22e90f74291ebf86eccf820}{Multimedia}.
+
+\hypertarget{class_video_a6be318a4e05ddfdb52fbcc1cab5ab573}{\index{Video@{Video}!read@{read}}
+\index{read@{read}!Video@{Video}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}void Video\-::read (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{stream}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_video_a6be318a4e05ddfdb52fbcc1cab5ab573}
+
+
+Read from a serialized object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & \-: the input stream where the object will be read. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_multimedia_ab686208e53fe8161bb86f7d37e01784c}{Multimedia}.
+
+
+
+Reimplemented in \hyperlink{class_film_a053b2e4cd4b1e1f8dda7cfb1a45d301c}{Film}.
+
+\hypertarget{class_video_a4bfb8bf83498fa30a6515065559ccbff}{\index{Video@{Video}!write@{write}}
+\index{write@{write}!Video@{Video}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}void Video\-::write (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{stream}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_video_a4bfb8bf83498fa30a6515065559ccbff}
+
+
+Serialize the multimedia object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & \-: the output stream where the object will be written. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_multimedia_aa3c800e85ac5256ee8d1399d2ba33329}{Multimedia}.
+
+
+
+Reimplemented in \hyperlink{class_film_a8b38978dd0bf6ed844627d8e8b63efbe}{Film}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/headers/video.\-h\item 
+src/video.\-cpp\end{DoxyCompactItemize}

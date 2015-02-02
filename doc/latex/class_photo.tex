@@ -1,0 +1,219 @@
+\hypertarget{class_photo}{\section{Photo Class Reference}
+\label{class_photo}\index{Photo@{Photo}}
+}
+
+
+This class represents a photo file.  
+
+
+
+
+{\ttfamily \#include $<$photo.\-h$>$}
+
+Inheritance diagram for Photo\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_photo}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_photo_1_1_deleter_photo}{Deleter\-Photo}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual string \hyperlink{class_photo_a62050b13fc758cbb446f6170bf3dbc65}{get\-Place} (void) const 
+\begin{DoxyCompactList}\small\item\em Place getter. \end{DoxyCompactList}\item 
+\hypertarget{class_photo_a50a5f650f944ecb86d88855aad0bc492}{virtual void {\bfseries set\-Place} (string new\-Place)}\label{class_photo_a50a5f650f944ecb86d88855aad0bc492}
+
+\item 
+virtual string \hyperlink{class_photo_af63cb6130ed71a7f44d789fb3a5c7f01}{print} (void) const 
+\begin{DoxyCompactList}\small\item\em Print description. \end{DoxyCompactList}\item 
+\hypertarget{class_photo_a061bcd0e2002613bac15ce2e23543b0b}{virtual void \hyperlink{class_photo_a061bcd0e2002613bac15ce2e23543b0b}{play} (void) const }\label{class_photo_a061bcd0e2002613bac15ce2e23543b0b}
+
+\begin{DoxyCompactList}\small\item\em Display the multimedia file on screen. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_photo_a65c10b1d3dd17be4d478f7c3fb04ddd4}{write} (ostream \&stream) const 
+\begin{DoxyCompactList}\small\item\em Serialize the multimedia object. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_photo_a0c0ede69ed7502df226a95bbb62d7b40}{read} (istream \&stream)
+\begin{DoxyCompactList}\small\item\em Read from a serialized object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_photo_abb4bbd2c8364074c7605469378fcb059}{{\bfseries Photo} (const \hyperlink{class_photo}{Photo} \&)}\label{class_photo_abb4bbd2c8364074c7605469378fcb059}
+
+\item 
+\hyperlink{class_photo_a8824dbd5d05f0e39a258a4d73a61b17d}{Photo} (void)
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_photo_a01773598a3f49a95c5b166534b35d7c5}{Photo} (string name, unsigned long date, string pathname, string place)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_photo_a5ecb1bc1fde85af2f0405fa2d32a5a97}{$\sim$\-Photo} (void)
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_photo}{Photo} $\ast$ \hyperlink{class_photo_af8733ff93a45f0135076fcb731af56d7}{clone} (void) const 
+\begin{DoxyCompactList}\small\item\em Clone the photo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_photo_a29a97f20d6ded769adf9ecc47158e24f}{class {\bfseries Multimedia\-Manager}}\label{class_photo_a29a97f20d6ded769adf9ecc47158e24f}
+
+\item 
+\hypertarget{class_photo_a06ed064be90eaa3ca877fb41f11dbe34}{class {\bfseries Deleter\-Photo}}\label{class_photo_a06ed064be90eaa3ca877fb41f11dbe34}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class represents a photo file. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_photo_a8824dbd5d05f0e39a258a4d73a61b17d}{\index{Photo@{Photo}!Photo@{Photo}}
+\index{Photo@{Photo}!Photo@{Photo}}
+\subsubsection[{Photo}]{\setlength{\rightskip}{0pt plus 5cm}Photo\-::\-Photo (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_photo_a8824dbd5d05f0e39a258a4d73a61b17d}
+
+
+Default Constructor. 
+
+Defaut constructor of a photo. \hypertarget{class_photo_a01773598a3f49a95c5b166534b35d7c5}{\index{Photo@{Photo}!Photo@{Photo}}
+\index{Photo@{Photo}!Photo@{Photo}}
+\subsubsection[{Photo}]{\setlength{\rightskip}{0pt plus 5cm}Photo\-::\-Photo (
+\begin{DoxyParamCaption}
+\item[{string}]{name, }
+\item[{unsigned long}]{date, }
+\item[{string}]{pathname, }
+\item[{string}]{place}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_photo_a01773598a3f49a95c5b166534b35d7c5}
+
+
+Constructor. 
+
+Constructor of a photo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \-: Name of the photo. \\
+\hline
+{\em date} & \-: Date when the file is added. \\
+\hline
+{\em pathname} & \-: Path to the photo. \\
+\hline
+{\em place} & \-: Place where the photo was taken. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_photo_a5ecb1bc1fde85af2f0405fa2d32a5a97}{\index{Photo@{Photo}!$\sim$\-Photo@{$\sim$\-Photo}}
+\index{$\sim$\-Photo@{$\sim$\-Photo}!Photo@{Photo}}
+\subsubsection[{$\sim$\-Photo}]{\setlength{\rightskip}{0pt plus 5cm}Photo\-::$\sim$\-Photo (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_photo_a5ecb1bc1fde85af2f0405fa2d32a5a97}
+
+
+Destructor. 
+
+Default destructor of this class. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_photo_af8733ff93a45f0135076fcb731af56d7}{\index{Photo@{Photo}!clone@{clone}}
+\index{clone@{clone}!Photo@{Photo}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Photo} $\ast$ Photo\-::clone (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_photo_af8733ff93a45f0135076fcb731af56d7}
+
+
+Clone the photo. 
+
+\begin{DoxyReturn}{Returns}
+Return a copy of the given photo. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_multimedia_a2955c15860b8310ee684d391e7b3386f}{Multimedia}.
+
+\hypertarget{class_photo_a62050b13fc758cbb446f6170bf3dbc65}{\index{Photo@{Photo}!get\-Place@{get\-Place}}
+\index{get\-Place@{get\-Place}!Photo@{Photo}}
+\subsubsection[{get\-Place}]{\setlength{\rightskip}{0pt plus 5cm}string Photo\-::get\-Place (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_photo_a62050b13fc758cbb446f6170bf3dbc65}
+
+
+Place getter. 
+
+Get the place where the photo was taken.
+
+\begin{DoxyReturn}{Returns}
+The place where the photo was taken. 
+\end{DoxyReturn}
+\hypertarget{class_photo_af63cb6130ed71a7f44d789fb3a5c7f01}{\index{Photo@{Photo}!print@{print}}
+\index{print@{print}!Photo@{Photo}}
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}string Photo\-::print (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_photo_af63cb6130ed71a7f44d789fb3a5c7f01}
+
+
+Print description. 
+
+Print the description of the file to the standard output \begin{DoxyReturn}{Returns}
+Return a string which contains the file description. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_multimedia_a4960a7ffd22e90f74291ebf86eccf820}{Multimedia}.
+
+\hypertarget{class_photo_a0c0ede69ed7502df226a95bbb62d7b40}{\index{Photo@{Photo}!read@{read}}
+\index{read@{read}!Photo@{Photo}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}void Photo\-::read (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{stream}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_photo_a0c0ede69ed7502df226a95bbb62d7b40}
+
+
+Read from a serialized object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & \-: the input stream where the object will be read. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_multimedia_ab686208e53fe8161bb86f7d37e01784c}{Multimedia}.
+
+\hypertarget{class_photo_a65c10b1d3dd17be4d478f7c3fb04ddd4}{\index{Photo@{Photo}!write@{write}}
+\index{write@{write}!Photo@{Photo}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}void Photo\-::write (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{stream}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_photo_a65c10b1d3dd17be4d478f7c3fb04ddd4}
+
+
+Serialize the multimedia object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & \-: the output stream where the object will be written. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_multimedia_aa3c800e85ac5256ee8d1399d2ba33329}{Multimedia}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/headers/photo.\-h\item 
+src/photo.\-cpp\end{DoxyCompactItemize}

@@ -2,3 +2,4 @@
 main
 depend-main
 *.swp
+.class

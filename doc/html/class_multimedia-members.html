@@ -63,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -71,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Enumerations</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,20 +90,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_multimedia.html">Multimedia</a>, including all inherited members.</p>
 <table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="class_multimedia.html#a2955c15860b8310ee684d391e7b3386f">clone</a>(void) const =0</td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>DeleterMultimedia</b> (defined in <a class="el" href="class_multimedia.html">Multimedia</a>)</td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_multimedia.html#a8c5b6295faee6c9690a513dd0f4b4a79">getDate</a>(void) const </td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_multimedia.html#a8cc74dd745e553a881e6d5b210a542f6">getName</a>(void) const </td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_multimedia.html#a6cff0cb9e8a32d2589c77ebf37250da3">getPathname</a>(void) const </td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_multimedia.html#af613763f6779c2e75fce0749b9a8a734">Multimedia</a>(void)</td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_multimedia.html#a4b955c8674fb9ff39e57fd178f08bada">Multimedia</a>(string name, unsigned long date, string pathname)</td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_multimedia.html#a1b1b48641e51f3d840cf68634554c85a">print</a>(void) const </td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>Multimedia</b>(const Multimedia &amp;other) (defined in <a class="el" href="class_multimedia.html">Multimedia</a>)</td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_multimedia.html#af613763f6779c2e75fce0749b9a8a734">Multimedia</a>(void)</td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_multimedia.html#a4b955c8674fb9ff39e57fd178f08bada">Multimedia</a>(string name, unsigned long date, string pathname)</td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>MultimediaManager</b> (defined in <a class="el" href="class_multimedia.html">Multimedia</a>)</td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_multimedia.html#aa245ab56eb2877b384b3638734d6762e">play</a>(void) const =0</td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_multimedia.html#a4960a7ffd22e90f74291ebf86eccf820">print</a>(void) const </td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_multimedia.html#ab686208e53fe8161bb86f7d37e01784c">read</a>(istream &amp;stream)=0</td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_multimedia.html#a14abd8762b4d64cba41822f2b8ad434f">setDate</a>(unsigned long newDate)</td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_multimedia.html#a7af3fbc7c6f5eab1a70608066f05d03d">setName</a>(string newName)</td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_multimedia.html#a3e06f151e9fce4cad4f74e4b92276929">setPathname</a>(string newPathname)</td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_multimedia.html#a53798cec796a3aa8df3a35dfaa37bfe7">~Multimedia</a>(void)</td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_multimedia.html#aa3c800e85ac5256ee8d1399d2ba33329">write</a>(ostream &amp;stream) const =0</td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_multimedia.html#a53798cec796a3aa8df3a35dfaa37bfe7">~Multimedia</a>(void)</td><td class="entry"><a class="el" href="class_multimedia.html">Multimedia</a></td><td class="entry"><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 10 2014 13:04:00 for Multimedia by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 2 2015 16:46:44 for Multimedia by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

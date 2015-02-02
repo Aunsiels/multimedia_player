@@ -1,0 +1,82 @@
+.TH "intrusive_ptr< T >" 3 "Mon Feb 2 2015" "Version 0.1" "Multimedia" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+intrusive_ptr< T > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <intrusive_ptr\&.h>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "typedef T \fBelement_type\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBintrusive_ptr\fP (T *p, bool add_ref=true)"
+.br
+.ti -1c
+.RI "template<class U > \fBintrusive_ptr\fP (\fBintrusive_ptr\fP< U > const &rhs)"
+.br
+.ti -1c
+.RI "\fBintrusive_ptr\fP (\fBintrusive_ptr\fP const &rhs)"
+.br
+.ti -1c
+.RI "template<class U > \fBintrusive_ptr\fP & \fBoperator=\fP (\fBintrusive_ptr\fP< U > const &rhs)"
+.br
+.ti -1c
+.RI "\fBintrusive_ptr\fP & \fBoperator=\fP (\fBintrusive_ptr\fP const &rhs)"
+.br
+.ti -1c
+.RI "\fBintrusive_ptr\fP & \fBoperator=\fP (T *rhs)"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP (T *rhs)"
+.br
+.ti -1c
+.RI "T * \fBget\fP () const "
+.br
+.ti -1c
+.RI "T & \fBoperator*\fP () const "
+.br
+.ti -1c
+.RI "T * \fBoperator->\fP () const "
+.br
+.ti -1c
+.RI "\fBoperator unspecified_bool_type\fP () const "
+.br
+.ti -1c
+.RI "bool \fBoperator!\fP () const "
+.br
+.ti -1c
+.RI "void \fBswap\fP (\fBintrusive_ptr\fP &rhs)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<class T>class intrusive_ptr< T >"
+\fBintrusive_ptr\fP: a smart pointer that uses intrusive reference counting\&. Relies on unqualified calls to 
+.PP
+.nf
+
+     void intrusive_ptr_add_ref(T * p);
+     void intrusive_ptr_release(T * p);
+.fi
+.PP
+ (p != 0)
+.PP
+The object is responsible for destroying itself\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Multimedia from the source code\&.

@@ -10,15 +10,20 @@ This class represents a multimedia file.
 
 {\ttfamily \#include $<$multimedia.\-h$>$}
 
+Inheritance diagram for Multimedia\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_multimedia}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_multimedia_1_1_deleter_multimedia}{Deleter\-Multimedia}
+\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_multimedia_af613763f6779c2e75fce0749b9a8a734}{Multimedia} (void)
-\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
-\hyperlink{class_multimedia_a4b955c8674fb9ff39e57fd178f08bada}{Multimedia} (string name, unsigned long date, string pathname)
-\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
-\hyperlink{class_multimedia_a53798cec796a3aa8df3a35dfaa37bfe7}{$\sim$\-Multimedia} (void)
-\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
 virtual string \hyperlink{class_multimedia_a8cc74dd745e553a881e6d5b210a542f6}{get\-Name} (void) const 
 \begin{DoxyCompactList}\small\item\em Name getter. \end{DoxyCompactList}\item 
 virtual unsigned long \hyperlink{class_multimedia_a8c5b6295faee6c9690a513dd0f4b4a79}{get\-Date} (void) const 
@@ -31,8 +36,38 @@ virtual void \hyperlink{class_multimedia_a14abd8762b4d64cba41822f2b8ad434f}{set\
 \begin{DoxyCompactList}\small\item\em Date setter. \end{DoxyCompactList}\item 
 virtual void \hyperlink{class_multimedia_a3e06f151e9fce4cad4f74e4b92276929}{set\-Pathname} (string new\-Pathname)
 \begin{DoxyCompactList}\small\item\em Path setter. \end{DoxyCompactList}\item 
-virtual void \hyperlink{class_multimedia_a1b1b48641e51f3d840cf68634554c85a}{print} (void) const 
-\begin{DoxyCompactList}\small\item\em Print description. \end{DoxyCompactList}\end{DoxyCompactItemize}
+virtual string \hyperlink{class_multimedia_a4960a7ffd22e90f74291ebf86eccf820}{print} (void) const 
+\begin{DoxyCompactList}\small\item\em Print description. \end{DoxyCompactList}\item 
+\hypertarget{class_multimedia_aa245ab56eb2877b384b3638734d6762e}{virtual void \hyperlink{class_multimedia_aa245ab56eb2877b384b3638734d6762e}{play} (void) const =0}\label{class_multimedia_aa245ab56eb2877b384b3638734d6762e}
+
+\begin{DoxyCompactList}\small\item\em Display the multimedia file on screen. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_multimedia_aa3c800e85ac5256ee8d1399d2ba33329}{write} (ostream \&stream) const =0
+\begin{DoxyCompactList}\small\item\em Serialize the multimedia object. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_multimedia_ab686208e53fe8161bb86f7d37e01784c}{read} (istream \&stream)=0
+\begin{DoxyCompactList}\small\item\em Read from a serialized object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_multimedia_ab97f71237bc4dbfc515c69ffcc279f63}{{\bfseries Multimedia} (const \hyperlink{class_multimedia}{Multimedia} \&other)}\label{class_multimedia_ab97f71237bc4dbfc515c69ffcc279f63}
+
+\item 
+\hyperlink{class_multimedia_af613763f6779c2e75fce0749b9a8a734}{Multimedia} (void)
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_multimedia_a4b955c8674fb9ff39e57fd178f08bada}{Multimedia} (string name, unsigned long date, string pathname)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_multimedia_a53798cec796a3aa8df3a35dfaa37bfe7}{$\sim$\-Multimedia} (void)
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_multimedia}{Multimedia} $\ast$ \hyperlink{class_multimedia_a2955c15860b8310ee684d391e7b3386f}{clone} (void) const =0
+\begin{DoxyCompactList}\small\item\em Clone the multimedia object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_multimedia_a29a97f20d6ded769adf9ecc47158e24f}{class {\bfseries Multimedia\-Manager}}\label{class_multimedia_a29a97f20d6ded769adf9ecc47158e24f}
+
+\item 
+\hypertarget{class_multimedia_a94df751bdeacb4bab6b4c0a18a5cdc59}{class {\bfseries Deleter\-Multimedia}}\label{class_multimedia_a94df751bdeacb4bab6b4c0a18a5cdc59}
+
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -47,7 +82,7 @@ All multimedia files inherit from this class.
 \begin{DoxyParamCaption}
 \item[{void}]{}
 \end{DoxyParamCaption}
-)}}\label{class_multimedia_af613763f6779c2e75fce0749b9a8a734}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_multimedia_af613763f6779c2e75fce0749b9a8a734}
 
 
 Default Constructor. 
@@ -60,7 +95,7 @@ Creates a default multimedia object. \hypertarget{class_multimedia_a4b955c8674fb
 \item[{unsigned long}]{date, }
 \item[{string}]{pathname}
 \end{DoxyParamCaption}
-)}}\label{class_multimedia_a4b955c8674fb9ff39e57fd178f08bada}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_multimedia_a4b955c8674fb9ff39e57fd178f08bada}
 
 
 Constructor. 
@@ -82,7 +117,7 @@ Constructor of the \hyperlink{class_multimedia}{Multimedia} class.
 \begin{DoxyParamCaption}
 \item[{void}]{}
 \end{DoxyParamCaption}
-)}}\label{class_multimedia_a53798cec796a3aa8df3a35dfaa37bfe7}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_multimedia_a53798cec796a3aa8df3a35dfaa37bfe7}
 
 
 Destructor. 
@@ -90,6 +125,24 @@ Destructor.
 Default destructor of this class. 
 
 \subsection{Member Function Documentation}
+\hypertarget{class_multimedia_a2955c15860b8310ee684d391e7b3386f}{\index{Multimedia@{Multimedia}!clone@{clone}}
+\index{clone@{clone}!Multimedia@{Multimedia}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Multimedia}$\ast$ Multimedia\-::clone (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}}\label{class_multimedia_a2955c15860b8310ee684d391e7b3386f}
+
+
+Clone the multimedia object. 
+
+\begin{DoxyReturn}{Returns}
+Return a copy of the given multimedia object. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_film_aa0b3eb1efeba4721d86c37ae5e671382}{Film}, \hyperlink{class_photo_af8733ff93a45f0135076fcb731af56d7}{Photo}, and \hyperlink{class_video_a450def61b99cd5c338b83cbfa136c25a}{Video}.
+
 \hypertarget{class_multimedia_a8c5b6295faee6c9690a513dd0f4b4a79}{\index{Multimedia@{Multimedia}!get\-Date@{get\-Date}}
 \index{get\-Date@{get\-Date}!Multimedia@{Multimedia}}
 \subsubsection[{get\-Date}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long Multimedia\-::get\-Date (
@@ -138,18 +191,45 @@ Get the path to the file.
 \begin{DoxyReturn}{Returns}
 The path to the file 
 \end{DoxyReturn}
-\hypertarget{class_multimedia_a1b1b48641e51f3d840cf68634554c85a}{\index{Multimedia@{Multimedia}!print@{print}}
+\hypertarget{class_multimedia_a4960a7ffd22e90f74291ebf86eccf820}{\index{Multimedia@{Multimedia}!print@{print}}
 \index{print@{print}!Multimedia@{Multimedia}}
-\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}void Multimedia\-::print (
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}string Multimedia\-::print (
 \begin{DoxyParamCaption}
 \item[{void}]{}
 \end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_a1b1b48641e51f3d840cf68634554c85a}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_a4960a7ffd22e90f74291ebf86eccf820}
 
 
 Print description. 
 
-Print the description of the file to the standard output \hypertarget{class_multimedia_a14abd8762b4d64cba41822f2b8ad434f}{\index{Multimedia@{Multimedia}!set\-Date@{set\-Date}}
+Print the description of the file to the standard output \begin{DoxyReturn}{Returns}
+Return a string which contains the file description. 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_photo_af63cb6130ed71a7f44d789fb3a5c7f01}{Photo}, and \hyperlink{class_video_a9f6e63647c81fabd59452ad1d695d190}{Video}.
+
+\hypertarget{class_multimedia_ab686208e53fe8161bb86f7d37e01784c}{\index{Multimedia@{Multimedia}!read@{read}}
+\index{read@{read}!Multimedia@{Multimedia}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Multimedia\-::read (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{stream}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_multimedia_ab686208e53fe8161bb86f7d37e01784c}
+
+
+Read from a serialized object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & \-: the input stream where the object will be read. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_film_a053b2e4cd4b1e1f8dda7cfb1a45d301c}{Film}, \hyperlink{class_photo_a0c0ede69ed7502df226a95bbb62d7b40}{Photo}, and \hyperlink{class_video_a6be318a4e05ddfdb52fbcc1cab5ab573}{Video}.
+
+\hypertarget{class_multimedia_a14abd8762b4d64cba41822f2b8ad434f}{\index{Multimedia@{Multimedia}!set\-Date@{set\-Date}}
 \index{set\-Date@{set\-Date}!Multimedia@{Multimedia}}
 \subsubsection[{set\-Date}]{\setlength{\rightskip}{0pt plus 5cm}void Multimedia\-::set\-Date (
 \begin{DoxyParamCaption}
@@ -201,6 +281,26 @@ Path setter.
 {\em new\-Pathname} & \-: the new path to the file. \\
 \hline
 \end{DoxyParams}
+\hypertarget{class_multimedia_aa3c800e85ac5256ee8d1399d2ba33329}{\index{Multimedia@{Multimedia}!write@{write}}
+\index{write@{write}!Multimedia@{Multimedia}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Multimedia\-::write (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{stream}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_multimedia_aa3c800e85ac5256ee8d1399d2ba33329}
+
+
+Serialize the multimedia object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & \-: the output stream where the object will be written. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_film_a8b38978dd0bf6ed844627d8e8b63efbe}{Film}, \hyperlink{class_photo_a65c10b1d3dd17be4d478f7c3fb04ddd4}{Photo}, and \hyperlink{class_video_a4bfb8bf83498fa30a6515065559ccbff}{Video}.
+
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

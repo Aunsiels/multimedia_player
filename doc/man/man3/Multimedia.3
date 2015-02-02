@@ -1,8 +1,9 @@
-.TH "Multimedia" 3 "Wed Dec 10 2014" "Version 0.1" "Multimedia" \" -*- nroff -*-
+.TH "Multimedia" 3 "Mon Feb 2 2015" "Version 0.1" "Multimedia" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
 Multimedia \- 
+.PP
 This class represents a multimedia file\&.  
 
 .SH SYNOPSIS
@@ -10,21 +11,18 @@ This class represents a multimedia file\&.
 .PP
 .PP
 \fC#include <multimedia\&.h>\fP
-.SS "Public Member Functions"
+.PP
+Inherited by \fBPhoto\fP, and \fBVideo\fP\&.
+.SS "Classes"
 
 .in +1c
 .ti -1c
-.RI "\fBMultimedia\fP (void)"
+.RI "class \fBDeleterMultimedia\fP"
 .br
-.RI "\fIDefault Constructor\&. \fP"
-.ti -1c
-.RI "\fBMultimedia\fP (string name, unsigned long date, string pathname)"
-.br
-.RI "\fIConstructor\&. \fP"
-.ti -1c
-.RI "\fB~Multimedia\fP (void)"
-.br
-.RI "\fIDestructor\&. \fP"
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
 .ti -1c
 .RI "virtual string \fBgetName\fP (void) const "
 .br
@@ -50,9 +48,54 @@ This class represents a multimedia file\&.
 .br
 .RI "\fIPath setter\&. \fP"
 .ti -1c
-.RI "virtual void \fBprint\fP (void) const "
+.RI "virtual string \fBprint\fP (void) const "
 .br
 .RI "\fIPrint description\&. \fP"
+.ti -1c
+.RI "virtual void \fBplay\fP (void) const =0"
+.br
+.RI "\fIDisplay the multimedia file on screen\&. \fP"
+.ti -1c
+.RI "virtual void \fBwrite\fP (ostream &stream) const =0"
+.br
+.RI "\fISerialize the multimedia object\&. \fP"
+.ti -1c
+.RI "virtual void \fBread\fP (istream &stream)=0"
+.br
+.RI "\fIRead from a serialized object\&. \fP"
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMultimedia\fP (const \fBMultimedia\fP &other)"
+.br
+.ti -1c
+.RI "\fBMultimedia\fP (void)"
+.br
+.RI "\fIDefault Constructor\&. \fP"
+.ti -1c
+.RI "\fBMultimedia\fP (string name, unsigned long date, string pathname)"
+.br
+.RI "\fIConstructor\&. \fP"
+.ti -1c
+.RI "virtual \fB~Multimedia\fP (void)"
+.br
+.RI "\fIDestructor\&. \fP"
+.ti -1c
+.RI "virtual \fBMultimedia\fP * \fBclone\fP (void) const =0"
+.br
+.RI "\fIClone the multimedia object\&. \fP"
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBMultimediaManager\fP"
+.br
+.ti -1c
+.RI "class \fBDeleterMultimedia\fP"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -61,11 +104,11 @@ This class represents a multimedia file\&.
 All multimedia files inherit from this class\&. 
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "Multimedia::Multimedia (void)"
+.SS "Multimedia::Multimedia (void)\fC [protected]\fP"
 
 .PP
 Default Constructor\&. Creates a default multimedia object\&. 
-.SS "Multimedia::Multimedia (stringname, unsigned longdate, stringpathname)"
+.SS "Multimedia::Multimedia (stringname, unsigned longdate, stringpathname)\fC [protected]\fP"
 
 .PP
 Constructor\&. Constructor of the \fBMultimedia\fP class\&.
@@ -80,12 +123,25 @@ Constructor\&. Constructor of the \fBMultimedia\fP class\&.
 .RE
 .PP
 
-.SS "Multimedia::~Multimedia (void)"
+.SS "Multimedia::~Multimedia (void)\fC [protected]\fP, \fC [virtual]\fP"
 
 .PP
 Destructor\&. Default destructor of this class\&. 
 .SH "Member Function Documentation"
 .PP 
+.SS "virtual \fBMultimedia\fP* Multimedia::clone (void) const\fC [protected]\fP, \fC [pure virtual]\fP"
+
+.PP
+Clone the multimedia object\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Return a copy of the given multimedia object\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBFilm\fP, \fBPhoto\fP, and \fBVideo\fP\&.
 .SS "unsigned long Multimedia::getDate (void) const\fC [virtual]\fP"
 
 .PP
@@ -119,10 +175,32 @@ The path to the file
 .RE
 .PP
 
-.SS "void Multimedia::print (void) const\fC [virtual]\fP"
+.SS "string Multimedia::print (void) const\fC [virtual]\fP"
 
 .PP
 Print description\&. Print the description of the file to the standard output 
+.PP
+\fBReturns:\fP
+.RS 4
+Return a string which contains the file description\&. 
+.RE
+.PP
+
+.PP
+Reimplemented in \fBPhoto\fP, and \fBVideo\fP\&.
+.SS "virtual void Multimedia::read (istream &stream)\fC [pure virtual]\fP"
+
+.PP
+Read from a serialized object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstream\fP : the input stream where the object will be read\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBFilm\fP, \fBPhoto\fP, and \fBVideo\fP\&.
 .SS "void Multimedia::setDate (unsigned longnewDate)\fC [virtual]\fP"
 
 .PP
@@ -156,6 +234,19 @@ Path setter\&.
 .RE
 .PP
 
+.SS "virtual void Multimedia::write (ostream &stream) const\fC [pure virtual]\fP"
+
+.PP
+Serialize the multimedia object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstream\fP : the output stream where the object will be written\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBFilm\fP, \fBPhoto\fP, and \fBVideo\fP\&.
 
 .SH "Author"
 .PP 

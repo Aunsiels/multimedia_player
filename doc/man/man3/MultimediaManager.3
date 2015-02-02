@@ -1,0 +1,463 @@
+.TH "MultimediaManager" 3 "Mon Feb 2 2015" "Version 0.1" "Multimedia" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MultimediaManager \- 
+.PP
+Manages the multimedia files and groups\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <multimedia_manager\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fB~MultimediaManager\fP (void)"
+.br
+.RI "\fIDestructor\&. \fP"
+.ti -1c
+.RI "virtual shared_ptr< \fBPhoto\fP > \fBcreate_photo\fP (void)"
+.br
+.RI "\fICreates a default photo\&. \fP"
+.ti -1c
+.RI "virtual shared_ptr< \fBPhoto\fP > \fBcreate_photo\fP (const string &name, unsigned long date, const string &pathname, const string &place)"
+.br
+.RI "\fICreates a photo file\&. \fP"
+.ti -1c
+.RI "virtual shared_ptr< \fBPhoto\fP > \fBcreate_photo\fP (istream &is)"
+.br
+.RI "\fIDeserialize a photo\&. \fP"
+.ti -1c
+.RI "virtual shared_ptr< \fBVideo\fP > \fBcreate_video\fP (void)"
+.br
+.RI "\fICreates a default video\&. \fP"
+.ti -1c
+.RI "virtual shared_ptr< \fBVideo\fP > \fBcreate_video\fP (const string &name, unsigned long date, const string &pathname, unsigned int length)"
+.br
+.RI "\fICreates a video\&. \fP"
+.ti -1c
+.RI "virtual shared_ptr< \fBVideo\fP > \fBcreate_video\fP (istream &is)"
+.br
+.RI "\fIDeserialize a video\&. \fP"
+.ti -1c
+.RI "virtual shared_ptr< \fBFilm\fP > \fBcreate_film\fP (void)"
+.br
+.RI "\fICreates a default film\&. \fP"
+.ti -1c
+.RI "virtual shared_ptr< \fBFilm\fP > \fBcreate_film\fP (const string &name, unsigned long date, const string &pathname)"
+.br
+.RI "\fICreates a film with no chapter\&. \fP"
+.ti -1c
+.RI "virtual shared_ptr< \fBFilm\fP > \fBcreate_film\fP (const string &name, unsigned long date, const string &pathname, unsigned int const chapters[], unsigned int number_chapters)"
+.br
+.RI "\fICreates a film\&. \fP"
+.ti -1c
+.RI "virtual shared_ptr< \fBFilm\fP > \fBcreate_film\fP (istream &is)"
+.br
+.RI "\fIDeserialize a film\&. \fP"
+.ti -1c
+.RI "virtual shared_ptr< \fBGroup\fP > \fBcreate\fP (const \fBGroup\fP &group)"
+.br
+.RI "\fICreates a group\&. \fP"
+.ti -1c
+.RI "virtual shared_ptr< \fBGroup\fP > \fBcreate_group\fP ()"
+.br
+.RI "\fICreates a default group\&. \fP"
+.ti -1c
+.RI "virtual shared_ptr< \fBGroup\fP > \fBcreate_group\fP (const string &)"
+.br
+.RI "\fICreates a group\&. \fP"
+.ti -1c
+.RI "virtual shared_ptr< \fBGroup\fP > \fBcreate_group\fP (istream &is)"
+.br
+.RI "\fICreates a group from a stream\&. \fP"
+.ti -1c
+.RI "virtual void \fBremove_multimedia\fP (const string &name)"
+.br
+.RI "\fIRemove a multimedia file\&. \fP"
+.ti -1c
+.RI "virtual void \fBremove_group\fP (const string &name)"
+.br
+.RI "\fIRemove a group\&. \fP"
+.ti -1c
+.RI "virtual string \fBsearch_multimedia\fP (const string &name) const "
+.br
+.RI "\fISearch a multimedia file and print it\&. \fP"
+.ti -1c
+.RI "virtual shared_ptr< \fBMultimedia\fP > \fBsearch_multimedia_ptr\fP (const string &name) const "
+.br
+.RI "\fISearch a multimedia file and print its pointer\&. \fP"
+.ti -1c
+.RI "virtual string \fBsearch_group\fP (const string &name) const "
+.br
+.RI "\fISearch a group and print it\&. \fP"
+.ti -1c
+.RI "virtual void \fBplay\fP (const string &name) const "
+.br
+.RI "\fIPlay a multimedia file\&. \fP"
+.ti -1c
+.RI "virtual void \fBwrite\fP (const string &name) const "
+.br
+.RI "\fISerialize the manager with its content\&. \fP"
+.ti -1c
+.RI "virtual void \fBread\fP (const string &name)"
+.br
+.RI "\fIRead a manager\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Manages the multimedia files and groups\&. 
+
+This is the main interface to create & delete multimedia files\&. It also allows to create, delete a group\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "MultimediaManager::~MultimediaManager (void)\fC [virtual]\fP"
+
+.PP
+Destructor\&. Called before destruction\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "shared_ptr< \fBGroup\fP > MultimediaManager::create (const \fBGroup\fP &group)\fC [virtual]\fP"
+
+.PP
+Creates a group\&. Create a new group and add it to the manager\&.
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIgroup\fP : the group to create\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A shared pointer to the group created\&. 
+.RE
+.PP
+
+.SS "shared_ptr< \fBFilm\fP > MultimediaManager::create_film (void)\fC [virtual]\fP"
+
+.PP
+Creates a default film\&. Add a film file in the manager\&.
+.PP
+\fBReturns:\fP
+.RS 4
+A shared pointer to the object created\&. 
+.RE
+.PP
+
+.SS "shared_ptr< \fBFilm\fP > MultimediaManager::create_film (const string &name, unsigned longdate, const string &pathname)\fC [virtual]\fP"
+
+.PP
+Creates a film with no chapter\&. Add a film file in the manager\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP : Name of the film\&. 
+.br
+\fIdate\fP : The date when the file was created\&. 
+.br
+\fIpathname\fP : The path to the file\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A shared pointer to the object created\&. 
+.RE
+.PP
+
+.SS "shared_ptr< \fBFilm\fP > MultimediaManager::create_film (const string &name, unsigned longdate, const string &pathname, unsigned int constchapters[], unsigned intnumber_chapters)\fC [virtual]\fP"
+
+.PP
+Creates a film\&. Add a film file in the manager\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP : Name of the film\&. 
+.br
+\fIdate\fP : The date when the file was created\&. 
+.br
+\fIpathname\fP : The path to the file\&. 
+.br
+\fIchapters\fP : The array the the length of the chapters\&. 
+.br
+\fInumber_chapters\fP : The number of chapter in the film\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A shared pointer to the object created\&. 
+.RE
+.PP
+
+.SS "shared_ptr< \fBFilm\fP > MultimediaManager::create_film (istream &is)\fC [virtual]\fP"
+
+.PP
+Deserialize a film\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIThe\fP stream where the film will be read\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A shared pointer to the object created\&. 
+.RE
+.PP
+
+.SS "shared_ptr< \fBGroup\fP > MultimediaManager::create_group ()\fC [virtual]\fP"
+
+.PP
+Creates a default group\&. Create a new group and add it to the manager\&.
+.PP
+\fBReturns:\fP
+.RS 4
+A shared pointer to the group created\&. 
+.RE
+.PP
+
+.SS "shared_ptr< \fBGroup\fP > MultimediaManager::create_group (const string &name)\fC [virtual]\fP"
+
+.PP
+Creates a group\&. Create a new group and add it to the manager\&.
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIgroup\fP : the name of the group to create\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A shared pointer to the group created\&. 
+.RE
+.PP
+
+.SS "shared_ptr< \fBGroup\fP > MultimediaManager::create_group (istream &is)\fC [virtual]\fP"
+
+.PP
+Creates a group from a stream\&. Create a new group and add it to the manager\&.
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIis\fP : the stream from which the group is created\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A shared pointer to the group created\&. 
+.RE
+.PP
+
+.SS "shared_ptr< \fBPhoto\fP > MultimediaManager::create_photo (void)\fC [virtual]\fP"
+
+.PP
+Creates a default photo\&. Add a default photo to the manager\&.
+.PP
+\fBReturns:\fP
+.RS 4
+A shared pointer to the object created\&. 
+.RE
+.PP
+
+.SS "shared_ptr< \fBPhoto\fP > MultimediaManager::create_photo (const string &name, unsigned longdate, const string &pathname, const string &place)\fC [virtual]\fP"
+
+.PP
+Creates a photo file\&. Add a photo file in the manager\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP : The name of the photo\&. 
+.br
+\fIdate\fP : The date of the creation of the object, in seconds 
+.br
+\fIpathname\fP : The path to the file\&. 
+.br
+\fIplace\fP : The place where the photo was taken
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A shared pointer to the object created\&. 
+.RE
+.PP
+
+.SS "shared_ptr< \fBPhoto\fP > MultimediaManager::create_photo (istream &is)\fC [virtual]\fP"
+
+.PP
+Deserialize a photo\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIThe\fP stream where the photo will be read\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A shared pointer to the object created\&. 
+.RE
+.PP
+
+.SS "shared_ptr< \fBVideo\fP > MultimediaManager::create_video (void)\fC [virtual]\fP"
+
+.PP
+Creates a default video\&. Add a video file in the manager\&.
+.PP
+\fBReturns:\fP
+.RS 4
+A shared pointer to the object created\&. 
+.RE
+.PP
+
+.SS "shared_ptr< \fBVideo\fP > MultimediaManager::create_video (const string &name, unsigned longdate, const string &pathname, unsigned intlength)\fC [virtual]\fP"
+
+.PP
+Creates a video\&. Add a video file in the manager\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP : The name of the video 
+.br
+\fIdate\fP : The date when the file was created 
+.br
+\fIpathname\fP : The path to the video\&. 
+.br
+\fIlength\fP : The length of the video\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A shared pointer to the object created\&. 
+.RE
+.PP
+
+.SS "shared_ptr< \fBVideo\fP > MultimediaManager::create_video (istream &is)\fC [virtual]\fP"
+
+.PP
+Deserialize a video\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIThe\fP stream where the video will be read\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A shared pointer to the object created\&. 
+.RE
+.PP
+
+.SS "void MultimediaManager::play (const string &name) const\fC [virtual]\fP"
+
+.PP
+Play a multimedia file\&. Search by name a multimedia file and play it\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP : The name of the file to play\&. 
+.RE
+.PP
+
+.SS "void MultimediaManager::read (const string &name)\fC [virtual]\fP"
+
+.PP
+Read a manager\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIThe\fP name where the manager is stored\&. 
+.RE
+.PP
+
+.SS "void MultimediaManager::remove_group (const string &name)\fC [virtual]\fP"
+
+.PP
+Remove a group\&. Remove a group from the manager\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP : the name of the group to remove 
+.RE
+.PP
+
+.SS "void MultimediaManager::remove_multimedia (const string &name)\fC [virtual]\fP"
+
+.PP
+Remove a multimedia file\&. Remove a multimedia file from the manager\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIThe\fP name of the multimedia file to remove 
+.RE
+.PP
+
+.SS "string MultimediaManager::search_group (const string &name) const\fC [virtual]\fP"
+
+.PP
+Search a group and print it\&. Search a group by its name and print it\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP : The name of the searched group\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The description of the group\&. 
+.RE
+.PP
+
+.SS "string MultimediaManager::search_multimedia (const string &name) const\fC [virtual]\fP"
+
+.PP
+Search a multimedia file and print it\&. Search a multimedia file by its name and print it\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP : The name of the searched multimedia file\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The description of the file\&. 
+.RE
+.PP
+
+.SS "shared_ptr< \fBMultimedia\fP > MultimediaManager::search_multimedia_ptr (const string &name) const\fC [virtual]\fP"
+
+.PP
+Search a multimedia file and print its pointer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP : The name of the searched multimedia file\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to the multimedia file\&. 
+.RE
+.PP
+
+.SS "void MultimediaManager::write (const string &name) const\fC [virtual]\fP"
+
+.PP
+Serialize the manager with its content\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIThe\fP name where the manager is stored\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Multimedia from the source code\&.

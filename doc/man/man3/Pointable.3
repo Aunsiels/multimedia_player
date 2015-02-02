@@ -1,0 +1,53 @@
+.TH "Pointable" 3 "Mon Feb 2 2015" "Version 0.1" "Multimedia" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Pointable \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <intrusive_ptr\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPointable\fP (const \fBPointable\fP &)"
+.br
+.ti -1c
+.RI "\fBPointable\fP & \fBoperator=\fP (const \fBPointable\fP &)"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "long \fBintrusive_ptr_get_count\fP (\fBPointable\fP *p)"
+.br
+.ti -1c
+.RI "void \fBintrusive_ptr_add_ref\fP (\fBPointable\fP *p)"
+.br
+.ti -1c
+.RI "void \fBintrusive_ptr_release\fP (\fBPointable\fP *p)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Generic base class for objects that can be pointed by an \fBintrusive_ptr\fP\&.
+.IP "\(bu" 2
+\fBSee Also:\fP
+.RS 4
+\fBintrusive_ptr\fP for details
+.RE
+.PP
+
+.IP "\(bu" 2
+misc\&. checkings are performed if macro SMART_PTR_DEBUG is defined before including \fBintrusive_ptr\&.h\fP
+.IP "\(bu" 2
+debug messages are displayed on stderr if macros SMART_PTR_DEBUG and if SMART_PTR_DEBUG_MESSAGES are both defined\&. 
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Multimedia from the source code\&.

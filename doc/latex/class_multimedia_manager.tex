@@ -1,0 +1,540 @@
+\hypertarget{class_multimedia_manager}{\section{Multimedia\-Manager Class Reference}
+\label{class_multimedia_manager}\index{Multimedia\-Manager@{Multimedia\-Manager}}
+}
+
+
+Manages the multimedia files and groups.  
+
+
+
+
+{\ttfamily \#include $<$multimedia\-\_\-manager.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{class_multimedia_manager_acffc32fc3ac866e8aa01408c4dd8fce3}{$\sim$\-Multimedia\-Manager} (void)
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual shared\-\_\-ptr$<$ \hyperlink{class_photo}{Photo} $>$ \hyperlink{class_multimedia_manager_a835209002b726811b325ef326b3fa6fd}{create\-\_\-photo} (void)
+\begin{DoxyCompactList}\small\item\em Creates a default photo. \end{DoxyCompactList}\item 
+virtual shared\-\_\-ptr$<$ \hyperlink{class_photo}{Photo} $>$ \hyperlink{class_multimedia_manager_a26f3f416ddd521a4be3998cd8a766c09}{create\-\_\-photo} (const string \&name, unsigned long date, const string \&pathname, const string \&place)
+\begin{DoxyCompactList}\small\item\em Creates a photo file. \end{DoxyCompactList}\item 
+virtual shared\-\_\-ptr$<$ \hyperlink{class_photo}{Photo} $>$ \hyperlink{class_multimedia_manager_a6db30d90657a2e9d3aa00a316338ccff}{create\-\_\-photo} (istream \&is)
+\begin{DoxyCompactList}\small\item\em Deserialize a photo. \end{DoxyCompactList}\item 
+virtual shared\-\_\-ptr$<$ \hyperlink{class_video}{Video} $>$ \hyperlink{class_multimedia_manager_ae18114802de3529b7d0d20772a7288da}{create\-\_\-video} (void)
+\begin{DoxyCompactList}\small\item\em Creates a default video. \end{DoxyCompactList}\item 
+virtual shared\-\_\-ptr$<$ \hyperlink{class_video}{Video} $>$ \hyperlink{class_multimedia_manager_a3d5cbae8789ee6576da1b92a6a136725}{create\-\_\-video} (const string \&name, unsigned long date, const string \&pathname, unsigned int length)
+\begin{DoxyCompactList}\small\item\em Creates a video. \end{DoxyCompactList}\item 
+virtual shared\-\_\-ptr$<$ \hyperlink{class_video}{Video} $>$ \hyperlink{class_multimedia_manager_ab0737cc478f5060c9da0a33762f2f34c}{create\-\_\-video} (istream \&is)
+\begin{DoxyCompactList}\small\item\em Deserialize a video. \end{DoxyCompactList}\item 
+virtual shared\-\_\-ptr$<$ \hyperlink{class_film}{Film} $>$ \hyperlink{class_multimedia_manager_af33b0c0a9adde3856d783d7ca99d9267}{create\-\_\-film} (void)
+\begin{DoxyCompactList}\small\item\em Creates a default film. \end{DoxyCompactList}\item 
+virtual shared\-\_\-ptr$<$ \hyperlink{class_film}{Film} $>$ \hyperlink{class_multimedia_manager_a433256dd37e58487f960558bcd8cb8fc}{create\-\_\-film} (const string \&name, unsigned long date, const string \&pathname)
+\begin{DoxyCompactList}\small\item\em Creates a film with no chapter. \end{DoxyCompactList}\item 
+virtual shared\-\_\-ptr$<$ \hyperlink{class_film}{Film} $>$ \hyperlink{class_multimedia_manager_a6437bb9bed0f47caa5f838ae7d9e972c}{create\-\_\-film} (const string \&name, unsigned long date, const string \&pathname, unsigned int const chapters\mbox{[}$\,$\mbox{]}, unsigned int number\-\_\-chapters)
+\begin{DoxyCompactList}\small\item\em Creates a film. \end{DoxyCompactList}\item 
+virtual shared\-\_\-ptr$<$ \hyperlink{class_film}{Film} $>$ \hyperlink{class_multimedia_manager_afff770e7acd58cf182ed1ec0901ed69b}{create\-\_\-film} (istream \&is)
+\begin{DoxyCompactList}\small\item\em Deserialize a film. \end{DoxyCompactList}\item 
+virtual shared\-\_\-ptr$<$ \hyperlink{class_group}{Group} $>$ \hyperlink{class_multimedia_manager_af19f5851053008905770ec23168891c4}{create} (const \hyperlink{class_group}{Group} \&group)
+\begin{DoxyCompactList}\small\item\em Creates a group. \end{DoxyCompactList}\item 
+virtual shared\-\_\-ptr$<$ \hyperlink{class_group}{Group} $>$ \hyperlink{class_multimedia_manager_a5ebb82c40be17ec58797aaee94fb6238}{create\-\_\-group} ()
+\begin{DoxyCompactList}\small\item\em Creates a default group. \end{DoxyCompactList}\item 
+virtual shared\-\_\-ptr$<$ \hyperlink{class_group}{Group} $>$ \hyperlink{class_multimedia_manager_a0f9efa126e6f1e43b5256fe54db5f5d1}{create\-\_\-group} (const string \&)
+\begin{DoxyCompactList}\small\item\em Creates a group. \end{DoxyCompactList}\item 
+virtual shared\-\_\-ptr$<$ \hyperlink{class_group}{Group} $>$ \hyperlink{class_multimedia_manager_ad3b4a69b6dcf13fad2aa016c68fcf357}{create\-\_\-group} (istream \&is)
+\begin{DoxyCompactList}\small\item\em Creates a group from a stream. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_multimedia_manager_aaeb480df4f0ef43fe08e820e44006eb9}{remove\-\_\-multimedia} (const string \&name)
+\begin{DoxyCompactList}\small\item\em Remove a multimedia file. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_multimedia_manager_a8a6ebd815c8b19b357f2440f943a6dcb}{remove\-\_\-group} (const string \&name)
+\begin{DoxyCompactList}\small\item\em Remove a group. \end{DoxyCompactList}\item 
+virtual string \hyperlink{class_multimedia_manager_aa936143b04d97ea3b74c7016482512b9}{search\-\_\-multimedia} (const string \&name) const 
+\begin{DoxyCompactList}\small\item\em Search a multimedia file and print it. \end{DoxyCompactList}\item 
+virtual shared\-\_\-ptr$<$ \hyperlink{class_multimedia}{Multimedia} $>$ \hyperlink{class_multimedia_manager_a6e6fb41d321267cde7229fe7d1fa3ba7}{search\-\_\-multimedia\-\_\-ptr} (const string \&name) const 
+\begin{DoxyCompactList}\small\item\em Search a multimedia file and print its pointer. \end{DoxyCompactList}\item 
+virtual string \hyperlink{class_multimedia_manager_a39a4fc5cd5163e01f112bd474ef76e1b}{search\-\_\-group} (const string \&name) const 
+\begin{DoxyCompactList}\small\item\em Search a group and print it. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_multimedia_manager_ad99e3dfbf0ad3f9e1a7423f89ad0f45a}{play} (const string \&name) const 
+\begin{DoxyCompactList}\small\item\em Play a multimedia file. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_multimedia_manager_a11c103cd8ec48581c81a522629d536b7}{write} (const string \&name) const 
+\begin{DoxyCompactList}\small\item\em Serialize the manager with its content. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_multimedia_manager_ae6830452883cc26ab9f89d20c024553a}{read} (const string \&name)
+\begin{DoxyCompactList}\small\item\em Read a manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manages the multimedia files and groups. 
+
+This is the main interface to create \& delete multimedia files. It also allows to create, delete a group. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_multimedia_manager_acffc32fc3ac866e8aa01408c4dd8fce3}{\index{Multimedia\-Manager@{Multimedia\-Manager}!$\sim$\-Multimedia\-Manager@{$\sim$\-Multimedia\-Manager}}
+\index{$\sim$\-Multimedia\-Manager@{$\sim$\-Multimedia\-Manager}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{$\sim$\-Multimedia\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Multimedia\-Manager\-::$\sim$\-Multimedia\-Manager (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_acffc32fc3ac866e8aa01408c4dd8fce3}
+
+
+Destructor. 
+
+Called before destruction. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_multimedia_manager_af19f5851053008905770ec23168891c4}{\index{Multimedia\-Manager@{Multimedia\-Manager}!create@{create}}
+\index{create@{create}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}shared\-\_\-ptr$<$ {\bf Group} $>$ Multimedia\-Manager\-::create (
+\begin{DoxyParamCaption}
+\item[{const {\bf Group} \&}]{group}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_af19f5851053008905770ec23168891c4}
+
+
+Creates a group. 
+
+Create a new group and add it to the manager.
+
+ 
+\begin{DoxyParams}{Parameters}
+{\em group} & \-: the group to create.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the group created. 
+\end{DoxyReturn}
+\hypertarget{class_multimedia_manager_af33b0c0a9adde3856d783d7ca99d9267}{\index{Multimedia\-Manager@{Multimedia\-Manager}!create\-\_\-film@{create\-\_\-film}}
+\index{create\-\_\-film@{create\-\_\-film}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{create\-\_\-film}]{\setlength{\rightskip}{0pt plus 5cm}shared\-\_\-ptr$<$ {\bf Film} $>$ Multimedia\-Manager\-::create\-\_\-film (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_af33b0c0a9adde3856d783d7ca99d9267}
+
+
+Creates a default film. 
+
+Add a film file in the manager.
+
+\begin{DoxyReturn}{Returns}
+A shared pointer to the object created. 
+\end{DoxyReturn}
+\hypertarget{class_multimedia_manager_a433256dd37e58487f960558bcd8cb8fc}{\index{Multimedia\-Manager@{Multimedia\-Manager}!create\-\_\-film@{create\-\_\-film}}
+\index{create\-\_\-film@{create\-\_\-film}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{create\-\_\-film}]{\setlength{\rightskip}{0pt plus 5cm}shared\-\_\-ptr$<$ {\bf Film} $>$ Multimedia\-Manager\-::create\-\_\-film (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name, }
+\item[{unsigned long}]{date, }
+\item[{const string \&}]{pathname}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_a433256dd37e58487f960558bcd8cb8fc}
+
+
+Creates a film with no chapter. 
+
+Add a film file in the manager.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \-: Name of the film. \\
+\hline
+{\em date} & \-: The date when the file was created. \\
+\hline
+{\em pathname} & \-: The path to the file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the object created. 
+\end{DoxyReturn}
+\hypertarget{class_multimedia_manager_a6437bb9bed0f47caa5f838ae7d9e972c}{\index{Multimedia\-Manager@{Multimedia\-Manager}!create\-\_\-film@{create\-\_\-film}}
+\index{create\-\_\-film@{create\-\_\-film}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{create\-\_\-film}]{\setlength{\rightskip}{0pt plus 5cm}shared\-\_\-ptr$<$ {\bf Film} $>$ Multimedia\-Manager\-::create\-\_\-film (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name, }
+\item[{unsigned long}]{date, }
+\item[{const string \&}]{pathname, }
+\item[{unsigned int const}]{chapters\mbox{[}$\,$\mbox{]}, }
+\item[{unsigned int}]{number\-\_\-chapters}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_a6437bb9bed0f47caa5f838ae7d9e972c}
+
+
+Creates a film. 
+
+Add a film file in the manager.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \-: Name of the film. \\
+\hline
+{\em date} & \-: The date when the file was created. \\
+\hline
+{\em pathname} & \-: The path to the file. \\
+\hline
+{\em chapters} & \-: The array the the length of the chapters. \\
+\hline
+{\em number\-\_\-chapters} & \-: The number of chapter in the film.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the object created. 
+\end{DoxyReturn}
+\hypertarget{class_multimedia_manager_afff770e7acd58cf182ed1ec0901ed69b}{\index{Multimedia\-Manager@{Multimedia\-Manager}!create\-\_\-film@{create\-\_\-film}}
+\index{create\-\_\-film@{create\-\_\-film}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{create\-\_\-film}]{\setlength{\rightskip}{0pt plus 5cm}shared\-\_\-ptr$<$ {\bf Film} $>$ Multimedia\-Manager\-::create\-\_\-film (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{is}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_afff770e7acd58cf182ed1ec0901ed69b}
+
+
+Deserialize a film. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & stream where the film will be read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the object created. 
+\end{DoxyReturn}
+\hypertarget{class_multimedia_manager_a5ebb82c40be17ec58797aaee94fb6238}{\index{Multimedia\-Manager@{Multimedia\-Manager}!create\-\_\-group@{create\-\_\-group}}
+\index{create\-\_\-group@{create\-\_\-group}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{create\-\_\-group}]{\setlength{\rightskip}{0pt plus 5cm}shared\-\_\-ptr$<$ {\bf Group} $>$ Multimedia\-Manager\-::create\-\_\-group (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_a5ebb82c40be17ec58797aaee94fb6238}
+
+
+Creates a default group. 
+
+Create a new group and add it to the manager.
+
+\begin{DoxyReturn}{Returns}
+A shared pointer to the group created. 
+\end{DoxyReturn}
+\hypertarget{class_multimedia_manager_a0f9efa126e6f1e43b5256fe54db5f5d1}{\index{Multimedia\-Manager@{Multimedia\-Manager}!create\-\_\-group@{create\-\_\-group}}
+\index{create\-\_\-group@{create\-\_\-group}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{create\-\_\-group}]{\setlength{\rightskip}{0pt plus 5cm}shared\-\_\-ptr$<$ {\bf Group} $>$ Multimedia\-Manager\-::create\-\_\-group (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_a0f9efa126e6f1e43b5256fe54db5f5d1}
+
+
+Creates a group. 
+
+Create a new group and add it to the manager.
+
+ 
+\begin{DoxyParams}{Parameters}
+{\em group} & \-: the name of the group to create.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the group created. 
+\end{DoxyReturn}
+\hypertarget{class_multimedia_manager_ad3b4a69b6dcf13fad2aa016c68fcf357}{\index{Multimedia\-Manager@{Multimedia\-Manager}!create\-\_\-group@{create\-\_\-group}}
+\index{create\-\_\-group@{create\-\_\-group}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{create\-\_\-group}]{\setlength{\rightskip}{0pt plus 5cm}shared\-\_\-ptr$<$ {\bf Group} $>$ Multimedia\-Manager\-::create\-\_\-group (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{is}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_ad3b4a69b6dcf13fad2aa016c68fcf357}
+
+
+Creates a group from a stream. 
+
+Create a new group and add it to the manager.
+
+ 
+\begin{DoxyParams}{Parameters}
+{\em is} & \-: the stream from which the group is created.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the group created. 
+\end{DoxyReturn}
+\hypertarget{class_multimedia_manager_a835209002b726811b325ef326b3fa6fd}{\index{Multimedia\-Manager@{Multimedia\-Manager}!create\-\_\-photo@{create\-\_\-photo}}
+\index{create\-\_\-photo@{create\-\_\-photo}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{create\-\_\-photo}]{\setlength{\rightskip}{0pt plus 5cm}shared\-\_\-ptr$<$ {\bf Photo} $>$ Multimedia\-Manager\-::create\-\_\-photo (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_a835209002b726811b325ef326b3fa6fd}
+
+
+Creates a default photo. 
+
+Add a default photo to the manager.
+
+\begin{DoxyReturn}{Returns}
+A shared pointer to the object created. 
+\end{DoxyReturn}
+\hypertarget{class_multimedia_manager_a26f3f416ddd521a4be3998cd8a766c09}{\index{Multimedia\-Manager@{Multimedia\-Manager}!create\-\_\-photo@{create\-\_\-photo}}
+\index{create\-\_\-photo@{create\-\_\-photo}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{create\-\_\-photo}]{\setlength{\rightskip}{0pt plus 5cm}shared\-\_\-ptr$<$ {\bf Photo} $>$ Multimedia\-Manager\-::create\-\_\-photo (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name, }
+\item[{unsigned long}]{date, }
+\item[{const string \&}]{pathname, }
+\item[{const string \&}]{place}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_a26f3f416ddd521a4be3998cd8a766c09}
+
+
+Creates a photo file. 
+
+Add a photo file in the manager.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \-: The name of the photo. \\
+\hline
+{\em date} & \-: The date of the creation of the object, in seconds \\
+\hline
+{\em pathname} & \-: The path to the file. \\
+\hline
+{\em place} & \-: The place where the photo was taken\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the object created. 
+\end{DoxyReturn}
+\hypertarget{class_multimedia_manager_a6db30d90657a2e9d3aa00a316338ccff}{\index{Multimedia\-Manager@{Multimedia\-Manager}!create\-\_\-photo@{create\-\_\-photo}}
+\index{create\-\_\-photo@{create\-\_\-photo}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{create\-\_\-photo}]{\setlength{\rightskip}{0pt plus 5cm}shared\-\_\-ptr$<$ {\bf Photo} $>$ Multimedia\-Manager\-::create\-\_\-photo (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{is}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_a6db30d90657a2e9d3aa00a316338ccff}
+
+
+Deserialize a photo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & stream where the photo will be read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the object created. 
+\end{DoxyReturn}
+\hypertarget{class_multimedia_manager_ae18114802de3529b7d0d20772a7288da}{\index{Multimedia\-Manager@{Multimedia\-Manager}!create\-\_\-video@{create\-\_\-video}}
+\index{create\-\_\-video@{create\-\_\-video}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{create\-\_\-video}]{\setlength{\rightskip}{0pt plus 5cm}shared\-\_\-ptr$<$ {\bf Video} $>$ Multimedia\-Manager\-::create\-\_\-video (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_ae18114802de3529b7d0d20772a7288da}
+
+
+Creates a default video. 
+
+Add a video file in the manager.
+
+\begin{DoxyReturn}{Returns}
+A shared pointer to the object created. 
+\end{DoxyReturn}
+\hypertarget{class_multimedia_manager_a3d5cbae8789ee6576da1b92a6a136725}{\index{Multimedia\-Manager@{Multimedia\-Manager}!create\-\_\-video@{create\-\_\-video}}
+\index{create\-\_\-video@{create\-\_\-video}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{create\-\_\-video}]{\setlength{\rightskip}{0pt plus 5cm}shared\-\_\-ptr$<$ {\bf Video} $>$ Multimedia\-Manager\-::create\-\_\-video (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name, }
+\item[{unsigned long}]{date, }
+\item[{const string \&}]{pathname, }
+\item[{unsigned int}]{length}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_a3d5cbae8789ee6576da1b92a6a136725}
+
+
+Creates a video. 
+
+Add a video file in the manager.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \-: The name of the video \\
+\hline
+{\em date} & \-: The date when the file was created \\
+\hline
+{\em pathname} & \-: The path to the video. \\
+\hline
+{\em length} & \-: The length of the video.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the object created. 
+\end{DoxyReturn}
+\hypertarget{class_multimedia_manager_ab0737cc478f5060c9da0a33762f2f34c}{\index{Multimedia\-Manager@{Multimedia\-Manager}!create\-\_\-video@{create\-\_\-video}}
+\index{create\-\_\-video@{create\-\_\-video}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{create\-\_\-video}]{\setlength{\rightskip}{0pt plus 5cm}shared\-\_\-ptr$<$ {\bf Video} $>$ Multimedia\-Manager\-::create\-\_\-video (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{is}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_ab0737cc478f5060c9da0a33762f2f34c}
+
+
+Deserialize a video. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & stream where the video will be read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the object created. 
+\end{DoxyReturn}
+\hypertarget{class_multimedia_manager_ad99e3dfbf0ad3f9e1a7423f89ad0f45a}{\index{Multimedia\-Manager@{Multimedia\-Manager}!play@{play}}
+\index{play@{play}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{play}]{\setlength{\rightskip}{0pt plus 5cm}void Multimedia\-Manager\-::play (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_ad99e3dfbf0ad3f9e1a7423f89ad0f45a}
+
+
+Play a multimedia file. 
+
+Search by name a multimedia file and play it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \-: The name of the file to play. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_multimedia_manager_ae6830452883cc26ab9f89d20c024553a}{\index{Multimedia\-Manager@{Multimedia\-Manager}!read@{read}}
+\index{read@{read}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}void Multimedia\-Manager\-::read (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_ae6830452883cc26ab9f89d20c024553a}
+
+
+Read a manager. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & name where the manager is stored. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_multimedia_manager_a8a6ebd815c8b19b357f2440f943a6dcb}{\index{Multimedia\-Manager@{Multimedia\-Manager}!remove\-\_\-group@{remove\-\_\-group}}
+\index{remove\-\_\-group@{remove\-\_\-group}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{remove\-\_\-group}]{\setlength{\rightskip}{0pt plus 5cm}void Multimedia\-Manager\-::remove\-\_\-group (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_a8a6ebd815c8b19b357f2440f943a6dcb}
+
+
+Remove a group. 
+
+Remove a group from the manager.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \-: the name of the group to remove \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_multimedia_manager_aaeb480df4f0ef43fe08e820e44006eb9}{\index{Multimedia\-Manager@{Multimedia\-Manager}!remove\-\_\-multimedia@{remove\-\_\-multimedia}}
+\index{remove\-\_\-multimedia@{remove\-\_\-multimedia}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{remove\-\_\-multimedia}]{\setlength{\rightskip}{0pt plus 5cm}void Multimedia\-Manager\-::remove\-\_\-multimedia (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_aaeb480df4f0ef43fe08e820e44006eb9}
+
+
+Remove a multimedia file. 
+
+Remove a multimedia file from the manager.
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & name of the multimedia file to remove \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_multimedia_manager_a39a4fc5cd5163e01f112bd474ef76e1b}{\index{Multimedia\-Manager@{Multimedia\-Manager}!search\-\_\-group@{search\-\_\-group}}
+\index{search\-\_\-group@{search\-\_\-group}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{search\-\_\-group}]{\setlength{\rightskip}{0pt plus 5cm}string Multimedia\-Manager\-::search\-\_\-group (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_a39a4fc5cd5163e01f112bd474ef76e1b}
+
+
+Search a group and print it. 
+
+Search a group by its name and print it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \-: The name of the searched group. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The description of the group. 
+\end{DoxyReturn}
+\hypertarget{class_multimedia_manager_aa936143b04d97ea3b74c7016482512b9}{\index{Multimedia\-Manager@{Multimedia\-Manager}!search\-\_\-multimedia@{search\-\_\-multimedia}}
+\index{search\-\_\-multimedia@{search\-\_\-multimedia}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{search\-\_\-multimedia}]{\setlength{\rightskip}{0pt plus 5cm}string Multimedia\-Manager\-::search\-\_\-multimedia (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_aa936143b04d97ea3b74c7016482512b9}
+
+
+Search a multimedia file and print it. 
+
+Search a multimedia file by its name and print it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \-: The name of the searched multimedia file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The description of the file. 
+\end{DoxyReturn}
+\hypertarget{class_multimedia_manager_a6e6fb41d321267cde7229fe7d1fa3ba7}{\index{Multimedia\-Manager@{Multimedia\-Manager}!search\-\_\-multimedia\-\_\-ptr@{search\-\_\-multimedia\-\_\-ptr}}
+\index{search\-\_\-multimedia\-\_\-ptr@{search\-\_\-multimedia\-\_\-ptr}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{search\-\_\-multimedia\-\_\-ptr}]{\setlength{\rightskip}{0pt plus 5cm}shared\-\_\-ptr$<$ {\bf Multimedia} $>$ Multimedia\-Manager\-::search\-\_\-multimedia\-\_\-ptr (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_a6e6fb41d321267cde7229fe7d1fa3ba7}
+
+
+Search a multimedia file and print its pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \-: The name of the searched multimedia file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the multimedia file. 
+\end{DoxyReturn}
+\hypertarget{class_multimedia_manager_a11c103cd8ec48581c81a522629d536b7}{\index{Multimedia\-Manager@{Multimedia\-Manager}!write@{write}}
+\index{write@{write}!MultimediaManager@{Multimedia\-Manager}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}void Multimedia\-Manager\-::write (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_multimedia_manager_a11c103cd8ec48581c81a522629d536b7}
+
+
+Serialize the manager with its content. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & name where the manager is stored. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/headers/multimedia\-\_\-manager.\-h\item 
+src/multimedia\-\_\-manager.\-cpp\end{DoxyCompactItemize}

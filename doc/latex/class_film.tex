@@ -1,0 +1,263 @@
+\hypertarget{class_film}{\section{Film Class Reference}
+\label{class_film}\index{Film@{Film}}
+}
+
+
+This class represents a film file.  
+
+
+
+
+{\ttfamily \#include $<$film.\-h$>$}
+
+Inheritance diagram for Film\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_film}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_film_1_1_deleter_film}{Deleter\-Film}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual unsigned int const $\ast$$\ast$ \hyperlink{class_film_a23040374eae94998b923d861b8c09c7f}{get\-Chapters} (void) const 
+\begin{DoxyCompactList}\small\item\em Chapters getter. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_film_a7d9aab418c08d848d27b976c039c3d03}{set\-Chapters} (unsigned int const chapters\mbox{[}$\,$\mbox{]}, unsigned int number\-\_\-chapters)
+\begin{DoxyCompactList}\small\item\em Chapters setter. \end{DoxyCompactList}\item 
+virtual string \hyperlink{class_film_aac2a77b0b007b5d69c17b26fb0bde949}{print\-Chapters} (void) const 
+\begin{DoxyCompactList}\small\item\em Print chapters. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_film_a8b38978dd0bf6ed844627d8e8b63efbe}{write} (ostream \&stream) const 
+\begin{DoxyCompactList}\small\item\em Serialize the multimedia object. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_film_a053b2e4cd4b1e1f8dda7cfb1a45d301c}{read} (istream \&stream)
+\begin{DoxyCompactList}\small\item\em Read from a serialized object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_film_a34c9de2efb9554ce1192e4110d98806b}{{\bfseries Film} (const \hyperlink{class_film}{Film} \&)}\label{class_film_a34c9de2efb9554ce1192e4110d98806b}
+
+\item 
+\hyperlink{class_film_aea0f4a8e9741b3c38d4d4d9234ed2ec5}{Film} (void)
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_film_aa85c4f92943306412e2279c9cd8df7ef}{Film} (string name, unsigned long date, string pathname)
+\begin{DoxyCompactList}\small\item\em Constructor with no chapter. \end{DoxyCompactList}\item 
+\hyperlink{class_film_abac72e9c84e539851cfe325c6d296acd}{Film} (string name, unsigned long date, string pathname, unsigned int const chapters\mbox{[}$\,$\mbox{]}, unsigned int number\-\_\-chapters)
+\begin{DoxyCompactList}\small\item\em Complete constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_film_a948efc1e316098a99488235dc99818af}{$\sim$\-Film} (void)
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_film}{Film} $\ast$ \hyperlink{class_film_aa0b3eb1efeba4721d86c37ae5e671382}{clone} (void) const 
+\begin{DoxyCompactList}\small\item\em Clone the film. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_film_a29a97f20d6ded769adf9ecc47158e24f}{class {\bfseries Multimedia\-Manager}}\label{class_film_a29a97f20d6ded769adf9ecc47158e24f}
+
+\item 
+\hypertarget{class_film_a400d7bd5ffce270f2e592426ba786a35}{class {\bfseries Deleter\-Film}}\label{class_film_a400d7bd5ffce270f2e592426ba786a35}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class represents a film file. 
+
+It inherits from Movie and contains the chapters of the movie. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_film_aea0f4a8e9741b3c38d4d4d9234ed2ec5}{\index{Film@{Film}!Film@{Film}}
+\index{Film@{Film}!Film@{Film}}
+\subsubsection[{Film}]{\setlength{\rightskip}{0pt plus 5cm}Film\-::\-Film (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_film_aea0f4a8e9741b3c38d4d4d9234ed2ec5}
+
+
+Default Constructor. 
+
+Creates a default film with no chapter. \hypertarget{class_film_aa85c4f92943306412e2279c9cd8df7ef}{\index{Film@{Film}!Film@{Film}}
+\index{Film@{Film}!Film@{Film}}
+\subsubsection[{Film}]{\setlength{\rightskip}{0pt plus 5cm}Film\-::\-Film (
+\begin{DoxyParamCaption}
+\item[{string}]{name, }
+\item[{unsigned long}]{date, }
+\item[{string}]{pathname}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_film_aa85c4f92943306412e2279c9cd8df7ef}
+
+
+Constructor with no chapter. 
+
+Creates a film with no chapter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \-: The name of the film. \\
+\hline
+{\em date} & \-: The date the film was imported. \\
+\hline
+{\em pathname} & \-: The path to the film. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_film_abac72e9c84e539851cfe325c6d296acd}{\index{Film@{Film}!Film@{Film}}
+\index{Film@{Film}!Film@{Film}}
+\subsubsection[{Film}]{\setlength{\rightskip}{0pt plus 5cm}Film\-::\-Film (
+\begin{DoxyParamCaption}
+\item[{string}]{name, }
+\item[{unsigned long}]{date, }
+\item[{string}]{pathname, }
+\item[{unsigned int const}]{chapters\mbox{[}$\,$\mbox{]}, }
+\item[{unsigned int}]{number\-\_\-chapters}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_film_abac72e9c84e539851cfe325c6d296acd}
+
+
+Complete constructor. 
+
+The complete constructor of a film (with chapters).
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \-: The name of the film. \\
+\hline
+{\em date} & \-: The date the film was imported. \\
+\hline
+{\em pathname} & \-: The path to the film. \\
+\hline
+{\em chapter} & \-: The vector of the length of each chapter in seconds. \\
+\hline
+{\em number\-\_\-chapters} & \-: The number of chapter there are. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_film_a948efc1e316098a99488235dc99818af}{\index{Film@{Film}!$\sim$\-Film@{$\sim$\-Film}}
+\index{$\sim$\-Film@{$\sim$\-Film}!Film@{Film}}
+\subsubsection[{$\sim$\-Film}]{\setlength{\rightskip}{0pt plus 5cm}Film\-::$\sim$\-Film (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_film_a948efc1e316098a99488235dc99818af}
+
+
+Destructor. 
+
+Destructor of the class. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_film_aa0b3eb1efeba4721d86c37ae5e671382}{\index{Film@{Film}!clone@{clone}}
+\index{clone@{clone}!Film@{Film}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Film} $\ast$ Film\-::clone (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_film_aa0b3eb1efeba4721d86c37ae5e671382}
+
+
+Clone the film. 
+
+\begin{DoxyReturn}{Returns}
+Return a copy of the given film. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_video_a450def61b99cd5c338b83cbfa136c25a}{Video}.
+
+\hypertarget{class_film_a23040374eae94998b923d861b8c09c7f}{\index{Film@{Film}!get\-Chapters@{get\-Chapters}}
+\index{get\-Chapters@{get\-Chapters}!Film@{Film}}
+\subsubsection[{get\-Chapters}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int const $\ast$$\ast$ Film\-::get\-Chapters (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_film_a23040374eae94998b923d861b8c09c7f}
+
+
+Chapters getter. 
+
+Get the tab of the chapters.
+
+\begin{DoxyReturn}{Returns}
+A vector with two elements. The first one is a reference to the vector of the chapters and the second one is a reference to the number of chapters. 
+\end{DoxyReturn}
+\hypertarget{class_film_aac2a77b0b007b5d69c17b26fb0bde949}{\index{Film@{Film}!print\-Chapters@{print\-Chapters}}
+\index{print\-Chapters@{print\-Chapters}!Film@{Film}}
+\subsubsection[{print\-Chapters}]{\setlength{\rightskip}{0pt plus 5cm}string Film\-::print\-Chapters (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_film_aac2a77b0b007b5d69c17b26fb0bde949}
+
+
+Print chapters. 
+
+Print the chapters of a film. \begin{DoxyReturn}{Returns}
+Return a string which contains the chapters list. 
+\end{DoxyReturn}
+\hypertarget{class_film_a053b2e4cd4b1e1f8dda7cfb1a45d301c}{\index{Film@{Film}!read@{read}}
+\index{read@{read}!Film@{Film}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}void Film\-::read (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{stream}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_film_a053b2e4cd4b1e1f8dda7cfb1a45d301c}
+
+
+Read from a serialized object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & \-: the input stream where the object will be read. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_video_a6be318a4e05ddfdb52fbcc1cab5ab573}{Video}.
+
+\hypertarget{class_film_a7d9aab418c08d848d27b976c039c3d03}{\index{Film@{Film}!set\-Chapters@{set\-Chapters}}
+\index{set\-Chapters@{set\-Chapters}!Film@{Film}}
+\subsubsection[{set\-Chapters}]{\setlength{\rightskip}{0pt plus 5cm}void Film\-::set\-Chapters (
+\begin{DoxyParamCaption}
+\item[{unsigned int const}]{chapters\mbox{[}$\,$\mbox{]}, }
+\item[{unsigned int}]{number\-\_\-chapters}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_film_a7d9aab418c08d848d27b976c039c3d03}
+
+
+Chapters setter. 
+
+Set the tab of the chapters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em chapters} & \-: The vector of the length of the chapters. \\
+\hline
+{\em number\-\_\-chapters} & \-: The number of chapters in the film. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_film_a8b38978dd0bf6ed844627d8e8b63efbe}{\index{Film@{Film}!write@{write}}
+\index{write@{write}!Film@{Film}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}void Film\-::write (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{stream}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_film_a8b38978dd0bf6ed844627d8e8b63efbe}
+
+
+Serialize the multimedia object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & \-: the output stream where the object will be written. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_video_a4bfb8bf83498fa30a6515065559ccbff}{Video}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/headers/film.\-h\item 
+src/film.\-cpp\end{DoxyCompactItemize}

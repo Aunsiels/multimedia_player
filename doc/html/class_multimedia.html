@@ -63,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -71,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Enumerations</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,10 +84,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_multimedia-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Multimedia Class Reference</div>  </div>
+<div class="title">Multimedia Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -94,18 +98,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <a href="class_multimedia.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="multimedia_8h_source.html">multimedia.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Multimedia:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_multimedia.png" usemap="#Multimedia_map" alt=""/>
+  <map id="Multimedia_map" name="Multimedia_map">
+<area href="class_photo.html" title="This class represents a photo file. " alt="Photo" shape="rect" coords="0,56,72,80"/>
+<area href="class_video.html" title="This class represents a video file. " alt="Video" shape="rect" coords="82,56,154,80"/>
+<area href="class_film.html" title="This class represents a film file. " alt="Film" shape="rect" coords="82,112,154,136"/>
+</map>
+ </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multimedia_1_1_deleter_multimedia.html">DeleterMultimedia</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af613763f6779c2e75fce0749b9a8a734"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multimedia.html#af613763f6779c2e75fce0749b9a8a734">Multimedia</a> (void)</td></tr>
-<tr class="memdesc:af613763f6779c2e75fce0749b9a8a734"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Constructor.  <a href="#af613763f6779c2e75fce0749b9a8a734">More...</a><br/></td></tr>
-<tr class="separator:af613763f6779c2e75fce0749b9a8a734"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b955c8674fb9ff39e57fd178f08bada"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multimedia.html#a4b955c8674fb9ff39e57fd178f08bada">Multimedia</a> (string name, unsigned long date, string pathname)</td></tr>
-<tr class="memdesc:a4b955c8674fb9ff39e57fd178f08bada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a4b955c8674fb9ff39e57fd178f08bada">More...</a><br/></td></tr>
-<tr class="separator:a4b955c8674fb9ff39e57fd178f08bada"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53798cec796a3aa8df3a35dfaa37bfe7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multimedia.html#a53798cec796a3aa8df3a35dfaa37bfe7">~Multimedia</a> (void)</td></tr>
-<tr class="memdesc:a53798cec796a3aa8df3a35dfaa37bfe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a53798cec796a3aa8df3a35dfaa37bfe7">More...</a><br/></td></tr>
-<tr class="separator:a53798cec796a3aa8df3a35dfaa37bfe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8cc74dd745e553a881e6d5b210a542f6"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multimedia.html#a8cc74dd745e553a881e6d5b210a542f6">getName</a> (void) const </td></tr>
 <tr class="memdesc:a8cc74dd745e553a881e6d5b210a542f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name getter.  <a href="#a8cc74dd745e553a881e6d5b210a542f6">More...</a><br/></td></tr>
 <tr class="separator:a8cc74dd745e553a881e6d5b210a542f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,9 +135,46 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3e06f151e9fce4cad4f74e4b92276929"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multimedia.html#a3e06f151e9fce4cad4f74e4b92276929">setPathname</a> (string newPathname)</td></tr>
 <tr class="memdesc:a3e06f151e9fce4cad4f74e4b92276929"><td class="mdescLeft">&#160;</td><td class="mdescRight">Path setter.  <a href="#a3e06f151e9fce4cad4f74e4b92276929">More...</a><br/></td></tr>
 <tr class="separator:a3e06f151e9fce4cad4f74e4b92276929"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b1b48641e51f3d840cf68634554c85a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multimedia.html#a1b1b48641e51f3d840cf68634554c85a">print</a> (void) const </td></tr>
-<tr class="memdesc:a1b1b48641e51f3d840cf68634554c85a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print description.  <a href="#a1b1b48641e51f3d840cf68634554c85a">More...</a><br/></td></tr>
-<tr class="separator:a1b1b48641e51f3d840cf68634554c85a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4960a7ffd22e90f74291ebf86eccf820"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multimedia.html#a4960a7ffd22e90f74291ebf86eccf820">print</a> (void) const </td></tr>
+<tr class="memdesc:a4960a7ffd22e90f74291ebf86eccf820"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print description.  <a href="#a4960a7ffd22e90f74291ebf86eccf820">More...</a><br/></td></tr>
+<tr class="separator:a4960a7ffd22e90f74291ebf86eccf820"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa245ab56eb2877b384b3638734d6762e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa245ab56eb2877b384b3638734d6762e"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multimedia.html#aa245ab56eb2877b384b3638734d6762e">play</a> (void) const =0</td></tr>
+<tr class="memdesc:aa245ab56eb2877b384b3638734d6762e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display the multimedia file on screen. <br/></td></tr>
+<tr class="separator:aa245ab56eb2877b384b3638734d6762e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3c800e85ac5256ee8d1399d2ba33329"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multimedia.html#aa3c800e85ac5256ee8d1399d2ba33329">write</a> (ostream &amp;stream) const =0</td></tr>
+<tr class="memdesc:aa3c800e85ac5256ee8d1399d2ba33329"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize the multimedia object.  <a href="#aa3c800e85ac5256ee8d1399d2ba33329">More...</a><br/></td></tr>
+<tr class="separator:aa3c800e85ac5256ee8d1399d2ba33329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab686208e53fe8161bb86f7d37e01784c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multimedia.html#ab686208e53fe8161bb86f7d37e01784c">read</a> (istream &amp;stream)=0</td></tr>
+<tr class="memdesc:ab686208e53fe8161bb86f7d37e01784c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read from a serialized object.  <a href="#ab686208e53fe8161bb86f7d37e01784c">More...</a><br/></td></tr>
+<tr class="separator:ab686208e53fe8161bb86f7d37e01784c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:ab97f71237bc4dbfc515c69ffcc279f63"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab97f71237bc4dbfc515c69ffcc279f63"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Multimedia</b> (const <a class="el" href="class_multimedia.html">Multimedia</a> &amp;other)</td></tr>
+<tr class="separator:ab97f71237bc4dbfc515c69ffcc279f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af613763f6779c2e75fce0749b9a8a734"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multimedia.html#af613763f6779c2e75fce0749b9a8a734">Multimedia</a> (void)</td></tr>
+<tr class="memdesc:af613763f6779c2e75fce0749b9a8a734"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Constructor.  <a href="#af613763f6779c2e75fce0749b9a8a734">More...</a><br/></td></tr>
+<tr class="separator:af613763f6779c2e75fce0749b9a8a734"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b955c8674fb9ff39e57fd178f08bada"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multimedia.html#a4b955c8674fb9ff39e57fd178f08bada">Multimedia</a> (string name, unsigned long date, string pathname)</td></tr>
+<tr class="memdesc:a4b955c8674fb9ff39e57fd178f08bada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a4b955c8674fb9ff39e57fd178f08bada">More...</a><br/></td></tr>
+<tr class="separator:a4b955c8674fb9ff39e57fd178f08bada"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53798cec796a3aa8df3a35dfaa37bfe7"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multimedia.html#a53798cec796a3aa8df3a35dfaa37bfe7">~Multimedia</a> (void)</td></tr>
+<tr class="memdesc:a53798cec796a3aa8df3a35dfaa37bfe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a53798cec796a3aa8df3a35dfaa37bfe7">More...</a><br/></td></tr>
+<tr class="separator:a53798cec796a3aa8df3a35dfaa37bfe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2955c15860b8310ee684d391e7b3386f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_multimedia.html">Multimedia</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multimedia.html#a2955c15860b8310ee684d391e7b3386f">clone</a> (void) const =0</td></tr>
+<tr class="memdesc:a2955c15860b8310ee684d391e7b3386f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clone the multimedia object.  <a href="#a2955c15860b8310ee684d391e7b3386f">More...</a><br/></td></tr>
+<tr class="separator:a2955c15860b8310ee684d391e7b3386f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a29a97f20d6ded769adf9ecc47158e24f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a29a97f20d6ded769adf9ecc47158e24f"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>MultimediaManager</b></td></tr>
+<tr class="separator:a29a97f20d6ded769adf9ecc47158e24f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94df751bdeacb4bab6b4c0a18a5cdc59"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94df751bdeacb4bab6b4c0a18a5cdc59"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>DeleterMultimedia</b></td></tr>
+<tr class="separator:a94df751bdeacb4bab6b4c0a18a5cdc59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class represents a multimedia file. </p>
@@ -135,6 +183,9 @@ Public Member Functions</h2></td></tr>
 <a class="anchor" id="af613763f6779c2e75fce0749b9a8a734"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Multimedia::Multimedia </td>
@@ -144,6 +195,11 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Default Constructor. </p>
@@ -154,6 +210,9 @@ Public Member Functions</h2></td></tr>
 <a class="anchor" id="a4b955c8674fb9ff39e57fd178f08bada"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Multimedia::Multimedia </td>
@@ -179,6 +238,11 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Constructor. </p>
@@ -197,6 +261,9 @@ Public Member Functions</h2></td></tr>
 <a class="anchor" id="a53798cec796a3aa8df3a35dfaa37bfe7"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Multimedia::~Multimedia </td>
@@ -206,6 +273,11 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Destructor. </p>
@@ -214,6 +286,35 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a2955c15860b8310ee684d391e7b3386f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="class_multimedia.html">Multimedia</a>* Multimedia::clone </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clone the multimedia object. </p>
+<dl class="section return"><dt>Returns</dt><dd>Return a copy of the given multimedia object. </dd></dl>
+
+<p>Implemented in <a class="el" href="class_film.html#aa0b3eb1efeba4721d86c37ae5e671382">Film</a>, <a class="el" href="class_photo.html#af8733ff93a45f0135076fcb731af56d7">Photo</a>, and <a class="el" href="class_video.html#a450def61b99cd5c338b83cbfa136c25a">Video</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a8c5b6295faee6c9690a513dd0f4b4a79"></a>
 <div class="memitem">
 <div class="memproto">
@@ -298,7 +399,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a1b1b48641e51f3d840cf68634554c85a"></a>
+<a class="anchor" id="a4960a7ffd22e90f74291ebf86eccf820"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -306,7 +407,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Multimedia::print </td>
+          <td class="memname">string Multimedia::print </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -322,6 +423,43 @@ Public Member Functions</h2></td></tr>
 
 <p>Print description. </p>
 <p>Print the description of the file to the standard output </p>
+<dl class="section return"><dt>Returns</dt><dd>Return a string which contains the file description. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_photo.html#af63cb6130ed71a7f44d789fb3a5c7f01">Photo</a>, and <a class="el" href="class_video.html#a9f6e63647c81fabd59452ad1d695d190">Video</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab686208e53fe8161bb86f7d37e01784c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Multimedia::read </td>
+          <td>(</td>
+          <td class="paramtype">istream &amp;&#160;</td>
+          <td class="paramname"><em>stream</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Read from a serialized object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>: the input stream where the object will be read. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_film.html#a053b2e4cd4b1e1f8dda7cfb1a45d301c">Film</a>, <a class="el" href="class_photo.html#a0c0ede69ed7502df226a95bbb62d7b40">Photo</a>, and <a class="el" href="class_video.html#a6be318a4e05ddfdb52fbcc1cab5ab573">Video</a>.</p>
 
 </div>
 </div>
@@ -423,6 +561,40 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aa3c800e85ac5256ee8d1399d2ba33329"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Multimedia::write </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>stream</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serialize the multimedia object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>: the output stream where the object will be written. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_film.html#a8b38978dd0bf6ed844627d8e8b63efbe">Film</a>, <a class="el" href="class_photo.html#a65c10b1d3dd17be4d478f7c3fb04ddd4">Photo</a>, and <a class="el" href="class_video.html#a4bfb8bf83498fa30a6515065559ccbff">Video</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/headers/<a class="el" href="multimedia_8h_source.html">multimedia.h</a></li>
 <li>src/multimedia.cpp</li>
@@ -430,7 +602,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 10 2014 13:04:00 for Multimedia by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 2 2015 16:46:44 for Multimedia by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['setdate',['setDate',['../class_multimedia.html#a14abd8762b4d64cba41822f2b8ad434f',1,'Multimedia']]],
-  ['setname',['setName',['../class_multimedia.html#a7af3fbc7c6f5eab1a70608066f05d03d',1,'Multimedia']]],
-  ['setpathname',['setPathname',['../class_multimedia.html#a3e06f151e9fce4cad4f74e4b92276929',1,'Multimedia']]]
+  ['film',['Film',['../class_film.html#aea0f4a8e9741b3c38d4d4d9234ed2ec5',1,'Film::Film(void)'],['../class_film.html#aa85c4f92943306412e2279c9cd8df7ef',1,'Film::Film(string name, unsigned long date, string pathname)'],['../class_film.html#abac72e9c84e539851cfe325c6d296acd',1,'Film::Film(string name, unsigned long date, string pathname, unsigned int const chapters[], unsigned int number_chapters)']]]
 ];

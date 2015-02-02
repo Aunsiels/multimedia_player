@@ -1,0 +1,298 @@
+.TH "Socket" 3 "Mon Feb 2 2015" "Version 0.1" "Multimedia" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Socket \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Socket\&.h>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBErrors\fP { \fBFAILED\fP = -1, \fBINVALID_SOCKET\fP = -2, \fBUNKNOWN_HOST\fP = -3 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSocket\fP (int type=SOCK_STREAM)"
+.br
+.ti -1c
+.RI "\fBSocket\fP (int type, int sockfd)"
+.br
+.RI "\fICreates a socket object from an existing socket file descriptor\&. \fP"
+.ti -1c
+.RI "virtual \fB~Socket\fP ()"
+.br
+.ti -1c
+.RI "virtual int \fBbind\fP (int port=0)"
+.br
+.ti -1c
+.RI "virtual int \fBbind\fP (const std::string &host, int port)"
+.br
+.ti -1c
+.RI "virtual int \fBconnect\fP (const std::string &remoteHost, int port)"
+.br
+.ti -1c
+.RI "virtual int \fBclose\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetFileDescriptor\fP () const "
+.br
+.RI "\fIReturns the file descriptor of the socket\&. \fP"
+.ti -1c
+.RI "ssize_t \fBsend\fP (const void *buf, size_t len, int flags=0)"
+.br
+.ti -1c
+.RI "ssize_t \fBreceive\fP (void *buf, size_t len, int flags=0)"
+.br
+.ti -1c
+.RI "ssize_t \fBsendTo\fP (const void *buf, size_t len, int flags, const struct sockaddr *dest_addr, socklen_t addrlen)"
+.br
+.ti -1c
+.RI "ssize_t \fBreceiveFrom\fP (void *buf, size_t len, int flags, struct sockaddr *src_addr, socklen_t *addrlen)"
+.br
+.ti -1c
+.RI "virtual void \fBshutdownInput\fP ()"
+.br
+.RI "\fIDisables further receive operations\&. \fP"
+.ti -1c
+.RI "virtual void \fBshutdownOutput\fP ()"
+.br
+.RI "\fIDisables further send operations\&. \fP"
+.ti -1c
+.RI "virtual int \fBgetOption\fP (int level, int optname, void *optval, socklen_t *optlen)"
+.br
+.ti -1c
+.RI "virtual int \fBsetOption\fP (int level, int optname, const void *optval, socklen_t optlen)"
+.br
+.ti -1c
+.RI "int \fBsetReceiveBufferSize\fP (int size)"
+.br
+.RI "\fISets the SO_RCVBUF option to the specified value\&. \fP"
+.ti -1c
+.RI "int \fBsetReuseAddress\fP (bool)"
+.br
+.RI "\fIEnables/disables the SO_REUSEADDR socket option\&. \fP"
+.ti -1c
+.RI "int \fBsetSendBufferSize\fP (int size)"
+.br
+.RI "\fISets the SO_SNDBUF option to the specified value\&. \fP"
+.ti -1c
+.RI "int \fBsetSoLinger\fP (bool, int linger)"
+.br
+.RI "\fIEnables/disables SO_LINGER with the specified linger time in seconds\&. \fP"
+.ti -1c
+.RI "int \fBsetSoTimeout\fP (int timeout)"
+.br
+.RI "\fIEnables/disables SO_TIMEOUT with the specified timeout (in milliseconds)\&. \fP"
+.ti -1c
+.RI "int \fBsetTcpNoDelay\fP (bool)"
+.br
+.RI "\fITurns on/off TCP coalescence (useful in some cases to avoid delays)\&. \fP"
+.ti -1c
+.RI "virtual int \fBsetLocalAddress\fP (struct sockaddr_in &addr, int port)"
+.br
+.RI "\fIInitializes a local INET4 address, returns 0 on success, -1 otherwise\&. \fP"
+.ti -1c
+.RI "virtual int \fBsetAddress\fP (struct sockaddr_in &addr, const std::string &host, int port)"
+.br
+.RI "\fIInitializes a remote INET4 address, returns 0 on success, -1 otherwise\&. \fP"
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBServerSocket\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+TCP/IP or UDP Datagram \fBSocket\fP\&. Note: this class supports AF_INET connections following the IPv4 Internet protocol\&. Other families, such as AF_INET6 or AF_UNIX are not yet supported\&. 
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBSocket::Errors\fP"
+\fBSocket\fP errors\&.
+.IP "\(bu" 2
+Socket::FAILED (-1): could not connect, could not bind, etc\&.
+.IP "\(bu" 2
+Socket::INVALID_SOCKET (-2): wrong socket type\&.
+.IP "\(bu" 2
+Socket::UNKNOWN_HOST (-3): could not reach host 
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Socket::Socket (inttype = \fCSOCK_STREAM\fP)"
+Creates a new socket\&. Creates a AF_INET socket using the IPv4 Internet protocol\&. Type can be:
+.IP "\(bu" 2
+SOCK_STREAM (the default) for TCP/IP connected stream sockets
+.IP "\(bu" 2
+SOCK_DGRAM for UDP datagram sockets 
+.PP
+
+.SS "Socket::~Socket ()\fC [virtual]\fP"
+Destructor\&. Closes the socket\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "int Socket::bind (intport = \fC0\fP)\fC [virtual]\fP"
+Assigns the socket to the local address\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+0 on success or a negative value on error which is one of \fBSocket::Errors\fP 
+.RE
+.PP
+
+.SS "virtual int Socket::bind (const std::string &host, intport)\fC [virtual]\fP"
+Assigns the socket to this address\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+0 on success or a negative value on error which is one of \fBSocket::Errors\fP 
+.RE
+.PP
+
+.SS "int Socket::close ()\fC [virtual]\fP"
+Closes the socket\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+0 on success and -1 on error\&. 
+.RE
+.PP
+
+.SS "int Socket::connect (const std::string &remoteHost, intport)\fC [virtual]\fP"
+Connects the socket to a server socket\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+0 on success or a negative value on error which is one of \fBSocket::Errors\fP 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBServerSocket\fP\&. 
+.RE
+.PP
+
+.SS "int Socket::getOption (intlevel, intoptname, void *optval, socklen_t *optlen)\fC [virtual]\fP"
+Gets socket options\&. 
+.PP
+\fBSee Also:\fP
+.RS 4
+the getsockopt() system call\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 on success and -1 on error\&. 
+.RE
+.PP
+
+.SS "ssize_t Socket::receive (void *buf, size_tlen, intflags = \fC0\fP)\fC [inline]\fP"
+Receives data from a connected socket\&. Reads \fIat most\fP \fIlen\fP bytes from a connected (i\&.e\&. SOCK_STREAM) socket\&. By default, this function blocks the caller until data is present (
+.PP
+\fBSee Also:\fP
+.RS 4
+recv()), except if end-of-stream is reached (\fBshutdownOutput()\fP was called on the other side) or an error occurs\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the number of bytes received, 0 at end-of-stream, -1 in case of an error\&. 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+that that connected sockets do not preserve record boundaries (
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBSocketBuffer\fP)\&. 
+.PP
+\fBSocketBuffer\fP to preserve record boundaries\&. 
+.PP
+the recv() system call for low level details\&. 
+.RE
+.PP
+
+.SS "ssize_t Socket::receiveFrom (void *buf, size_tlen, intflags, struct sockaddr *src_addr, socklen_t *addrlen)\fC [inline]\fP"
+Receives data from datagram socket\&. Reads at most \fIlen\fP bytes from a datagram (i\&.e\&. SOCK_DGRAM) socket\&. By default, this function blocks the caller until data is present (
+.PP
+\fBSee Also:\fP
+.RS 4
+recv())\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the number of bytes received, -1 in case of an error, 0 at end-of-stream (e\&.g\&. if \fBshutdownOutput()\fP was called on the other side)\&. 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+the recvfrom() system call for low level details\&. 
+.RE
+.PP
+
+.SS "ssize_t Socket::send (const void *buf, size_tlen, intflags = \fC0\fP)\fC [inline]\fP"
+Sends data to a connected socket\&. Sends \fIlen\fP bytes to a connected (i\&.e\&. SOCK_STREAM) socket\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the number of bytes sent or -1 in case of an error\&. 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+that that connected sockets do not preserve record boundaries (
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBSocketBuffer\fP)\&. 
+.PP
+\fBSocketBuffer\fP to preserve record boundaries\&. 
+.PP
+the \fBsend()\fP system call for low level details\&. 
+.RE
+.PP
+
+.SS "ssize_t Socket::sendTo (const void *buf, size_tlen, intflags, const struct sockaddr *dest_addr, socklen_taddrlen)\fC [inline]\fP"
+Sends data to a datagram socket\&. Sends \fIlen\fP bytes to a datagram (i\&.e\&. SOCK_DGRAM) socket\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the number of bytes sent or -1 in case of an error\&. 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+the sendto() system call for low level details\&. 
+.RE
+.PP
+
+.SS "int Socket::setOption (intlevel, intoptname, const void *optval, socklen_toptlen)\fC [virtual]\fP"
+Sets socket options\&. 
+.PP
+\fBSee Also:\fP
+.RS 4
+the setsockopt() system call\&.  helper functions \fBsetReuseAddress()\fP, \fBsetTcpNoDelay()\fP, etc\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 on success and -1 on error\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Multimedia from the source code\&.

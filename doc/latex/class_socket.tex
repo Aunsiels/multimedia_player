@@ -1,0 +1,289 @@
+\hypertarget{class_socket}{\section{Socket Class Reference}
+\label{class_socket}\index{Socket@{Socket}}
+}
+
+
+{\ttfamily \#include $<$Socket.\-h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_socket_a9f68308228badcdd299cd83e62e36976}{Errors} \{ {\bfseries F\-A\-I\-L\-E\-D} = -\/1, 
+{\bfseries I\-N\-V\-A\-L\-I\-D\-\_\-\-S\-O\-C\-K\-E\-T} = -\/2, 
+{\bfseries U\-N\-K\-N\-O\-W\-N\-\_\-\-H\-O\-S\-T} = -\/3
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_socket_acd3cb39bc957be2f34c91b9e262e1cec}{Socket} (int type=S\-O\-C\-K\-\_\-\-S\-T\-R\-E\-A\-M)
+\item 
+\hypertarget{class_socket_a14170941ba1aaa3263f3e8dd3f85e24f}{\hyperlink{class_socket_a14170941ba1aaa3263f3e8dd3f85e24f}{Socket} (int type, int sockfd)}\label{class_socket_a14170941ba1aaa3263f3e8dd3f85e24f}
+
+\begin{DoxyCompactList}\small\item\em Creates a socket object from an existing socket file descriptor. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_socket_aeac4eb6379a543d38ed88977d3b6630a}{$\sim$\-Socket} ()
+\item 
+virtual int \hyperlink{class_socket_a019fdc04fe2afd7aecd612469be32467}{bind} (int port=0)
+\item 
+virtual int \hyperlink{class_socket_a8f014a801fb3e61bbee00b84c06f2330}{bind} (const std\-::string \&host, int port)
+\item 
+virtual int \hyperlink{class_socket_aac9588a21bb2c52ff8246272cf36834a}{connect} (const std\-::string \&remote\-Host, int port)
+\item 
+virtual int \hyperlink{class_socket_aef06605c6725958004116983f1a2051f}{close} ()
+\item 
+\hypertarget{class_socket_a6b4449d6b454bdb4a3a809976a3c2e41}{int \hyperlink{class_socket_a6b4449d6b454bdb4a3a809976a3c2e41}{get\-File\-Descriptor} () const }\label{class_socket_a6b4449d6b454bdb4a3a809976a3c2e41}
+
+\begin{DoxyCompactList}\small\item\em Returns the file descriptor of the socket. \end{DoxyCompactList}\item 
+ssize\-\_\-t \hyperlink{class_socket_a9275eacdb64056a53cf4b9cf54cd2f1a}{send} (const void $\ast$buf, size\-\_\-t len, int flags=0)
+\item 
+ssize\-\_\-t \hyperlink{class_socket_aa5e98b6f2c4e26fcf90d71c8386fc09d}{receive} (void $\ast$buf, size\-\_\-t len, int flags=0)
+\item 
+ssize\-\_\-t \hyperlink{class_socket_ac75e3ac80b7e6ae1bdce58c1c4e2b56a}{send\-To} (const void $\ast$buf, size\-\_\-t len, int flags, const struct sockaddr $\ast$dest\-\_\-addr, socklen\-\_\-t addrlen)
+\item 
+ssize\-\_\-t \hyperlink{class_socket_a7cca10ce2a21e0648850e55a878f51b2}{receive\-From} (void $\ast$buf, size\-\_\-t len, int flags, struct sockaddr $\ast$src\-\_\-addr, socklen\-\_\-t $\ast$addrlen)
+\item 
+\hypertarget{class_socket_a417b47af24de10184192de00d9112589}{virtual void \hyperlink{class_socket_a417b47af24de10184192de00d9112589}{shutdown\-Input} ()}\label{class_socket_a417b47af24de10184192de00d9112589}
+
+\begin{DoxyCompactList}\small\item\em Disables further receive operations. \end{DoxyCompactList}\item 
+\hypertarget{class_socket_a650128aee2581e6695c6812d8afe14b5}{virtual void \hyperlink{class_socket_a650128aee2581e6695c6812d8afe14b5}{shutdown\-Output} ()}\label{class_socket_a650128aee2581e6695c6812d8afe14b5}
+
+\begin{DoxyCompactList}\small\item\em Disables further send operations. \end{DoxyCompactList}\item 
+virtual int \hyperlink{class_socket_adc250da2f4f1e813850b83cc0be04fa2}{get\-Option} (int level, int optname, void $\ast$optval, socklen\-\_\-t $\ast$optlen)
+\item 
+virtual int \hyperlink{class_socket_aede9a4b4ef00a7169f8eec1e75f1796d}{set\-Option} (int level, int optname, const void $\ast$optval, socklen\-\_\-t optlen)
+\item 
+\hypertarget{class_socket_a06ff0dd6837c9f51948df655fc2713cd}{int \hyperlink{class_socket_a06ff0dd6837c9f51948df655fc2713cd}{set\-Receive\-Buffer\-Size} (int size)}\label{class_socket_a06ff0dd6837c9f51948df655fc2713cd}
+
+\begin{DoxyCompactList}\small\item\em Sets the S\-O\-\_\-\-R\-C\-V\-B\-U\-F option to the specified value. \end{DoxyCompactList}\item 
+\hypertarget{class_socket_ab02b997fa7e251d596116e95c9ccaf97}{int \hyperlink{class_socket_ab02b997fa7e251d596116e95c9ccaf97}{set\-Reuse\-Address} (bool)}\label{class_socket_ab02b997fa7e251d596116e95c9ccaf97}
+
+\begin{DoxyCompactList}\small\item\em Enables/disables the S\-O\-\_\-\-R\-E\-U\-S\-E\-A\-D\-D\-R socket option. \end{DoxyCompactList}\item 
+\hypertarget{class_socket_afc49ad6cc259a0006ca13bb22fdd7383}{int \hyperlink{class_socket_afc49ad6cc259a0006ca13bb22fdd7383}{set\-Send\-Buffer\-Size} (int size)}\label{class_socket_afc49ad6cc259a0006ca13bb22fdd7383}
+
+\begin{DoxyCompactList}\small\item\em Sets the S\-O\-\_\-\-S\-N\-D\-B\-U\-F option to the specified value. \end{DoxyCompactList}\item 
+\hypertarget{class_socket_a41cc1caae51e3e83e16ce2c20689ed03}{int \hyperlink{class_socket_a41cc1caae51e3e83e16ce2c20689ed03}{set\-So\-Linger} (bool, int linger)}\label{class_socket_a41cc1caae51e3e83e16ce2c20689ed03}
+
+\begin{DoxyCompactList}\small\item\em Enables/disables S\-O\-\_\-\-L\-I\-N\-G\-E\-R with the specified linger time in seconds. \end{DoxyCompactList}\item 
+\hypertarget{class_socket_ad65a22ec40902e2c0a98c5d4ac885f99}{int \hyperlink{class_socket_ad65a22ec40902e2c0a98c5d4ac885f99}{set\-So\-Timeout} (int timeout)}\label{class_socket_ad65a22ec40902e2c0a98c5d4ac885f99}
+
+\begin{DoxyCompactList}\small\item\em Enables/disables S\-O\-\_\-\-T\-I\-M\-E\-O\-U\-T with the specified timeout (in milliseconds). \end{DoxyCompactList}\item 
+\hypertarget{class_socket_a7bc0110f3bedbb18f26b05ece01553fa}{int \hyperlink{class_socket_a7bc0110f3bedbb18f26b05ece01553fa}{set\-Tcp\-No\-Delay} (bool)}\label{class_socket_a7bc0110f3bedbb18f26b05ece01553fa}
+
+\begin{DoxyCompactList}\small\item\em Turns on/off T\-C\-P coalescence (useful in some cases to avoid delays). \end{DoxyCompactList}\item 
+\hypertarget{class_socket_ae098ebe2d34fac9947260f517ee8de04}{virtual int \hyperlink{class_socket_ae098ebe2d34fac9947260f517ee8de04}{set\-Local\-Address} (struct sockaddr\-\_\-in \&addr, int port)}\label{class_socket_ae098ebe2d34fac9947260f517ee8de04}
+
+\begin{DoxyCompactList}\small\item\em Initializes a local I\-N\-E\-T4 address, returns 0 on success, -\/1 otherwise. \end{DoxyCompactList}\item 
+\hypertarget{class_socket_aec683b1b0104aeae9fc2cfdbb6b70e9f}{virtual int \hyperlink{class_socket_aec683b1b0104aeae9fc2cfdbb6b70e9f}{set\-Address} (struct sockaddr\-\_\-in \&addr, const std\-::string \&host, int port)}\label{class_socket_aec683b1b0104aeae9fc2cfdbb6b70e9f}
+
+\begin{DoxyCompactList}\small\item\em Initializes a remote I\-N\-E\-T4 address, returns 0 on success, -\/1 otherwise. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_socket_a11a8bb11feaafab939278a8285afa567}{class {\bfseries Server\-Socket}}\label{class_socket_a11a8bb11feaafab939278a8285afa567}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+T\-C\-P/\-I\-P or U\-D\-P Datagram \hyperlink{class_socket}{Socket}. Note\-: this class supports A\-F\-\_\-\-I\-N\-E\-T connections following the I\-Pv4 Internet protocol. Other families, such as A\-F\-\_\-\-I\-N\-E\-T6 or A\-F\-\_\-\-U\-N\-I\-X are not yet supported. 
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_socket_a9f68308228badcdd299cd83e62e36976}{\index{Socket@{Socket}!Errors@{Errors}}
+\index{Errors@{Errors}!Socket@{Socket}}
+\subsubsection[{Errors}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Socket\-::\-Errors}}}\label{class_socket_a9f68308228badcdd299cd83e62e36976}
+\hyperlink{class_socket}{Socket} errors.
+\begin{DoxyItemize}
+\item Socket\-::\-F\-A\-I\-L\-E\-D (-\/1)\-: could not connect, could not bind, etc.
+\item Socket\-::\-I\-N\-V\-A\-L\-I\-D\-\_\-\-S\-O\-C\-K\-E\-T (-\/2)\-: wrong socket type.
+\item Socket\-::\-U\-N\-K\-N\-O\-W\-N\-\_\-\-H\-O\-S\-T (-\/3)\-: could not reach host 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_socket_acd3cb39bc957be2f34c91b9e262e1cec}{\index{Socket@{Socket}!Socket@{Socket}}
+\index{Socket@{Socket}!Socket@{Socket}}
+\subsubsection[{Socket}]{\setlength{\rightskip}{0pt plus 5cm}Socket\-::\-Socket (
+\begin{DoxyParamCaption}
+\item[{int}]{type = {\ttfamily SOCK\-\_\-STREAM}}
+\end{DoxyParamCaption}
+)}}\label{class_socket_acd3cb39bc957be2f34c91b9e262e1cec}
+Creates a new socket. Creates a A\-F\-\_\-\-I\-N\-E\-T socket using the I\-Pv4 Internet protocol. Type can be\-:
+\begin{DoxyItemize}
+\item S\-O\-C\-K\-\_\-\-S\-T\-R\-E\-A\-M (the default) for T\-C\-P/\-I\-P connected stream sockets
+\item S\-O\-C\-K\-\_\-\-D\-G\-R\-A\-M for U\-D\-P datagram sockets 
+\end{DoxyItemize}\hypertarget{class_socket_aeac4eb6379a543d38ed88977d3b6630a}{\index{Socket@{Socket}!$\sim$\-Socket@{$\sim$\-Socket}}
+\index{$\sim$\-Socket@{$\sim$\-Socket}!Socket@{Socket}}
+\subsubsection[{$\sim$\-Socket}]{\setlength{\rightskip}{0pt plus 5cm}Socket\-::$\sim$\-Socket (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_socket_aeac4eb6379a543d38ed88977d3b6630a}
+Destructor. Closes the socket. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_socket_a019fdc04fe2afd7aecd612469be32467}{\index{Socket@{Socket}!bind@{bind}}
+\index{bind@{bind}!Socket@{Socket}}
+\subsubsection[{bind}]{\setlength{\rightskip}{0pt plus 5cm}int Socket\-::bind (
+\begin{DoxyParamCaption}
+\item[{int}]{port = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_socket_a019fdc04fe2afd7aecd612469be32467}
+Assigns the socket to the local address. \begin{DoxyReturn}{Returns}
+0 on success or a negative value on error which is one of \hyperlink{class_socket_a9f68308228badcdd299cd83e62e36976}{Socket\-::\-Errors} 
+\end{DoxyReturn}
+\hypertarget{class_socket_a8f014a801fb3e61bbee00b84c06f2330}{\index{Socket@{Socket}!bind@{bind}}
+\index{bind@{bind}!Socket@{Socket}}
+\subsubsection[{bind}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Socket\-::bind (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{host, }
+\item[{int}]{port}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_socket_a8f014a801fb3e61bbee00b84c06f2330}
+Assigns the socket to this address. \begin{DoxyReturn}{Returns}
+0 on success or a negative value on error which is one of \hyperlink{class_socket_a9f68308228badcdd299cd83e62e36976}{Socket\-::\-Errors} 
+\end{DoxyReturn}
+\hypertarget{class_socket_aef06605c6725958004116983f1a2051f}{\index{Socket@{Socket}!close@{close}}
+\index{close@{close}!Socket@{Socket}}
+\subsubsection[{close}]{\setlength{\rightskip}{0pt plus 5cm}int Socket\-::close (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_socket_aef06605c6725958004116983f1a2051f}
+Closes the socket. \begin{DoxyReturn}{Returns}
+0 on success and -\/1 on error. 
+\end{DoxyReturn}
+\hypertarget{class_socket_aac9588a21bb2c52ff8246272cf36834a}{\index{Socket@{Socket}!connect@{connect}}
+\index{connect@{connect}!Socket@{Socket}}
+\subsubsection[{connect}]{\setlength{\rightskip}{0pt plus 5cm}int Socket\-::connect (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{remote\-Host, }
+\item[{int}]{port}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_socket_aac9588a21bb2c52ff8246272cf36834a}
+Connects the socket to a server socket. \begin{DoxyReturn}{Returns}
+0 on success or a negative value on error which is one of \hyperlink{class_socket_a9f68308228badcdd299cd83e62e36976}{Socket\-::\-Errors} 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{class_server_socket}{Server\-Socket}. 
+\end{DoxySeeAlso}
+\hypertarget{class_socket_adc250da2f4f1e813850b83cc0be04fa2}{\index{Socket@{Socket}!get\-Option@{get\-Option}}
+\index{get\-Option@{get\-Option}!Socket@{Socket}}
+\subsubsection[{get\-Option}]{\setlength{\rightskip}{0pt plus 5cm}int Socket\-::get\-Option (
+\begin{DoxyParamCaption}
+\item[{int}]{level, }
+\item[{int}]{optname, }
+\item[{void $\ast$}]{optval, }
+\item[{socklen\-\_\-t $\ast$}]{optlen}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_socket_adc250da2f4f1e813850b83cc0be04fa2}
+Gets socket options. \begin{DoxySeeAlso}{See Also}
+the getsockopt() system call. 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+0 on success and -\/1 on error. 
+\end{DoxyReturn}
+\hypertarget{class_socket_aa5e98b6f2c4e26fcf90d71c8386fc09d}{\index{Socket@{Socket}!receive@{receive}}
+\index{receive@{receive}!Socket@{Socket}}
+\subsubsection[{receive}]{\setlength{\rightskip}{0pt plus 5cm}ssize\-\_\-t Socket\-::receive (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{buf, }
+\item[{size\-\_\-t}]{len, }
+\item[{int}]{flags = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_socket_aa5e98b6f2c4e26fcf90d71c8386fc09d}
+Receives data from a connected socket. Reads {\itshape at most} {\itshape len} bytes from a connected (i.\-e. S\-O\-C\-K\-\_\-\-S\-T\-R\-E\-A\-M) socket. By default, this function blocks the caller until data is present (\begin{DoxySeeAlso}{See Also}
+recv()), except if end-\/of-\/stream is reached (\hyperlink{class_socket_a650128aee2581e6695c6812d8afe14b5}{shutdown\-Output()} was called on the other side) or an error occurs. 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+the number of bytes received, 0 at end-\/of-\/stream, -\/1 in case of an error. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+that that connected sockets do not preserve record boundaries (
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{class_socket_buffer}{Socket\-Buffer}). 
+
+\hyperlink{class_socket_buffer}{Socket\-Buffer} to preserve record boundaries. 
+
+the recv() system call for low level details. 
+\end{DoxySeeAlso}
+\hypertarget{class_socket_a7cca10ce2a21e0648850e55a878f51b2}{\index{Socket@{Socket}!receive\-From@{receive\-From}}
+\index{receive\-From@{receive\-From}!Socket@{Socket}}
+\subsubsection[{receive\-From}]{\setlength{\rightskip}{0pt plus 5cm}ssize\-\_\-t Socket\-::receive\-From (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{buf, }
+\item[{size\-\_\-t}]{len, }
+\item[{int}]{flags, }
+\item[{struct sockaddr $\ast$}]{src\-\_\-addr, }
+\item[{socklen\-\_\-t $\ast$}]{addrlen}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_socket_a7cca10ce2a21e0648850e55a878f51b2}
+Receives data from datagram socket. Reads at most {\itshape len} bytes from a datagram (i.\-e. S\-O\-C\-K\-\_\-\-D\-G\-R\-A\-M) socket. By default, this function blocks the caller until data is present (\begin{DoxySeeAlso}{See Also}
+recv()). 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+the number of bytes received, -\/1 in case of an error, 0 at end-\/of-\/stream (e.\-g. if \hyperlink{class_socket_a650128aee2581e6695c6812d8afe14b5}{shutdown\-Output()} was called on the other side). 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+the recvfrom() system call for low level details. 
+\end{DoxySeeAlso}
+\hypertarget{class_socket_a9275eacdb64056a53cf4b9cf54cd2f1a}{\index{Socket@{Socket}!send@{send}}
+\index{send@{send}!Socket@{Socket}}
+\subsubsection[{send}]{\setlength{\rightskip}{0pt plus 5cm}ssize\-\_\-t Socket\-::send (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{buf, }
+\item[{size\-\_\-t}]{len, }
+\item[{int}]{flags = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_socket_a9275eacdb64056a53cf4b9cf54cd2f1a}
+Sends data to a connected socket. Sends {\itshape len} bytes to a connected (i.\-e. S\-O\-C\-K\-\_\-\-S\-T\-R\-E\-A\-M) socket. \begin{DoxyReturn}{Returns}
+the number of bytes sent or -\/1 in case of an error. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+that that connected sockets do not preserve record boundaries (
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{class_socket_buffer}{Socket\-Buffer}). 
+
+\hyperlink{class_socket_buffer}{Socket\-Buffer} to preserve record boundaries. 
+
+the \hyperlink{class_socket_a9275eacdb64056a53cf4b9cf54cd2f1a}{send()} system call for low level details. 
+\end{DoxySeeAlso}
+\hypertarget{class_socket_ac75e3ac80b7e6ae1bdce58c1c4e2b56a}{\index{Socket@{Socket}!send\-To@{send\-To}}
+\index{send\-To@{send\-To}!Socket@{Socket}}
+\subsubsection[{send\-To}]{\setlength{\rightskip}{0pt plus 5cm}ssize\-\_\-t Socket\-::send\-To (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{buf, }
+\item[{size\-\_\-t}]{len, }
+\item[{int}]{flags, }
+\item[{const struct sockaddr $\ast$}]{dest\-\_\-addr, }
+\item[{socklen\-\_\-t}]{addrlen}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_socket_ac75e3ac80b7e6ae1bdce58c1c4e2b56a}
+Sends data to a datagram socket. Sends {\itshape len} bytes to a datagram (i.\-e. S\-O\-C\-K\-\_\-\-D\-G\-R\-A\-M) socket. \begin{DoxyReturn}{Returns}
+the number of bytes sent or -\/1 in case of an error. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+the sendto() system call for low level details. 
+\end{DoxySeeAlso}
+\hypertarget{class_socket_aede9a4b4ef00a7169f8eec1e75f1796d}{\index{Socket@{Socket}!set\-Option@{set\-Option}}
+\index{set\-Option@{set\-Option}!Socket@{Socket}}
+\subsubsection[{set\-Option}]{\setlength{\rightskip}{0pt plus 5cm}int Socket\-::set\-Option (
+\begin{DoxyParamCaption}
+\item[{int}]{level, }
+\item[{int}]{optname, }
+\item[{const void $\ast$}]{optval, }
+\item[{socklen\-\_\-t}]{optlen}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_socket_aede9a4b4ef00a7169f8eec1e75f1796d}
+Sets socket options. \begin{DoxySeeAlso}{See Also}
+the setsockopt() system call.  helper functions \hyperlink{class_socket_ab02b997fa7e251d596116e95c9ccaf97}{set\-Reuse\-Address()}, \hyperlink{class_socket_a7bc0110f3bedbb18f26b05ece01553fa}{set\-Tcp\-No\-Delay()}, etc. 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+0 on success and -\/1 on error. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/headers/Socket.\-h\item 
+src/\-Server/Socket.\-cpp\end{DoxyCompactItemize}
