@@ -5,7 +5,9 @@
 
 import java.io.*;
 import java.net.*;
-
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
 public class Client {
   private static final long serialVersionUID = 1L;
@@ -15,6 +17,7 @@ public class Client {
   private Socket sock;
   private BufferedReader input;
   private BufferedWriter output;
+  private static MainWindow window;
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   
@@ -39,13 +42,16 @@ public class Client {
 
     // pour lire depuis la console
     BufferedReader cin = new BufferedReader(new InputStreamReader(System.in));
+
+    window = new MainWindow();
     
     while (true) {
       System.out.print("Message: ");
       try {
         String message = cin.readLine();
+	message = "search_multimedia\nphoto\n";
         String response = client.send(message);
-        System.out.println("Response: " + response);
+	JOptionPane.showMessageDialog(window, response);
       }
       catch (java.io.IOException e) {
         System.out.println("Client: IO error");
@@ -88,7 +94,7 @@ public class Client {
     
     // Envoyer la commande au serveur
     try {
-      command += '\n';  // ajouter le delimiteur qui separe les messages
+      command += '|';  // ajouter le delimiteur qui separe les messages
       output.write(command, 0, command.length());
       output.flush();
     }
@@ -99,7 +105,13 @@ public class Client {
     
     // Recuperer le resultat retourne par le serveur
     try {
-      return input.readLine();
+       char c = (char) input.read();
+       StringBuffer sb = new StringBuffer();
+       while(c != '|') {
+         sb.append(c);
+	 c = (char) input.read();
+       }
+      return sb.toString();
     }
     catch (java.io.IOException e) {
       System.err.println("Client couldn't read: " + e);

@@ -31,6 +31,7 @@
 #include <ctime>
 
 #include <multimedia.h>
+#include <sstream>
 
 // Default constructor
 
@@ -113,10 +114,11 @@ void Multimedia::setPathname (string newPathname){
 //Print description
 
 string Multimedia::print (void) const {
-
-    return "Name     : " + this->name +
-           "\rDate     : " + to_string(this->date) +
-	   "\rPathname : " + this->pathname +"\r";
+    stringstream ss;
+    ss << "Name     : " << this->name << endl
+       << "Date     : " << to_string(this->date) << endl
+       << "Pathname : " << this->pathname << endl;
+    return ss.str();
 
 }
 

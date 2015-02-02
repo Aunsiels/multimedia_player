@@ -33,6 +33,7 @@
 #include <photo.h>
 #include <stdlib.h>
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -84,8 +85,10 @@ void Photo::setPlace (string newPlace) {
 
 string Photo::print (void) const {
 
-    Multimedia::print ();
-    return "Place    : " + this->place + '\r';
+    stringstream ss;
+    ss << Multimedia::print();
+    ss << "Place    : " << this->place << endl;
+    return ss.str();
 
 }
 

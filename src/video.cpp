@@ -34,6 +34,7 @@
 #include <stdlib.h>
 #include <string>
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -85,8 +86,10 @@ void Video::setLength (unsigned int newLength) {
 
 string Video::print (void) const {
 
-    Multimedia::print ();
-    return "Length   : " + this->length + '\r';
+    stringstream ss;
+    ss << Multimedia::print ();
+    ss << "Length   : " << this->length << endl;
+    return ss.str();
 
 }
 
