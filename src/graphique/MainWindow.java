@@ -54,6 +54,31 @@ public class MainWindow extends JFrame {
      private JPanel panel;
      //A scroller for the text
      private JScrollPane textscroller;
+     //Menu bar
+     private JMenuBar menuBar;
+     //Menu
+     private JMenu menu;
+     //Menu items
+     private JMenuItem item1, item2, item3;
+     //ToolBar
+     private JToolBar toolBar;
+
+     //Actions for the buttons
+     private AbstractAction add1 = new AbstractAction("Add 1") {
+         public void actionPerformed(ActionEvent e){
+             text.append("Add 1\n");
+	 }
+     };
+     private AbstractAction add2 = new AbstractAction("Add 2") {
+         public void actionPerformed(ActionEvent e){
+             text.append("Add 2\n");
+	 }
+     };
+     private AbstractAction close = new AbstractAction("Close"){
+         public void actionPerformed(ActionEvent e){
+	     System.exit(0);
+	 }
+     };
      
      /*!
      * \brief Main function of the program.
@@ -75,31 +100,44 @@ public class MainWindow extends JFrame {
      public MainWindow() {
 
          //Elements declarations
-         btn1 = new JButton("Add 1");
-         btn2 = new JButton("Add 2");
-	 btn3 = new JButton("Close");
+         btn1 = new JButton(add1);
+         btn2 = new JButton(add2);
+	 btn3 = new JButton(close);
 	 text = new JTextArea(10,100);
 	 panel = new JPanel();
          textscroller = new JScrollPane(text);
+	 menu = new JMenu("Actions");
+	 item1 = new JMenuItem(add1);
+	 item2 = new JMenuItem(add2);
+	 item3 = new JMenuItem(close);
+         menuBar = new JMenuBar();
+	 toolBar = new JToolBar();
 
-         //Listener of the buttons
-         btn1.addActionListener(new ActionListener(){
-             public void actionPerformed(ActionEvent e){
-                 text.append("Add 1\n");
-	     }
-	 });
+         menu.setMnemonic('a');
 
-         btn2.addActionListener(new ActionListener(){
-             public void actionPerformed(ActionEvent e){
-                 text.append("Add 2\n");
-	     }
-	 });
+         //Set mnemonic for each item
+	 item1.setMnemonic('1');
+	 item1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A,
+	     InputEvent.CTRL_DOWN_MASK));
+	 item2.setMnemonic('2');
+	 item2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B,
+	     InputEvent.CTRL_DOWN_MASK));
+	 item3.setMnemonic('q');
+	 item3.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q,
+	     InputEvent.CTRL_DOWN_MASK));
 
-         btn3.addActionListener(new ActionListener(){
-             public void actionPerformed(ActionEvent e){
-	         System.exit(0);
-	     }
-	 });
+         //Add item to menu
+	 menu.add(item1);
+	 menu.add(item2);
+	 menu.add(item3);
+
+         //Add menu to bar
+	 menuBar.add(menu);
+
+         //Tool bar buttons
+         toolBar.add(add1);
+	 toolBar.add(add2);
+	 toolBar.add(close);
 
 	 //Add the objects to the frame
 	 this.add(textscroller, BorderLayout.CENTER);
@@ -108,6 +146,9 @@ public class MainWindow extends JFrame {
 	 panel.add(btn3, FlowLayout.RIGHT);
 
 	 this.add(panel, BorderLayout.SOUTH);
+	 this.add(toolBar,BorderLayout.NORTH);
+
+	 this.setJMenuBar(menuBar);
 
 	 setDefaultCloseOperation(EXIT_ON_CLOSE);
 	 pack();
