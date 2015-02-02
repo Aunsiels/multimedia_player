@@ -2,4 +2,7 @@
 main
 depend-main
 *.swp
-.class
+*.class
+client
+depend-client
+._Server
