@@ -3,7 +3,7 @@ var searchData=
   ['search_5fgroup',['search_group',['../class_multimedia_manager.html#a39a4fc5cd5163e01f112bd474ef76e1b',1,'MultimediaManager']]],
   ['search_5fmultimedia',['search_multimedia',['../class_multimedia_manager.html#aa936143b04d97ea3b74c7016482512b9',1,'MultimediaManager']]],
   ['search_5fmultimedia_5fptr',['search_multimedia_ptr',['../class_multimedia_manager.html#a6e6fb41d321267cde7229fe7d1fa3ba7',1,'MultimediaManager']]],
-  ['send',['send',['../class_socket.html#a9275eacdb64056a53cf4b9cf54cd2f1a',1,'Socket']]],
+  ['send',['send',['../class_client.html#a9d3e89e4bd810b1babb21593d07ca88e',1,'Client.send()'],['../class_socket.html#a9275eacdb64056a53cf4b9cf54cd2f1a',1,'Socket::send()']]],
   ['sendto',['sendTo',['../class_socket.html#ac75e3ac80b7e6ae1bdce58c1c4e2b56a',1,'Socket']]],
   ['serversocket',['ServerSocket',['../class_server_socket.html',1,'ServerSocket'],['../class_server_socket.html#a2b3098589541243241ca25495155186c',1,'ServerSocket::ServerSocket()']]],
   ['setaddress',['setAddress',['../class_socket.html#aec683b1b0104aeae9fc2cfdbb6b70e9f',1,'Socket']]],

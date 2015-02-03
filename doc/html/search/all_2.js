@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['client',['Client',['../class_client.html',1,'']]],
   ['clone',['clone',['../class_film.html#aa0b3eb1efeba4721d86c37ae5e671382',1,'Film::clone()'],['../class_group.html#a8a97ac6e71d54db8b11847b584da5e2d',1,'Group::clone()'],['../class_multimedia.html#a2955c15860b8310ee684d391e7b3386f',1,'Multimedia::clone()'],['../class_photo.html#af8733ff93a45f0135076fcb731af56d7',1,'Photo::clone()'],['../class_video.html#a450def61b99cd5c338b83cbfa136c25a',1,'Video::clone()']]],
   ['close',['close',['../class_socket.html#aef06605c6725958004116983f1a2051f',1,'Socket::close()'],['../class_server_socket.html#a3eac6d5571bb092622d328dbda2de2cf',1,'ServerSocket::close()']]],
   ['closesocketandthread',['closeSocketAndThread',['../class_t_c_p_server.html#aa1852e58a77d6e3ddb24ff09dd2acef0',1,'TCPServer']]],

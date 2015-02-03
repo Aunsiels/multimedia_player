@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['tcpserver',['TCPServer',['../class_t_c_p_server.html',1,'']]],
-  ['tcpserverhook',['TCPServerHook',['../struct_t_c_p_server_hook.html',1,'']]]
+  ['serversocket',['ServerSocket',['../class_server_socket.html',1,'']]],
+  ['socket',['Socket',['../class_socket.html',1,'']]],
+  ['socketbuffer',['SocketBuffer',['../class_socket_buffer.html',1,'']]]
 ];

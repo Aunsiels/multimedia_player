@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['serversocket',['ServerSocket',['../class_server_socket.html',1,'']]],
-  ['socket',['Socket',['../class_socket.html',1,'']]],
-  ['socketbuffer',['SocketBuffer',['../class_socket_buffer.html',1,'']]]
+  ['photo',['Photo',['../class_photo.html',1,'']]],
+  ['pointable',['Pointable',['../class_pointable.html',1,'']]]
 ];

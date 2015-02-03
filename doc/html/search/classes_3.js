@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['intrusive_5fptr',['intrusive_ptr',['../classintrusive__ptr.html',1,'']]]
+  ['group',['Group',['../class_group.html',1,'']]]
 ];

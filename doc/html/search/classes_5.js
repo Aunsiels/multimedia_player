@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['photo',['Photo',['../class_photo.html',1,'']]],
-  ['pointable',['Pointable',['../class_pointable.html',1,'']]]
+  ['mainwindow',['MainWindow',['../class_main_window.html',1,'']]],
+  ['multimedia',['Multimedia',['../class_multimedia.html',1,'']]],
+  ['multimediamanager',['MultimediaManager',['../class_multimedia_manager.html',1,'']]]
 ];
