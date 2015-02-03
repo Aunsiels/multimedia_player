@@ -358,13 +358,10 @@ void MultimediaManager::write (const string & name) const {
     if (file) {
         map<string,shared_ptr<Multimedia> >::const_iterator it;
         for (it = multimedia_files.begin(); it != multimedia_files.end(); ++it) {
-	    //TODO : Remove  ??
-	    cout << it->second->print() << endl;
             it->second->write(file);
         }
 	map<string,shared_ptr<Group> >::const_iterator itg;
         for (itg = groups.begin(); itg != groups.end(); ++itg) {
-	    cout << itg->second->print() << endl;
             itg->second->write(file);
         }
 	file.close();
@@ -378,7 +375,6 @@ void MultimediaManager::read (const string & name) {
     if (file) {
         string s;
 	while(getline(file, s)) {
-	   cout << s << endl;
            if (s == "PHOTO") {
 	       create_photo(file);
 	   } else if (s == "VIDEO") {

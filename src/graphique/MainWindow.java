@@ -121,7 +121,6 @@ public class MainWindow extends JFrame {
 		 sb.append("play\n");
 		 sb.append(play_text.getText());
 		 sb.append("\n");
-		 System.out.println(sb.toString());
                  String response = client.send(sb.toString());
 	         JOptionPane.showMessageDialog(window, response);
 	     }
@@ -133,7 +132,6 @@ public class MainWindow extends JFrame {
 		 sb.append("remove_group\n");
 		 sb.append(rm_grp.getText());
 		 sb.append("\n");
-		 System.out.println(sb.toString());
                  String response = client.send(sb.toString());
 	         JOptionPane.showMessageDialog(window, response);
 	     }
@@ -145,7 +143,6 @@ public class MainWindow extends JFrame {
 		 sb.append("remove_multimedia\n");
 		 sb.append(rm_multimedia.getText());
 		 sb.append("\n");
-		 System.out.println(sb.toString());
                  String response = client.send(sb.toString());
 	         JOptionPane.showMessageDialog(window, response);
 	     }
@@ -157,7 +154,6 @@ public class MainWindow extends JFrame {
 		 sb.append("search_group\n");
 		 sb.append(grp_text.getText());
 		 sb.append("\n");
-		 System.out.println(sb.toString());
                  String response = client.send(sb.toString());
 	         JOptionPane.showMessageDialog(window, response);
 	     }
@@ -169,7 +165,6 @@ public class MainWindow extends JFrame {
 		 sb.append("search_multimedia\n");
 		 sb.append(multimedia_text.getText());
 		 sb.append("\n");
-		 System.out.println(sb.toString());
                  String response = client.send(sb.toString());
 	         JOptionPane.showMessageDialog(window, response);
 	     }

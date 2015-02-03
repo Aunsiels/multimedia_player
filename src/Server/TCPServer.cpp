@@ -194,12 +194,6 @@ bool TCPServer::processMessage(const std::string& message, std::string& response
     response = "Unknown function";
   }
 
-  // pour l'instant on se contente de prefixer le message par "OK: "
-  cout << "TCPServer: message: " << message << endl;
-  // sleep(8);                    // sert uniquement a tester le verrou
-  cout << "TCPServer:TCPServer response: " << response << endl;
-  
-  
   // debloque le verrou (attention ne pas oublier cette ligne !)
   pthread_rwlock_unlock(&lock);
 
