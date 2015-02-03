@@ -1,0 +1,13 @@
+#!/bin/bash
+#Run the program
+
+make
+cd src/graphique
+make
+cd ../..
+./bin/main&
+cd src/graphique
+java Client
+pkill main
+
+exit 0
