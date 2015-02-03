@@ -4,5 +4,9 @@ Made during a school project at Telecom ParisTech.
 To run the program, simply execute :
     bash run
 
+Feel free to visit the git repository :
+
+https://github.com/Aunsiels/multimedia_player
+
 7step : For the film class, I needed to delete the tab when the object is
 destroy.
