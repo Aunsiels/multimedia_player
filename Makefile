@@ -62,7 +62,7 @@ clean-all: clean
 
 depend-${PROGNAME}:
 	@mkdir -p bin
-	${CXX} -MM ${SOURCES} > $(BIN)depend-${PROGNAME}
+	${CXX} -MM ${SOURCES} > depend-${PROGNAME}
 
 ###########################################
 
