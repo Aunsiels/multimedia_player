@@ -50,9 +50,11 @@ public class MainWindow extends JFrame {
      //A text area
      private JTextArea text;
      //2 buttons to write in JTextArea and one to close the program
-     private JButton btn1, btn2, btn3, btn_grp, btn_multimedia;
+     private JButton btn1, btn2, btn3, btn_grp, btn_multimedia,
+         btn_rm_grp, btn_rm_multimedia, btn_play;
      //The panel which will contain the buttons.
-     private JPanel panel_buttons, panel_grp, panel_multimedia, panel_center;
+     private JPanel panel_buttons, panel_grp, panel_multimedia, panel_center,
+         panel_middle_text;
      //A scroller for the text
      private JScrollPane textscroller;
      //Menu bar
@@ -64,7 +66,8 @@ public class MainWindow extends JFrame {
      //ToolBar
      private JToolBar toolBar;
      //One line text
-     private JTextField grp_text, multimedia_text;
+     private JTextField grp_text, multimedia_text, rm_grp, rm_multimedia,
+         play_text;
      //client for communications
      private Client client;
      //Reference to this object
@@ -107,6 +110,47 @@ public class MainWindow extends JFrame {
 	 btn_grp = new JButton("Search group");
 	 btn_multimedia = new JButton("Search multimedia");
 
+         btn_rm_grp = new JButton("Remove group");
+	 btn_rm_multimedia = new JButton("Remove multimedia");
+
+	 btn_play = new JButton("Play");
+
+         btn_play.addActionListener(new ActionListener () {
+	     public void actionPerformed(ActionEvent e){
+	         StringBuffer sb = new StringBuffer();
+		 sb.append("play\n");
+		 sb.append(play_text.getText());
+		 sb.append("\n");
+		 System.out.println(sb.toString());
+                 String response = client.send(sb.toString());
+	         JOptionPane.showMessageDialog(window, response);
+	     }
+	 });
+
+         btn_rm_grp.addActionListener(new ActionListener () {
+	     public void actionPerformed(ActionEvent e){
+	         StringBuffer sb = new StringBuffer();
+		 sb.append("remove_group\n");
+		 sb.append(rm_grp.getText());
+		 sb.append("\n");
+		 System.out.println(sb.toString());
+                 String response = client.send(sb.toString());
+	         JOptionPane.showMessageDialog(window, response);
+	     }
+	 });
+
+         btn_rm_multimedia.addActionListener(new ActionListener () {
+	     public void actionPerformed(ActionEvent e){
+	         StringBuffer sb = new StringBuffer();
+		 sb.append("remove_multimedia\n");
+		 sb.append(rm_multimedia.getText());
+		 sb.append("\n");
+		 System.out.println(sb.toString());
+                 String response = client.send(sb.toString());
+	         JOptionPane.showMessageDialog(window, response);
+	     }
+	 });
+
          btn_grp.addActionListener(new ActionListener () {
 	     public void actionPerformed(ActionEvent e){
 	         StringBuffer sb = new StringBuffer();
@@ -132,20 +176,30 @@ public class MainWindow extends JFrame {
 	 });
 	 
 	 panel_buttons = new JPanel();
-         panel_grp = new JPanel(new GridLayout(2,1));
-	 panel_multimedia = new JPanel(new GridLayout(2,1));
+         panel_grp = new JPanel(new GridLayout(4,1));
+	 panel_multimedia = new JPanel(new GridLayout(4,1));
 	 panel_center = new JPanel();
+	 panel_middle_text = new JPanel();
+	 panel_middle_text.setLayout(new BoxLayout(panel_middle_text,
+	     BoxLayout.Y_AXIS));
 
          grp_text = new JTextField();
 	 multimedia_text = new JTextField();
+	 rm_grp = new JTextField();
+	 rm_multimedia = new JTextField();
+	 play_text = new JTextField();
 
          //Search group panel definition
 	 panel_grp.add(grp_text);
 	 panel_grp.add(btn_grp);
+	 panel_grp.add(rm_grp);
+	 panel_grp.add(btn_rm_grp);
 
          //Search multimedia panel definition
 	 panel_multimedia.add(multimedia_text);
 	 panel_multimedia.add(btn_multimedia);
+	 panel_multimedia.add(rm_multimedia);
+	 panel_multimedia.add(btn_rm_multimedia);
 
          textscroller = new JScrollPane(text);
 	 menu = new JMenu("Actions");
@@ -155,9 +209,13 @@ public class MainWindow extends JFrame {
          menuBar = new JMenuBar();
 	 toolBar = new JToolBar();
 
+         panel_middle_text.add(textscroller);
+	 panel_middle_text.add(play_text);
+	 panel_middle_text.add(btn_play);
+
 	 //Center panel definition
 	 panel_center.add(panel_grp,FlowLayout.LEFT);
-	 panel_center.add(textscroller,FlowLayout.CENTER);
+	 panel_center.add(panel_middle_text,FlowLayout.CENTER);
 	 panel_center.add(panel_multimedia,FlowLayout.RIGHT);
 
          menu.setMnemonic('a');

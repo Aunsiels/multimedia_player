@@ -292,12 +292,14 @@ void MultimediaManager::remove_multimedia (const string & name) {
         lit->second->remove(name);
     }
     multimedia_files.erase(name);
+    write("manager");
 }
 
 //Remove a group
 
 void MultimediaManager::remove_group (const string & name) {
     groups.erase(name);
+    write("manager");
 }
 
 //Search a multimedia file and print it on the standard output.
@@ -378,6 +380,6 @@ void MultimediaManager::read (const string & name) {
 	   }
 	}
     } else {
-        cout << "Problem when reading the file" << endl;
+        cout << "No save found." << endl;
     }
 }
