@@ -286,19 +286,31 @@ void MultimediaManager::remove_multimedia (const string & name) {
     map<string,shared_ptr<Group> >::const_iterator
         lit(groups.begin()),
 	lend(groups.end());
+    map<string,shared_ptr<Multimedia> >::const_iterator it;
     //For all the groups...
     for(;lit!=lend;++lit) {
         //I remove the groups with the given name.
         lit->second->remove(name);
     }
-    multimedia_files.erase(name);
+    it = multimedia_files.find(name);
+    if (it != multimedia_files.end()) {
+        multimedia_files.erase(it);
+    } else {
+        throw runtime_error("File not found");
+    }
     write("manager");
 }
 
 //Remove a group
 
 void MultimediaManager::remove_group (const string & name) {
-    groups.erase(name);
+    map<string,shared_ptr<Group> >::const_iterator it;
+    it = groups.find(name);
+    if (it != groups.end()) {
+        groups.erase(name);
+    } else {
+        throw runtime_error("Group not found");
+    }
     write("manager");
 }
 
@@ -310,7 +322,7 @@ string MultimediaManager::search_multimedia (const string & name) const {
     if (it != multimedia_files.end())
         return it->second->print();
     else
-        return "No file found\r";
+        return "No file found\n";
 }
 
 shared_ptr<Multimedia> MultimediaManager::search_multimedia_ptr (
@@ -329,7 +341,7 @@ string MultimediaManager::search_group (const string & name) const {
     if (it != groups.end())
         return it->second->print();
     else
-        return "No group found\r";
+        return "No group found\n";
 }
 
 void MultimediaManager::play (const string & name) const {
@@ -338,7 +350,7 @@ void MultimediaManager::play (const string & name) const {
     if (it != multimedia_files.end())
         it->second->play();
     else
-        cout << "No file found" <<endl;
+        throw runtime_error("File not found");
 }
 
 void MultimediaManager::write (const string & name) const {

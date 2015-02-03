@@ -184,8 +184,12 @@ bool TCPServer::processMessage(const std::string& message, std::string& response
   std::map<string, FunctionManager>::iterator it = 
        functions.find(function_name);
   if (it != functions.end()){
-    FunctionManager ptr = it->second;
-    response = (this->*ptr)(ss);
+    try {
+        FunctionManager ptr = it->second;
+        response = (this->*ptr)(ss);
+    } catch (const runtime_error & e) {
+        response = e.what(); 
+    }
   }else {
     response = "Unknown function";
   }
