@@ -9,6 +9,7 @@
 #include <iostream>
 #include <sstream>
 #include <multimedia_manager.h>
+#include <stdexcept>
 
 using namespace std;
 
