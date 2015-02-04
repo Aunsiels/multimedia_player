@@ -35,7 +35,7 @@ LDFLAGS=
 
 # Librairies a utiliser
 # Exemple pour Qt: LDLIBS = -L/usr/local/qt/lib -lqt
-LDLIBS= -lpthread -lboost_serialization
+LDLIBS= -lpthread
 
 
 ##########################################
